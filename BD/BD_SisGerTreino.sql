@@ -1,0 +1,123 @@
+create schema projetoweb;
+
+set schema 'projetoweb';
+
+create table aluno(
+	cpf_aluno integer not NULL,
+	nome varchar(69),
+	dt_nascimento date,
+	login varchar(40),
+	senha varchar(40)
+);
+
+create table instrutor(
+	cpf_instrutor integer not NULL,
+	nome varchar(69),
+	dt_nascimento date,
+	login varchar(40),
+	senha varchar(40)
+);
+
+create table treino(
+	id_treino integer not null,
+	nome varchar(24),
+	num_serie integer,
+	repeticoes integer,
+	carga integer,
+	tempo_descanso varchar(24),
+	observacao_treino text,
+	id_exercicio integer,
+	cpf_aluno integer,
+	cpf_instrutor integer
+);
+
+create table exercicio(
+	id_exercicio integer not NULL,
+	nome varchar(36),
+	dificuldade varchar(12),
+	grupo_muscular varchar(24),
+	descricao text,
+	demonstracao bytea
+);
+
+create table contato(
+	id_contato integer not NULL,
+	telefone varchar(14),
+	email varchar(26),
+	cpf_aluno integer,
+	cpf_instrutor integer
+);
+
+create table historico(
+	id_historico integer not NULL,
+	dt_treino date,
+	id_treino integer,
+	cpf_aluno integer
+	
+);
+
+create table dado_fisicos(
+	id_dados_fisicos integer not null,
+	peso double precision,
+	altura double precision,
+	sexo char,
+	observacao_aluno text,
+	cpf_aluno integer	
+);
+
+create table administrador(
+	cpf_administrador integer not null,
+	login varchar(40),
+	senha varchar(40)
+);
+/* Adcionando primary key */
+--aluno
+ALTER TABLE ALUNO ADD PRIMARY KEY (cpf_aluno);
+--instrutor
+alter table instrutor add primary key (cpf_instrutor);
+--treino
+alter table treino add primary key (id_treino);
+--exercicio
+alter table exercicio add primary key (id_exercicio);
+--contato
+alter table contato add primary key (id_contato);
+--historico
+alter table historico add primary key (id_historico);
+--dados fisicos
+alter table dado_fisicos add primary key (id_dados_fisicos);
+--administrador
+alter table administrador add primary key (cpf_administrador);
+
+/* adcionando foreign key */
+
+--contato
+alter table contato 
+add foreign key (cpf_aluno) references aluno(cpf_aluno);
+alter table  contato
+add foreign key (cpf_aluno) references instrutor(cpf_instrutor);
+
+--treino
+alter table treino
+add foreign key (id_exercicio) references exercicio(id_exercicio);
+alter table treino
+add foreign key (cpf_aluno) references aluno(cpf_aluno);
+alter table treino
+add foreign key (cpf_instrutor) references instrutor(cpf_instrutor);
+
+--historico
+alter table historico
+add foreign key (cpf_aluno) references aluno(cpf_aluno);
+alter table historico
+add foreign key (id_treino) references treino(id_treino);
+
+--dados fisicos
+alter table dado_fisicos
+add foreign key (cpf_aluno) references aluno(cpf_aluno);
+
+
+
+
+
+
+
+
