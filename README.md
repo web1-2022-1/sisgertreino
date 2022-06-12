@@ -1,7 +1,7 @@
 <h1 align="center"> PoriGYM - Sistema de gerenciamento de treino </h1>
 <img scr= "https://www.imagemhost.com.br/images/2022/06/12/Logo.png">
 <p align="center">
-        <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
+        <img src="https://i.imgur.com/y9Cw0iU.png" alt= "Logo do sistema" >
 </p>
 
 <h3>Descrição do projeto</h3>
