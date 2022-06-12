@@ -1,5 +1,5 @@
 <h1 align="center"> PoriGYM - Sistema de gerenciamento de treino </h1>
-![Logo do sistema composta por um braço segurando um halter](https://cdn.discordapp.com/attachments/956672559439548517/985681132060295188/logo_braco-removebg-preview_1.png)
+<img scr= "https://cdn.discordapp.com/attachments/956672559439548517/985681132060295188/logo_braco-removebg-preview_1.png">
 <p align="center">
         <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 </p>
