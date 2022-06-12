@@ -19,6 +19,13 @@ O sistema permitirá a criação de treinos, no qual cada treino é composto por
 - `Funcionalidade 3` `Montagem de treino`: O projeto tem como intuito a montagem de treinos compostos por exercícios.
 - `Funcionalidade 4` `Consulta de treino`: O aluno consultará o treino elaborado para o mesmo realizar.
 
+## ✔️ Técnicas e tecnologias utilizadas
+
+- ``HTML e CSS``
+- ``PHP``
+- ``MYSQL``
+
+
 ## Autores
 
 | [<img src= "" width=115><br><sub>Luís Felipe Fernandes</sub>](https://github.com/fernandes-luis) |  [<img src=" " width=115><br><sub>Iuri Braga</sub>](https://github.com/iuri-bsilva) |  [<img src=" " width=115><br><sub> Murilo Viana </sub>](https://github.com/Murilo763) | [<img src= "" width=115><br><sub>João Pedro Pacheco</sub>](https://github.com/pachecogbi) | [<img src= "" width=115><br><sub>Lucas Macena</sub>](https://github.com/Lucas-MSF) |
