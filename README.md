@@ -29,5 +29,5 @@ O sistema permitirá a criação de treinos, no qual cada treino é composto por
 
 ## Autores
 
-| [<img src= "https://twitter.com/fernandesluis_/photo" width=115><br><sub>Luís Felipe Fernandes</sub>](https://github.com/fernandes-luis) |  [<img src=" " width=115><br><sub>Iuri Braga</sub>](https://github.com/iuri-bsilva) |  [<img src=" " width=115><br><sub> Murilo Viana </sub>](https://github.com/Murilo763) | [<img src= "" width=115><br><sub>João Pedro Pacheco</sub>](https://github.com/pachecogbi) | [<img src= "" width=115><br><sub>Lucas Macena</sub>](https://github.com/Lucas-MSF) |
+| [<img src= " " width=115><br><sub>Luís Felipe Fernandes</sub>](https://github.com/fernandes-luis) |  [<img src=" " width=115><br><sub>Iuri Braga</sub>](https://github.com/iuri-bsilva) |  [<img src=" " width=115><br><sub> Murilo Viana </sub>](https://github.com/Murilo763) | [<img src= "" width=115><br><sub>João Pedro Pacheco</sub>](https://github.com/pachecogbi) | [<img src= "" width=115><br><sub>Lucas Macena</sub>](https://github.com/Lucas-MSF) |
 | :---: | :---: | :---: | :---: | :---: | 
