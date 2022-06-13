@@ -9,7 +9,7 @@
 Projeto em desenvolvimento para a disciplina de Web I. O PoriGYM é um sistema de gerenciamento de treinos que podem ser realizados no ambiente da academia manuseando os equipamentos disponiveis. <br>
 O sistema permitirá a criação de treinos, no qual cada treino é composto por exercícios diversos e variados.<br>
     <img scr= "https://cdn.pixabay.com/photo/2016/10/11/01/58/woman-1730325__340.jpg" />
-    <img scr= "https://cdn.pixabay.com/photo/2012/04/13/15/02/gym-32740__340.png"     /> <br>
+    <img scr= "https://cdn.pixabay.com/photo/2012/04/13/15/02/gym-32740__340.png"     /> 
 <h4 align="center"> 
 </h4>
 
