@@ -1,7 +1,8 @@
 <h1 align="center"> PoriGYM - Sistema de gerenciamento de treino </h1>
 <img scr= "https://www.imagemhost.com.br/images/2022/06/12/Logo.png">
 <p align="center">
-        <img src="https://i.imgur.com/y9Cw0iU.png" alt= "Logo do sistema" >
+        <img src="https://i.imgur.com/y9Cw0iU.png" alt= "Logo do sistema" > <br>
+        <i>Logo do sistema</i>
 </p>
 
 <h3>Descrição do projeto</h3>
