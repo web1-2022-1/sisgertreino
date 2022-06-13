@@ -29,5 +29,5 @@ O sistema permitirá a criação de treinos, no qual cada treino é composto por
 
 ## Autores
 
-| [<img src= "<a <img src="https://i.ibb.co/1ZZbzb1/perfil-insta.jpg" alt="perfil-insta" border="0"></a>" width=115><br><sub>Luís Felipe Fernandes</sub>](https://github.com/fernandes-luis) |  [<img src=" " width=115><br><sub>Iuri Braga</sub>](https://github.com/iuri-bsilva) |  [<img src=" " width=115><br><sub> Murilo Viana </sub>](https://github.com/Murilo763) | [<img src= "" width=115><br><sub>João Pedro Pacheco</sub>](https://github.com/pachecogbi) | [<img src= "" width=115><br><sub>Lucas Macena</sub>](https://github.com/Lucas-MSF) |
+| [<img src= "<img src="https://i.ibb.co/1ZZbzb1/perfil-insta.jpg" alt="perfil-luis" border="0">" width=115><br><sub>Luís Felipe Fernandes</sub>](https://github.com/fernandes-luis) |  [<img src=" " width=115><br><sub>Iuri Braga</sub>](https://github.com/iuri-bsilva) |  [<img src=" " width=115><br><sub> Murilo Viana </sub>](https://github.com/Murilo763) | [<img src= "" width=115><br><sub>João Pedro Pacheco</sub>](https://github.com/pachecogbi) | [<img src= "" width=115><br><sub>Lucas Macena</sub>](https://github.com/Lucas-MSF) |
 | :---: | :---: | :---: | :---: | :---: | 
