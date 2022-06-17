@@ -21,6 +21,13 @@ header{
 asideL{
 	grid-area: boxL;
 }
+.icon{
+	font-size: 25pt;
+}
+.caixaLateral{
+	display: flex;
+	align-items: center;
+}
 .container{
 	height: 8vh;
 	background: #C72E00; 
@@ -125,7 +132,8 @@ asideL{
 }
 .container2 ul li a .title{
 	position: relative;
-	display: block;
+	display: flex;
+	align-items: center;
 	padding-left: 10px;
 	height: 60px;
 	line-height: 60px;
