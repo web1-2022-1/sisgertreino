@@ -2,20 +2,24 @@ create schema projetoweb;
 
 set schema 'projetoweb';
 
+create table login(
+	id_login integer not NULL,
+	usuario varchar(69),
+	senha varchar(50)
+);
+
 create table aluno(
 	cpf_aluno integer not NULL,
 	nome varchar(69),
 	dt_nascimento date,
-	login varchar(40),
-	senha varchar(40)
+	fk_login integer
 );
 
 create table instrutor(
 	cpf_instrutor integer not NULL,
 	nome varchar(69),
 	dt_nascimento date,
-	login varchar(40),
-	senha varchar(40)
+	fk_login integer
 );
 
 create table treino(
@@ -71,6 +75,8 @@ create table administrador(
 	senha varchar(40)
 );
 /* Adcionando primary key */
+--login
+alter table login add primary key (id_login);
 --aluno
 ALTER TABLE ALUNO ADD PRIMARY KEY (cpf_aluno);
 --instrutor
@@ -89,6 +95,16 @@ alter table dado_fisicos add primary key (id_dados_fisicos);
 alter table administrador add primary key (cpf_administrador);
 
 /* adcionando foreign key */
+
+--aluno
+
+alter table aluno
+add foreign key (fk_login) references login(id_login);
+
+--instrutor
+
+alter table instrutor 
+add foreign key (fk_login) references logi(id_login);
 
 --contato
 alter table contato 
