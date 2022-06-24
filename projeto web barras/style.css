@@ -1,12 +1,12 @@
- *{
+*{
  	margin: 0;
  	padding: 0;
  	box-sizing: border-box;
-
  }
-
- body{
-
+#titulo_topo{
+	font-size: 20pt;
+}
+body{
 	height: 100vh;
 	display: grid;
 	grid-template-areas:
@@ -14,33 +14,30 @@
     "boxL meio meio";
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 80px 1fr 1fr;
-
-
 }
 header{
 	grid-area: topo;
 }
-
 asideL{
 	grid-area: boxL;
-	
 }
-
+.icon{
+	font-size: 25pt;
+}
+.caixaLateral{
+	display: flex;
+	align-items: center;
+}
 .container{
-
-	height: 80px;
-	background: #FF3D00; 
+	height: 8vh;
+	background: #C72E00; 
 	display: flex;
 	padding: 1%;
 	margin: 0 auto;
 	align-items: center;
 	justify-content: space-between;
-    
-
 }
-
 .logo{
-
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -49,10 +46,7 @@ asideL{
 	font-size: 50px;
 	position: relative;
 	right: 12px;
-
 }
-
-
 .usuario_lateral{
 	display: flex;
 	flex-direction: row;
@@ -62,57 +56,44 @@ asideL{
 	font-size: 20px;
 	color: white;
 }
-
 #nome_usuario{
 	padding: 10px 20px;
 	border-radius: 30px;
 	transition: 0.6s;
 }
-
 #nome_usuario:hover{
 	background-color: #F9501B;
 }
-
 #foto_usuario{
 	padding: 0px 4px;
 	border-radius: 10px;
 	transition: 0.6s;
 }
-
 #foto_usuario:hover{
 	background-color: #F9501B;
 }
-
-
-
 .container2{
 	display: flex;
     font-family: 'Andika', sans-serif;
 	position: relative;
-	height: 857px;
+	height: 92vh;
 	background: #FF3D00;
-	width: 80px;
+	width: 4vw;
 	box-shadow: 10px 0 0 #FFFFFF;
-	border-left: 10px solid #FF3D00;
 	overflow-x: hidden;
 	transition: 0.5s;
 }
 .container2:hover{
 	width: 250px;
 }
-
 .container2 ul{
-
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	padding-left: 5px;
+	padding-left: 0px;
 	padding-top: 40px;
-	
-
 }
-
 .container2 ul li{
 	position: relative;
 	list-style: none;
@@ -120,9 +101,6 @@ asideL{
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 }
-
-
-
 .container2 ul li a{
 	position: relative;
 	display: flex;
@@ -130,9 +108,6 @@ asideL{
 	text-decoration: none;
 	color: #FFFFFF;
 }
-
-
-
 .container2 ul li a:hover{
 	color: #FF3D00;
 	background: #FFFFFF;
@@ -142,9 +117,6 @@ asideL{
 	border-bottom-left-radius: 20px;
 
 }
-
-
-
 .container2 ul li a .icon{
 	position: relative;
 	display: block;
@@ -153,33 +125,25 @@ asideL{
 	text-align: center;
 	line-height: 70px;
 }
-
-
-
 .container2 ul li a .icon .aa{
     position: relative;
     font-size: 1.5rem;
 	z-index: 1;
 }
-
-
 .container2 ul li a .title{
 	position: relative;
-	display: block;
+	display: flex;
+	align-items: center;
 	padding-left: 10px;
 	height: 60px;
 	line-height: 60px;
 	white-space: nowrap;
 }
-
-
 .container2 ul li.active:hover{
 	background: #FFFFFF;
-
 }
-
 .container2 ul li.active a::before{
-	content '';
+	contain: '';
 	position: absolute;
 	top: -30px;
 	right: 0;
@@ -189,9 +153,8 @@ asideL{
 	border-radius: 50%;
 	box-shadow: 15px -15px 0 #FF3D00;
 }
-
 .container2 ul li.active a::after{
-	content '';
+	contain: '';
 	position: absolute;
 	bottom: -30px;
 	right: 0;
@@ -201,8 +164,6 @@ asideL{
 	border-radius: 50%;
 	box-shadow: 15px -15px 0 #FF3D00;
 }
-
-
 .container2 ul li  #casa_2{
   visibility: hidden;
     opacity: 0;
@@ -210,12 +171,10 @@ asideL{
     top:0;
     right: 60px;
 }
-
 .container2 ul li :hover #casa_2{
 	visibility: visible;
     opacity: 1;
 }
-
 .container2 ul li  #edicao_2{
   visibility: hidden;
     opacity: 0;
@@ -223,12 +182,10 @@ asideL{
     top:0;
     right: 60px;
 }
-
 .container2 ul li :hover #edicao_2{
 	visibility: visible;
     opacity: 1;
 }
-
 .container2 ul li  #olho_2{
   visibility: hidden;
     opacity: 0;
@@ -236,7 +193,6 @@ asideL{
     top:0;
     right: 60px;
 }
-
 .container2 ul li :hover #olho_2{
 	visibility: visible;
     opacity: 1;
