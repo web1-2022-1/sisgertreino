@@ -4,8 +4,17 @@
 
     class CrudLogin extends Login{
 
-        protected $tabela= 'usuario';
+        protected $tabela= 'login';
 
+        // find one
+        public function findOne(){
+            $usuario=$this->getUsuario();
+            $sql="SELECT usuario, senha FROM $this->tabela WHERE usuario=:usuario";
+            $stm=DB::prepare($sql);
+            $stm->bindParam(':usuario',$usuario);
+            $stm->execute();
+            return $stm->fetch();
+        }
         //find all
         public function findAll(){
             $sql="SELECT * FROM $this->tabela";

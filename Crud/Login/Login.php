@@ -17,4 +17,7 @@
         public function setSenha($senha){
             $this->senha=$senha;
         }
+        public function getSenha(){
+            return $this->senha;
+        }
     }

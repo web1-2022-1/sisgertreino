@@ -1,3 +1,10 @@
+<?php
+session_start();
+ob_start();
+require_once '../../Crud/Login/CrudLogin.php'
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +16,8 @@
     <title>PoryGYM || LOGIN</title>
 </head>
 
+
+
 <body>
     <div class="main-login">
         <div class="left-login">
@@ -19,11 +28,41 @@
                 <img src="img/login-image1.png" alt="login-image2" class="image-bottom" width="200">
         </div>
         <div class="right-login">
+            <?php 
+            $dados= filter_input_array(INPUT_POST,FILTER_DEFAULT);
+
+            if(!empty($dados['sendLogin'])){
+                
+                $login= new CrudLogin();
+                $login->setUsuario($dados['usuario']);
+                $login->setSenha($dados['senha']);
+                if($login->findOne()!=false){
+                    $teste=$login->findOne();
+
+                    if($teste->senha==$login->getSenha()){
+                        header("Location: ../../projeto web barras/pagina_barras_topo_lateral.html");
+                    }else{
+                        $_SESSION['msg']= "<p style='color: #ff0000'>Senha invalida! </p>";
+                    }
+                }else
+                    $_SESSION['msg']= "<p style='color: #ff0000'>Usuário ou Senha invalidos! </p>";
+            }
+            
+            ?>
             <div class="login-card">
                 <h1 class="login-title">Login</h1>
-                <form action="">
+                <?php
+                    if(isset($_SESSION['msg'])){
+                        echo $_SESSION['msg']; 
+                        unset($_SESSION['msg']);
+                    }
+                ?>
+             
+                <form action="" method="POST">
                     <div class="campo-texto">
+
                         <label for="usuario">Usuário</label>
+                        
                         <input type="text" name="usuario">
                     </div>
                     <div class="campo-texto">
@@ -34,7 +73,7 @@
                         <input type="password" name="senha">
                     </div>
                     <div class="botao-login">
-                        <button type="submit" class="botao">Entrar</button>
+                        <button type="submit" name="sendLogin" value="entrar" class="botao">Entrar</button>
                     </div>
                 </form>
             </div>

@@ -40,8 +40,8 @@ create table exercicio(
 	nome varchar(36),
 	dificuldade varchar(12),
 	grupo_muscular varchar(24),
-	descricao text,
-	demonstracao bytea
+	descricao text
+	
 );
 
 create table contato(
@@ -69,11 +69,7 @@ create table dado_fisicos(
 	cpf_aluno integer	
 );
 
-create table administrador(
-	cpf_administrador integer not null,
-	login varchar(40),
-	senha varchar(40)
-);
+
 /* Adcionando primary key */
 --login
 alter table login add primary key (id_login);
@@ -91,8 +87,7 @@ alter table contato add primary key (id_contato);
 alter table historico add primary key (id_historico);
 --dados fisicos
 alter table dado_fisicos add primary key (id_dados_fisicos);
---administrador
-alter table administrador add primary key (cpf_administrador);
+
 
 /* adcionando foreign key */
 
