@@ -74,7 +74,7 @@ create table dado_fisicos(
 --login
 alter table login add primary key (id_login);
 --aluno
-ALTER TABLE ALUNO ADD PRIMARY KEY (cpf_aluno);
+ALTER TABLE aluno ADD PRIMARY KEY (cpf_aluno);
 --instrutor
 alter table instrutor add primary key (cpf_instrutor);
 --treino
@@ -99,13 +99,13 @@ add foreign key (fk_login) references login(id_login);
 --instrutor
 
 alter table instrutor 
-add foreign key (fk_login) references logi(id_login);
+add foreign key (fk_login) references login(id_login);
 
 --contato
 alter table contato 
 add foreign key (cpf_aluno) references aluno(cpf_aluno);
 alter table  contato
-add foreign key (cpf_aluno) references instrutor(cpf_instrutor);
+add foreign key (cpf_instrutor) references instrutor(cpf_instrutor);
 
 --treino
 alter table treino
