@@ -1,6 +1,9 @@
 <?php 
 
-    require_once '../../Crud/'
+    require_once '../../Crud/Instrutor/CrudInstrutor.php';
+    require_once '../../Crud/Login/CrudLogin.php';
+    require_once '../../Crud/Contato/CrudContato.php';
+
 
     
 
