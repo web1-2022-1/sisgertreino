@@ -28,9 +28,11 @@
             $stm->bindParam(':fk_login',$fk_login);
             return $stm->execute();
         }
-        /*public function update($id){
-            $usuario=$this->getUsuario();
-            $senha=$this->getSenha();           
+        public function update($id){
+            $cpf_aluno=$this->getCpf_aluno();
+            $nome=$this->getNome();
+            $dt_nascimento=$this->getDt_nascimento();
+            $fk_login=$this->getFk_login();          
             $sql="UPDATE $this->tabela SET usuario= :usuario, senha= :senha WHERE id = :id";
             $stm=DB::prepare($sql);
             $stm->bindParam(':id',$id,PDO::PARAM_INT);
@@ -43,7 +45,7 @@
             $stm=DB::prepare($sql);
             $stm->bindParam(':id',$id,PDO::PARAM_INT);
             return $stm->execute();
-        }*/
+        }
     }
 
 
