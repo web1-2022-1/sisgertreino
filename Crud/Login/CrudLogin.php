@@ -6,6 +6,14 @@
 
         protected $tabela= 'login';
 
+        public function getIdLogin(){
+            $usuario=$this->getUsuario();
+            $sql="SELECT id_login from login where usuario=:usuario";
+            $stm=DB::prepare($sql);
+            $stm->bindParam(':usuario',$usuario);
+            $stm->execute();
+            return $stm->fetch();
+        }
         // find one
         public function findOne(){
             $usuario=$this->getUsuario();

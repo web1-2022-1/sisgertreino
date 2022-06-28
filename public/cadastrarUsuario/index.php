@@ -24,11 +24,39 @@
     </head>
 
     <body>
+        <?php
+
+            $instrutor= new CrudInstrutor;
+            $login= new CrudLogin;
+            $contato= new CrudContato;
+
+            if(isset($_POST['cadastrar'])):
+                
+                $login->setUsuario($_POST['user']);
+                $login->setSenha($_POST['pass']);
+                $login->insert();
+
+                $fk_login=$login->getIdLogin();
+
+                $instrutor->setCpf_instrutor($_POST['cpf']);
+                $instrutor->setNome($_POST['nome']);
+                $instrutor->setDt_nascimento($_POST['data']);
+                $instrutor->setFk_login($fk_login->id_login);
+                $instrutor->insert();
+
+                $contato->setTelefone($_POST['tel']);
+                $contato->setEmail($_POST['email']);
+                $contato->setCpf_instrutor($_POST['cpf']);
+                $contato->insert();
+                
+             endif;
+        ?>
 
         <main>
+            
             <div class="main-cadastro">
                 <h1 class="login-title">Cadastro</h1>
-                <form action="">
+                <form action="" method='POST'>
                     <div class="campo-texto">
                         <label for="nome">Nome</label>
                         <input type="text" name="nome">
@@ -38,8 +66,8 @@
                         <input type="text" name="user">                               
                     </div>
                     <div class="campo-texto">
-                        <label for="cpf">CPF</label>
-                        <input type="text" name="cp">
+                        <label for="Cpf">CPF</label>
+                        <input type="text" name="cpf">
                     </div>
                     <div class="campo-texto">
                         <label for="dt_nascimento">Data de Nascimento</label>
@@ -55,10 +83,10 @@
                     </div>
                     <div class="campo-texto">
                         <label for="senha">Senha</label>
-                        <input type="text" name="pass">
+                        <input type="password" name="pass">
                     </div>
                     <div class="botao-cadastro">
-                        <button type="submit" class="botao">Cadastrar</button>
+                        <button type="submit" name="cadastrar" class="botao">Cadastrar</button>
                     </div>
                 </form>
             </div>

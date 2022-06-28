@@ -38,7 +38,6 @@ require_once '../../Crud/Login/CrudLogin.php'
                 $login->setSenha($dados['senha']);
                 if($login->findOne()!=false){
                     $teste=$login->findOne();
-
                     if($teste->senha==$login->getSenha()){
                         header("Location: ../dashboard/index.php");
                     }else{

@@ -4,8 +4,7 @@
 
     class Contato{
 
-        protected $table;
-        private $id_contato;
+        protected $tabela;
         private $telefone;
         private $email;
         private $cpf_aluno;
@@ -39,7 +38,7 @@
             $this->cpf_instrutor=$cpf_instrutor;
         }
         public function getCpf_instrutor(){
-            return $this->cpf_isntrutor;
+            return $this->cpf_instrutor;
         }
     }
 ?>

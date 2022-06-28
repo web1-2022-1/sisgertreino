@@ -12,7 +12,7 @@
         private $carga;
         private $tempo_descanso;
         private $observacao_treino;
-        private $id_exercicio;
+        private $fk_exercicio;
         private $cpf_aluno;
         private $cpf_instrutor;
 
@@ -65,11 +65,11 @@
         public function getObservacao_treino(){
             return $this->observacao_treino;
         }
-        public function setId_exercicio($id_exercicio){
-            $this->id_exercicio=$id_exercicio;
+        public function setFk_exercicio($fk_exercicio){
+            $this->fk_exercicio=$fk_exercicio;
         }
-        public function getId_exercicio(){
-            return $this->id_exercicio;
+        public function getFk_exercicio(){
+            return $this->fk_exercicio;
         }
         public function setCpf_instrutor($cpf_instrutor){
             $this->cpf_aluno=$cpf_aluno;
