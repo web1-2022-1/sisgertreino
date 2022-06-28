@@ -1,10 +1,18 @@
+<?php 
+
+    require_once '../../Crud/'
+
+    
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-        <link rel="stylesheet" href="../../css/css dashboard/style.css">
+        <link rel="stylesheet" href="../../css/css cadastrar/style.css">
         <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
 
@@ -15,7 +23,43 @@
     <body>
 
         <main>
-            ESSA É A TELA DO HOME;
+            <div class="main-cadastro">
+                <h1 class="login-title">Cadastro</h1>
+                <form action="">
+                    <div class="campo-texto">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome">
+                    </div>
+                    <div class="campo-texto">
+                        <label for="usuario" class="pass">Usuario</label>
+                        <input type="text" name="user">                               
+                    </div>
+                    <div class="campo-texto">
+                        <label for="cpf">CPF</label>
+                        <input type="text" name="cp">
+                    </div>
+                    <div class="campo-texto">
+                        <label for="dt_nascimento">Data de Nascimento</label>
+                        <input type="date" name="data">
+                    </div>
+                    <div class="campo-texto">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" name="tel">
+                    </div>
+                    <div class="campo-texto">
+                        <label for="email">E-mail</label>
+                        <input type="text" name="email">
+                    </div>
+                    <div class="campo-texto">
+                        <label for="senha">Senha</label>
+                        <input type="text" name="pass">
+                    </div>
+                    <div class="botao-cadastro">
+                        <button type="submit" class="botao">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+
         </main>
 
         <asideL>
@@ -44,7 +88,7 @@
                         </p>  
                     </li>               
                     <li class="list_inside">
-                        <a href="../cadastrarUsuario/index.php" class="caixaLateral">                       
+                        <a href="index.php" class="caixaLateral">                       
                             <span class="title_inside">Cadastrar usuário</span>
                         </a>
                     </li>

@@ -1,6 +1,6 @@
 <?php
 
-    require_once 'DB.php';
+    require_once '../../BD/DB.php';
 
     class Instrutor extends DB{
 
