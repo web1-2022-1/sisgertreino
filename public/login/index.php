@@ -40,7 +40,7 @@ require_once '../../Crud/Login/CrudLogin.php'
                     $teste=$login->findOne();
 
                     if($teste->senha==$login->getSenha()){
-                        header("Location: ../dashboard/index.html");
+                        header("Location: ../dashboard/index.php");
                     }else{
                         $_SESSION['msg']= "<p style='color: #ff0000'>Senha invalida! </p>";
                     }

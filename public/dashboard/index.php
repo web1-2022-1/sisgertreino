@@ -15,7 +15,7 @@
     <body>
 
         <main>
-
+            ESSA É A TELA DO HOME;
         </main>
 
         <asideL>
@@ -28,7 +28,7 @@
             <div class="but_esq">
                 <ul>
                     <li class="list">
-                        <a href="#" class="caixaLateral">
+                        <a href="../dashboard/index.php" class="caixaLateral">
                             <span class="icon"><ion-icon name="home-outline">Home</ion-icon></span>
                             <span class="title">Home</span>
                         </a>
@@ -80,7 +80,7 @@
                         </a>
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="caixaLateral">                           
+                        <a href="../vizualizarTreino/index.php" class="caixaLateral">                           
                             <span class="title_inside">Listar treinos</span>
                         </a>
                     </li>
@@ -90,7 +90,7 @@
             <div class="but_esq">
                 <ul>                                
                     <li class="list">
-                        <a href="#" class="caixaLateral">
+                        <a href="../login/index.php" class="caixaLateral">
                             <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>                       
                             <span class="title">Sair</span>
                         </a>

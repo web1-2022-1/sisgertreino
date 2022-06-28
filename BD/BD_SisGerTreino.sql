@@ -131,4 +131,3 @@ add foreign key (cpf_aluno) references aluno(cpf_aluno);
 
 
 
-
