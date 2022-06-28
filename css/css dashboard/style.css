@@ -1,199 +1,96 @@
 *{
- 	margin: 0;
- 	padding: 0;
- 	box-sizing: border-box;
- }
-#titulo_topo{
-	font-size: 20pt;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-body{
-	height: 100vh;
-	display: grid;
-	grid-template-areas:
-    "topo topo topo" 
-    "boxL meio meio";
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 80px 1fr 1fr;
-}
-header{
-	grid-area: topo;
-}
-asideL{
-	grid-area: boxL;
-}
-.icon{
-	font-size: 25pt;
-}
-.caixaLateral{
-	display: flex;
-	align-items: center;
-}
-.container{
-	height: 8vh;
-	background: #C72E00; 
-	display: flex;
-	padding: 1%;
-	margin: 0 auto;
-	align-items: center;
-	justify-content: space-between;
-}
-.logo{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 20px;
-	font-family: 'Allerta Stencil', sans-serif;
-	font-size: 50px;
-	position: relative;
-	right: 12px;
-}
-.usuario_lateral{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 20px;
-	font-family: 'Andika', sans-serif;
-	font-size: 20px;
-	color: white;
-}
-#nome_usuario{
-	padding: 10px 20px;
-	border-radius: 30px;
-	transition: 0.6s;
-}
-#nome_usuario:hover{
-	background-color: #F9501B;
-}
-#foto_usuario{
-	padding: 0px 4px;
-	border-radius: 10px;
-	transition: 0.6s;
-}
-#foto_usuario:hover{
-	background-color: #F9501B;
-}
-.container2{
-	display: flex;
-    font-family: 'Andika', sans-serif;
-	position: relative;
-	height: 92vh;
-	background: #FF3D00;
-	width: 4vw;
-	box-shadow: 10px 0 0 #FFFFFF;
-	overflow-x: hidden;
-	transition: 0.5s;
-}
-.container2:hover{
-	width: 250px;
-}
-.container2 ul{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	padding-left: 0px;
-	padding-top: 40px;
-}
-.container2 ul li{
-	position: relative;
-	list-style: none;
-	width: 100%;
-	border-top-left-radius: 20px;
-	border-bottom-left-radius: 20px;
-}
-.container2 ul li a{
-	position: relative;
-	display: flex;
-	width: 100%;
-	text-decoration: none;
-	color: #FFFFFF;
-}
-.container2 ul li a:hover{
-	color: #FF3D00;
-	background: #FFFFFF;
-	display: flex;
-	height: 70px;
-	border-top-left-radius: 20px;
-	border-bottom-left-radius: 20px;
 
+body{
+   height: 100vh; 
+   display: grid; 
+   grid-template-areas:
+   "boxL meio meio" 
+   "boxL meio meio" 
+   "boxL meio meio"; 
+   grid-template-rows: 40px 1fr 80px;
+   grid-template-columns: 240px 1fr 60px;
+ }
+ 
+ main {
+ grid-area: meio; 
+ background: white;
+ }
+ 
+ asideL {
+ grid-area: boxL;
+ background: #F9501B;
+ border-top-right-radius: 10px;
+ border-bottom-right-radius: 10px;
+ box-shadow: inset 0 0 1em #66382A;
+ box-shadow: 1px 0px 10px black;
+ }
+ 
+ #text_logo{
+   font-family: 'Allerta Stencil', sans-serif;
+   font-size: 30px;
+   margin-top: 0;
+ }
+
+ .cont_esq{
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+ }
+
+ .list{
+   list-style: none;
+   font-family: 'Andika', sans-serif;
+   font-size: 20px;
+   color: #FFFFFF;
+ }
+
+ .but_esq ul li a{
+   color: #FFFFFF;
 }
-.container2 ul li a .icon{
-	position: relative;
-	display: block;
-	min-width: 60px;
-	height: 70px;
-	text-align: center;
-	line-height: 70px;
+
+ .but_esq ul li a:hover{
+   color: #FF3D00;
+   background: #FFFFFF;
+   display: flex;
+   height: 30px;
+   width: 240px;
+   border-top-left-radius: 20px;
+   border-bottom-left-radius: 20px;
+   text-decoration: none;
+ }
+
+.list a{
+   text-decoration: none;
+   padding-left: 10px;
 }
-.container2 ul li a .icon .aa{
-    position: relative;
-    font-size: 1.5rem;
-	z-index: 1;
+
+.list_inside a{
+   text-decoration: none;
+   padding-left: 10px;
 }
-.container2 ul li a .title{
-	position: relative;
-	display: flex;
-	align-items: center;
-	padding-left: 10px;
-	height: 60px;
-	line-height: 60px;
-	white-space: nowrap;
+
+.but_esq{
+   display: flex;
+   padding-top: 20px;
 }
-.container2 ul li.active:hover{
-	background: #FFFFFF;
+
+.list_inside{
+   list-style: none;
+   font-family: 'Andika', sans-serif;
+   font-size: 15px;
+   color: #FFFFFF; 
 }
-.container2 ul li.active a::before{
-	contain: '';
-	position: absolute;
-	top: -30px;
-	right: 0;
-	width: 30px;
-	height: 30px;
-	background: #FF3D00;
-	border-radius: 50%;
-	box-shadow: 15px -15px 0 #FF3D00;
+
+.space{
+   padding-left: 10px;
 }
-.container2 ul li.active a::after{
-	contain: '';
-	position: absolute;
-	bottom: -30px;
-	right: 0;
-	width: 30px;
-	height: 30px;
-	background: #FF3D00;
-	border-radius: 50%;
-	box-shadow: 15px -15px 0 #FF3D00;
+
+.title_inside{
+   padding-left: 30px;
 }
-.container2 ul li  #casa_2{
-  visibility: hidden;
-    opacity: 0;
-    position:absolute;
-    top:0;
-    right: 60px;
-}
-.container2 ul li :hover #casa_2{
-	visibility: visible;
-    opacity: 1;
-}
-.container2 ul li  #edicao_2{
-  visibility: hidden;
-    opacity: 0;
-    position:absolute;
-    top:0;
-    right: 60px;
-}
-.container2 ul li :hover #edicao_2{
-	visibility: visible;
-    opacity: 1;
-}
-.container2 ul li  #olho_2{
-  visibility: hidden;
-    opacity: 0;
-    position:absolute;
-    top:0;
-    right: 60px;
-}
-.container2 ul li :hover #olho_2{
-	visibility: visible;
-    opacity: 1;
-}
+
+
