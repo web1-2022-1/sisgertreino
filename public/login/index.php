@@ -12,7 +12,7 @@ require_once '../../Crud/Login/CrudLogin.php'
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/css login/style.css">
     <title>PoryGYM || LOGIN</title>
 </head>
 
@@ -22,10 +22,10 @@ require_once '../../Crud/Login/CrudLogin.php'
     <div class="main-login">
         <div class="left-login">
             <div class="div-top">
-                <img src="img/logo-porigym.png" alt="login-image1" class="image-top" width="200">
+                <img src="../../css/css login/img/logo-porigym.png" alt="login-image1" class="image-top" width="200">
                 <h1 id="porigym-title">PoryGYM</h1>
             </div>
-                <img src="img/login-image1.png" alt="login-image2" class="image-bottom" width="200">
+                <img src="../../css/css login/img/login-image1.png" alt="login-image2" class="image-bottom" width="200">
         </div>
         <div class="right-login">
             <?php 
@@ -40,7 +40,7 @@ require_once '../../Crud/Login/CrudLogin.php'
                     $teste=$login->findOne();
 
                     if($teste->senha==$login->getSenha()){
-                        header("Location: ../../projeto web barras/pagina_barras_topo_lateral.html");
+                        header("Location: ../dashboard/index.html");
                     }else{
                         $_SESSION['msg']= "<p style='color: #ff0000'>Senha invalida! </p>";
                     }
