@@ -51,16 +51,17 @@
                                     <th class="table_head">Telefone(CEL)</th>
                                     <th class="table_head">Nascimento</th>
                                     <th class="table_head">CPF</th>
+                                    <th class="table_head">Ações</th>
                                 </thead>
                                 <tbody>
                                 <?php
 
                                     $instrutor=new CrudInstrutor;
 
-                                    /*if(isset($_POST['excluir'])){
-                                        $id=$_POST['id'];
-                                        $aluno->deletar($id);
-                                    }*/
+                                    if(isset($_POST['excluir'])){
+                                        $id=$_POST['cpf_instrutor'];
+                                        $instrutor->delete($id);
+                                    }
 
                                     foreach ($instrutor->findData() as $key=>$value) {
                                     ?>
@@ -71,7 +72,23 @@
                                     <td class="table_body"> <?php echo $value->telefone;?> </td>
                                     <td class="table_body"> <?php echo $value->dt_nascimento;?> </td>
                                     <td class="table_body"> <?php echo $value->cpf_instrutor;?> </td>
-                                 
+                                    <td>
+                                        <form action="editarCadastro.php" method="post">
+                                            <input name="cpf_instrutor" type="hidden" value="<?php echo $value->cpf_instrutor;?>"/>
+                                            <input name="nome" type="hidden" value="<?php echo $value->nome;?>"/>
+                                            <input name="usuario" type="hidden" value="<?php echo $value->usuario;?>"/>
+                                            <input name="email" type="hidden" value="<?php echo $value->email;?>"/>
+                                            <input name="telefone" type="hidden" value="<?php echo $value->telefone;?>"/>
+                                            <input name="dt_nascimento" type="hidden" value="<?php echo $value->dt_nascimento;?>"/>
+                                           
+                                            
+                                            <button type="submit" name="alterar"><ion-icon name="create-outline"></ion-icon>Alterar</button>
+                                        </form>
+                                        <form action="" method="post">
+                                            <input name="cpf_instrutor" type="hidden" value="<?php echo $value->cpf_instrutor;?>"/>
+                                            <button type="submit" name="excluir"><ion-icon name="trash-outline"></ion-icon>Excluir</button>
+                                        </form>
+                                    </td>
 
                                     </tr>
                                 <?php } ?>
@@ -97,16 +114,18 @@
                                     <th class="table_head">Telefone(CEL)</th>
                                     <th class="table_head">Nascimento</th>
                                     <th class="table_head">CPF</th>
+                                    <th class="table_head">Ações</th>
+
                                 </thead>
                                 <tbody>
                                     <?php
 
                                         $aluno=new CrudAluno;
 
-                                        /*if(isset($_POST['excluir'])){
-                                            $id=$_POST['id'];
-                                            $aluno->deletar($id);
-                                        }*/
+                                        if(isset($_POST['excluir2'])){
+                                            $id=$_POST['cpf_aluno'];
+                                            $aluno->delete($id);
+                                        }
 
                                         foreach ($aluno->findData() as $key=>$value) {
                                         ?>
@@ -116,7 +135,22 @@
                                         <td class="table_body"> <?php echo $value->telefone;?> </td>
                                         <td class="table_body"> <?php echo $value->dt_nascimento;?> </td>
                                         <td class="table_body"> <?php echo $value->cpf_aluno;?> </td>
-
+                                        <td>
+                                        <form action="editarCadastro.php" method="post">
+                                            <input name="cpf_aluno" type="hidden" value="<?php echo $value->cpf_aluno;?>"/>
+                                            <input name="nome" type="hidden" value="<?php echo $value->nome;?>"/>
+                                            <input name="email" type="hidden" value="<?php echo $value->email;?>"/>
+                                            <input name="telefone" type="hidden" value="<?php echo $value->telefone;?>"/>
+                                            <input name="dt_nascimento" type="hidden" value="<?php echo $value->dt_nascimento;?>"/>
+                                           
+                                            
+                                            <button type="submit" name="alterar"><ion-icon name="create-outline"></ion-icon>Alterar</button>
+                                        </form>
+                                        <form action="" method="post">
+                                            <input name="cpf_aluno" type="hidden" value="<?php echo $value->cpf_aluno;?>"/>
+                                            <button type="submit" name="excluir2"><ion-icon name="trash-outline"></ion-icon>Excluir</button>
+                                        </form>
+                                    </td>
 
                                         </tr>
                                     <?php } ?>

@@ -6,6 +6,16 @@
 
         protected $tabela= 'instrutor';
 
+        public function ifExist($cpf){
+            $sql="SELECT  a.cpf_aluno,i.cpf_instrutor 
+            FROM aluno as a, instrutor as i where a.cpf_aluno=:cpf_aluno OR cpf_instrutor=:cpf_instrutor limit 1";
+            $stm=DB::prepare($sql);
+            $stm->bindParam(':cpf_aluno',$cpf);
+            $stm->bindParam(':cpf_instrutor',$cpf);
+            $stm->execute();
+            return $stm->fetch();
+        }
+
         public function findData(){
             $sql="SELECT  i.nome, l.usuario, c.email, c.telefone, i.dt_nascimento, i.cpf_instrutor 
             FROM instrutor  as i, login as l, contato as c
@@ -48,12 +58,22 @@
         //     $stm->bindParam(':dt_nascimento',$dt_nascimento);
         //     return $stm->execute();
         // }
-        // public function delete($id){
-        //     $sql="DELETE FROM $this->tabela WHERE cpf_instrutor= :cpf_instrutor";
-        //     $stm=DB::prepare($sql);
-        //     $stm->bindParam(':cpf_instrutor',$cpf_instrutor);
-        //     return $stm->execute();
-        // }
+        public function delete($cpf_instrutor){
+            $sql="DELETE FROM contato where cpf_instrutor= :cpf_instrutor";
+            $sql2="DELETE FROM $this->tabela WHERE cpf_instrutor= :cpf_instrutor";
+            $sql3="DELETE FROM login where id_login=(SELECT fk_login from instrutor where cpf_instrutor= :cpf_instrutor)";
+         
+            $stm=DB::prepare($sql);
+            $stm2=DB::prepare($sql2);
+            $stm3=DB::prepare($sql3);
+
+            $stm->bindParam(':cpf_instrutor',$cpf_instrutor);
+            $stm2->bindParam(':cpf_instrutor',$cpf_instrutor);
+            $stm3->bindParam(':cpf_instrutor',$cpf_instrutor);
+            $stm->execute();
+            $stm2->execute();
+            return $stm3->execute();
+        }
     }
 
 
