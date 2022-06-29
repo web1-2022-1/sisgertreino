@@ -1,7 +1,10 @@
 <?php
+
 session_start();
 ob_start();
-require_once '../../Crud/Login/CrudLogin.php'
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+require_once 'Controller/Login/CrudLogin.php'
 
 ?>
 
@@ -12,7 +15,7 @@ require_once '../../Crud/Login/CrudLogin.php'
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../css/css login/style.css">
+    <link rel="stylesheet" type="text/css" href="css/css login/style.css">
     <title>PoryGYM || LOGIN</title>
 </head>
 
@@ -22,10 +25,10 @@ require_once '../../Crud/Login/CrudLogin.php'
     <div class="main-login">
         <div class="left-login">
             <div class="div-top">
-                <img src="../../css/css login/img/logo-porigym.png" alt="login-image1" class="image-top" width="200">
+                <img src="css/css login/img/logo-porigym.png" alt="login-image1" class="image-top" width="200">
                 <h1 id="porigym-title">PoryGYM</h1>
             </div>
-                <img src="../../css/css login/img/login-image1.png" alt="login-image2" class="image-bottom" width="200">
+                <img src="css/css login/img/login-image1.png" alt="login-image2" class="image-bottom" width="200">
         </div>
         <div class="right-login">
             <?php 
@@ -39,7 +42,7 @@ require_once '../../Crud/Login/CrudLogin.php'
                 if($login->findOne()!=false){
                     $teste=$login->findOne();
                     if($teste->senha==$login->getSenha()){
-                        header("Location: ../dashboard/index.php");
+                        header("Location: public/dashboard/index.php");
                     }else{
                         $_SESSION['msg']= "<p style='color: #ff0000'>Senha invalida! </p>";
                     }

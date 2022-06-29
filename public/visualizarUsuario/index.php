@@ -1,8 +1,8 @@
 <?php
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
-    require_once '../../Crud/Instrutor/CrudInstrutor.php';
-    require_once '../../Crud/Aluno/CrudAluno.php';
+    require_once '../../Controller/Instrutor/CrudInstrutor.php';
+    require_once '../../Controller/Aluno/CrudAluno.php';
 ?>
 
 <!DOCTYPE html>
@@ -237,7 +237,7 @@
             <div class="but_esq">
                 <ul>                                
                     <li class="list">
-                        <a href="../login/index.php" class="caixaLateral">
+                        <a href="../../index.php" class="caixaLateral">
                             <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>                       
                             <span class="title">Sair</span>
                         </a>

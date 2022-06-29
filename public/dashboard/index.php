@@ -90,7 +90,7 @@
             <div class="but_esq">
                 <ul>                                
                     <li class="list">
-                        <a href="../login/index.php" class="caixaLateral">
+                        <a href="../../index.php" class="caixaLateral">
                             <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>                       
                             <span class="title">Sair</span>
                         </a>
