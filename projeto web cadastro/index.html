@@ -15,42 +15,103 @@
     <body>
 
         <main>
-            <div class="main-cadastro">
-                <h1 class="login-title">Cadastro</h1>
-                <form action="">
-                    <div class="campo-texto">
-                        <label for="nome">Nome</label>
-                        <input type="text" name="nome">
-                    </div>
-                    <div class="campo-texto">
-                        <label for="user">Usuario</label>
-                        <input type="text" name="user">                               
-                    </div>
-                    <div class="campo-texto">
-                        <label for="cpf">CPF</label>
-                        <input type="text" name="cpf">
-                    </div>
-                    <div class="campo-texto">
-                        <label for="dt_nascimento">Data de Nascimento</label>
-                        <input type="date" name="dt_nascimento">
-                    </div>
-                    <div class="campo-texto">
-                        <label for="telefone">Telefone</label>
-                        <input type="text" name="telefone">
-                    </div>
-                    <div class="campo-texto">
-                        <label for="email">E-mail</label>
-                        <input type="email" name="email">
-                    </div>
-                    <div class="campo-texto">
-                        <label for="senha">Senha</label>
-                        <input type="password" name="senha">
-                    </div>
-                    <div class="botao-cadastro">
-                        <button type="submit" class="botao">Cadastrar</button>
-                    </div>
-                </form>
+
+            <div class="sequencia_topo">
+
+                <a href="">Home</a>
+                <p> > </p>
+                <a href="">Usuário</a>
+                <p> > </p>
+                <a href="">Cadastrar usuários</a>
+
             </div>
+
+            <nav class="abas_listar">
+
+                <ul>
+                    <li>
+
+                        <input type="radio" name="abas" class="a_tabs" id="aba_1" checked>
+                        <label for = "aba_1">Funcionários</label>
+
+                        <div class="conteudo">
+                            <h1 class="login-title">Cadastro</h1>
+                            <form action="" method='post'>
+                                <div class="campo-texto">
+                                    <label for="nome">Nome</label>
+                                    <input type="text" name="nome">
+                                </div>
+                                <div class="campo-texto">
+                                    <label for="user">Usuario</label>
+                                    <input type="text" name="user">                               
+                                </div>
+                                <div class="campo-texto">
+                                    <label for="cpf">CPF</label>
+                                    <input type="text" name="cpf">
+                                </div>
+                                <div class="campo-texto">
+                                    <label for="dt_nascimento">Data de Nascimento</label>
+                                    <input type="date" name="dt_nascimento">
+                                </div>
+                                <div class="campo-texto">
+                                    <label for="telefone">Telefone</label>
+                                    <input type="text" name="telefone">
+                                </div>
+                                <div class="campo-texto">
+                                    <label for="email">E-mail</label>
+                                    <input type="email" name="email">
+                                </div>
+                                <div class="campo-texto">
+                                    <label for="senha">Senha</label>
+                                    <input type="password" name="senha">
+                                </div>
+                                <div class="botao-cadastro">
+                                    <button type="submit" class="botao">Cadastrar</button>
+                                </div>
+                            </form>  
+
+
+                        </div>
+                    </li>
+
+                    <li>
+
+                        <input type="radio" name="abas" class="a_tabs" id="aba_2">
+                        <label for = "aba_2">Alunos</label>
+
+                        <div class="conteudo">
+                            <h1 class="login-title">Cadastro</h1>
+                            <form action="" method='post'>
+                                <div class="campo-texto">
+                                    <label for="nome">Nome</label>
+                                    <input type="text" name="nome">
+                                </div>
+                                <div class="campo-texto">
+                                    <label for="cpf">CPF</label>
+                                    <input type="text" name="cpf">
+                                </div>
+                                <div class="campo-texto">
+                                    <label for="dt_nascimento">Data de Nascimento</label>
+                                    <input type="date" name="dt_nascimento">
+                                </div>
+                                <div class="campo-texto">
+                                    <label for="telefone">Telefone</label>
+                                    <input type="text" name="telefone">
+                                </div>
+                                <div class="campo-texto">
+                                    <label for="email">E-mail</label>
+                                    <input type="email" name="email">
+                                </div>
+                                <div class="botao-cadastro">
+                                    <button type="submit" class="botao">Cadastrar</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </li>
+
+                </ul>
+            </nav>
 
         </main>
 
@@ -133,7 +194,7 @@
                     </li>                   
                 </ul>    
             </div>
-            
+
 
         </asideL>
 
