@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Andika&family=Bai+Jamjuree:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a:link, a:visited{
+    text-decoration: none;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Andika', sans-serif;
+}
+.main-login{
+    width: 100vw;
+    height: 100vh;
+    background: #D3D0D0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left-login{
+    font-family: 'Allerta Stencil', sans-serif;
+    font-size: 15pt;
+    width: 60vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(to bottom, #FF3D00, #D3D0D0);
+}
+.div-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.image-bottom{
+    width: 35vw;
+    margin-top: 100px;
+}
+.image-top{
+    width: 15vw;
+}
+.right-login{
+    width: 40vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-card{
+    width: 27vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #FDF9F9;
+    border-radius: 30px;
+}
+.login-card h1{
+    margin-top: 10vh;
+    font-size: 30pt;
+}
+.campo-texto{
+    font-size: 13pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 30px 0;
+}
+.campo-texto > input{
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 10px;
+    background: #F3E9E9;
+    font-size: 12pt;
+    outline: none;
+    box-sizing: border-box;
+}
+.esqueceuSenha{ /*conferir*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.botao-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.botao-login button{
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-size: 15pt;
+    padding: 5px 33%;
+    margin-bottom: 100px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #FFFFFF;
+    background: #FF3D00;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
