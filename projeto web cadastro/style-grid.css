@@ -116,9 +116,9 @@ box-shadow: 1px 0px 10px black;
 
 .abas_listar label{
   width: 180px;
-  padding: 25px;
+  padding: 10px;
   display: block;
-  background-color: #FFFAFA;
+  background-color: #DCDCDC;
   cursor: pointer;
   text-align: center;
   color: #F9501B;
