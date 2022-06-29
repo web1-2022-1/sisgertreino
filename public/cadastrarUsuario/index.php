@@ -1,6 +1,9 @@
 <?php
 session_start();
 ob_start();
+error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+
 require_once '../../Controller/Instrutor/CrudInstrutor.php';
 require_once '../../Controller/Login/CrudLogin.php';
 require_once '../../Controller/Contato/CrudContato.php';
@@ -199,6 +202,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
     <asideL>
 
+    
     <div class="cont_esq">
                 <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
@@ -228,11 +232,6 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                         </a>
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="caixaLateral">                           
-                            <span class="title_inside">Editar usuário</span>
-                        </a>
-                    </li>
-                    <li class="list_inside">
                         <a href="../visualizarUsuario/index.php" class="caixaLateral">                           
                             <span class="title_inside">Listar usuários</span>
                         </a>
@@ -253,11 +252,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                             <span class="title_inside">Criar treinos</span>
                         </a>
                     </li>
-                    <li class="list_inside">
-                        <a href="#" class="caixaLateral">                           
-                            <span class="title_inside">Alterar treinos</span>
-                        </a>
-                    </li>
+                    
                     <li class="list_inside">
                         <a href="../visualizarTreino/index.php" class="caixaLateral">                           
                             <span class="title_inside">Listar treinos</span>
@@ -269,7 +264,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
             <div class="but_esq">
                 <ul>                                
                     <li class="list">
-                        <a href="../../index.php" class="caixaLateral">
+                        <a href="../login/index.php" class="caixaLateral">
                             <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>                       
                             <span class="title">Sair</span>
                         </a>

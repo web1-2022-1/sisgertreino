@@ -49,11 +49,6 @@
                         </a>
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="caixaLateral">                           
-                            <span class="title_inside">Editar usuário</span>
-                        </a>
-                    </li>
-                    <li class="list_inside">
                         <a href="../visualizarUsuario/index.php" class="caixaLateral">                           
                             <span class="title_inside">Listar usuários</span>
                         </a>
@@ -74,11 +69,7 @@
                             <span class="title_inside">Criar treinos</span>
                         </a>
                     </li>
-                    <li class="list_inside">
-                        <a href="#" class="caixaLateral">                           
-                            <span class="title_inside">Alterar treinos</span>
-                        </a>
-                    </li>
+                    
                     <li class="list_inside">
                         <a href="../visualizarTreino/index.php" class="caixaLateral">                           
                             <span class="title_inside">Listar treinos</span>
@@ -90,7 +81,7 @@
             <div class="but_esq">
                 <ul>                                
                     <li class="list">
-                        <a href="../../index.php" class="caixaLateral">
+                        <a href="../login/index.php" class="caixaLateral">
                             <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>                       
                             <span class="title">Sair</span>
                         </a>
