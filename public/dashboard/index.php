@@ -54,7 +54,7 @@
                         </a>
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="caixaLateral">                           
+                        <a href="../visualizarUsuario/index.php" class="caixaLateral">                           
                             <span class="title_inside">Listar usuários</span>
                         </a>
                     </li>
@@ -80,7 +80,7 @@
                         </a>
                     </li>
                     <li class="list_inside">
-                        <a href="../vizualizarTreino/index.php" class="caixaLateral">                           
+                        <a href="../visualizarTreino/index.php" class="caixaLateral">                           
                             <span class="title_inside">Listar treinos</span>
                         </a>
                     </li>

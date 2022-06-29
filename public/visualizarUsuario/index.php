@@ -1,10 +1,17 @@
+<?php
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+    require_once '../../Crud/Instrutor/CrudInstrutor.php';
+    require_once '../../Crud/Aluno/CrudAluno.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-        <link rel="stylesheet" href="style-grid.css">
+        <link rel="stylesheet" href="../../css/css vizualizar usuario/style.css">
         <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
 
@@ -46,12 +53,30 @@
                                     <th class="table_head">CPF</th>
                                 </thead>
                                 <tbody>
-                                    <td class="table_body">Murilo</td>
-                                    <td class="table_body">mvina</td>
-                                    <td class="table_body">murillo@gmail.com</td>
-                                    <td class="table_body">999999999</td>
-                                    <td class="table_body">12/12/1900</td>
-                                    <td class="table_body">8127389712983</td>
+                                <?php
+
+                                    $instrutor=new CrudInstrutor;
+
+                                    /*if(isset($_POST['excluir'])){
+                                        $id=$_POST['id'];
+                                        $aluno->deletar($id);
+                                    }*/
+
+                                    foreach ($instrutor->findData() as $key=>$value) {
+                                    ?>
+                                    <tr>
+                                    <td class="table_body"> <?php echo $value->nome;?> </td>
+                                    <td class="table_body"> <?php echo $value->usuario;?> </td>
+                                    <td class="table_body"> <?php echo $value->email;?> </td>
+                                    <td class="table_body"> <?php echo $value->telefone;?> </td>
+                                    <td class="table_body"> <?php echo $value->dt_nascimento;?> </td>
+                                    <td class="table_body"> <?php echo $value->cpf_instrutor;?> </td>
+                                 
+
+                                    </tr>
+                                <?php } ?>
+
+                                   
                                 </tbody>
                             </table>
 
@@ -68,19 +93,33 @@
                             <table class="table" border="1">
                                 <thead>
                                     <th class="table_head">Nome</th>
-                                    <th class="table_head">Usuário</th>
                                     <th class="table_head">E-mail</th>
                                     <th class="table_head">Telefone(CEL)</th>
                                     <th class="table_head">Nascimento</th>
                                     <th class="table_head">CPF</th>
                                 </thead>
                                 <tbody>
-                                    <td class="table_body">Murilo</td>
-                                    <td class="table_body">mvina</td>
-                                    <td class="table_body">murillo@gmail.com</td>
-                                    <td class="table_body">999999999</td>
-                                    <td class="table_body">12/12/1900</td>
-                                    <td class="table_body">8127389712983</td>
+                                    <?php
+
+                                        $aluno=new CrudAluno;
+
+                                        /*if(isset($_POST['excluir'])){
+                                            $id=$_POST['id'];
+                                            $aluno->deletar($id);
+                                        }*/
+
+                                        foreach ($aluno->findData() as $key=>$value) {
+                                        ?>
+                                        <tr>
+                                        <td class="table_body"> <?php echo $value->nome;?> </td>
+                                        <td class="table_body"> <?php echo $value->email;?> </td>
+                                        <td class="table_body"> <?php echo $value->telefone;?> </td>
+                                        <td class="table_body"> <?php echo $value->dt_nascimento;?> </td>
+                                        <td class="table_body"> <?php echo $value->cpf_aluno;?> </td>
+
+
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
 
@@ -94,15 +133,15 @@
 
         <asideL>
 
-            <div class="cont_esq">
-                <img src="img/logo_braco.png" height="120px">
+        <div class="cont_esq">
+                <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 
             <div class="but_esq">
                 <ul>
                     <li class="list">
-                        <a href="#" class="caixaLateral">
+                        <a href="../dashboard/index.php" class="caixaLateral">
                             <span class="icon"><ion-icon name="home-outline">Home</ion-icon></span>
                             <span class="title">Home</span>
                         </a>
@@ -118,7 +157,7 @@
                         </p>  
                     </li>               
                     <li class="list_inside">
-                        <a href="#" class="caixaLateral">                       
+                        <a href="../cadastrarUsuario/index.php" class="caixaLateral">                       
                             <span class="title_inside">Cadastrar usuário</span>
                         </a>
                     </li>
@@ -128,7 +167,7 @@
                         </a>
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="caixaLateral">                           
+                        <a href="../visualizarUsuario/index.php" class="caixaLateral">                           
                             <span class="title_inside">Listar usuários</span>
                         </a>
                     </li>
@@ -154,7 +193,7 @@
                         </a>
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="caixaLateral">                           
+                        <a href="../visualizarTreino/index.php" class="caixaLateral">                           
                             <span class="title_inside">Listar treinos</span>
                         </a>
                     </li>
@@ -164,7 +203,7 @@
             <div class="but_esq">
                 <ul>                                
                     <li class="list">
-                        <a href="#" class="caixaLateral">
+                        <a href="../login/index.php" class="caixaLateral">
                             <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>                       
                             <span class="title">Sair</span>
                         </a>
