@@ -23,10 +23,7 @@
 
 if (isset($_POST['editar'])) :
 
-    $login=new CrudLogin;
-    $login->setUsuario($_POST['user']);
-
-    $instrutor= new CrudInstrutor;
+    $instrutor= new Crudinstrutor;
 
     $instrutor->setCpf_instrutor($_POST['cpf']);
     $instrutor->setNome($_POST['nome']);
@@ -34,20 +31,13 @@ if (isset($_POST['editar'])) :
 
     $contato= new CrudContato;
 
-    $contato->setTelefone($_POST['telefone']);
+    $contato->setTelefone($_POST['tel']);
     $contato->setEmail($_POST['email']);
     $contato->setCpf_instrutor($_POST['cpf']);
 
-
-    $idLogin=$instrutor->findFkLogin();
-    var_dump($idLogin);
-    settype($idLogin, "integer");
-
-    $login->update($idLogin);
     $instrutor->update($_POST['cpf']);
     $contato->update($_POST['cpf']);
-    //header("Location: ../visualizarUsuario/index.php");
-
+    header("Location: ../visualizarUsuario/index.php");;
 
 
 endif;
@@ -75,8 +65,8 @@ endif;
                     <input type="text" name="nome" value="<?php echo $_POST['nome'] ?>">
                 </div>
                 <div class="campo-texto">
-                    <label for="user">Usuário</label>
-                    <input type="text" name="user" value="<?php echo $_POST['usuario'] ?>">
+
+                    <input type="hidden" name="user" value="<?php echo $_POST['usuario'] ?>">
                 </div>
                 <div class="campo-texto">
                     
@@ -88,7 +78,7 @@ endif;
                 </div>
                 <div class="campo-texto">
                     <label for="telefone">Telefone</label>
-                    <input type="text" name="telefone" value="<?php echo $_POST['telefone'] ?>">
+                    <input type="text" name="tel" value="<?php echo $_POST['telefone'] ?>">
                 </div>
                 <div class="campo-texto">
                     <label for="email">E-mail</label>
@@ -104,94 +94,77 @@ endif;
 
     <asideL>
 
-        <div class="cont_esq">
-            <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
-            <h3 id="text_logo">PoriGYM</h3>
-        </div>
+            <div class="cont_esq">
+                <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
+                <h3 id="text_logo">PoriGYM</h3>
+            </div>
 
-        <div class="but_esq">
-            <ul>
-                <li class="list">
-                    <a href="#" class="caixaLateral">
-                        <span class="icon">
-                            <ion-icon name="home-outline">Home</ion-icon>
-                        </span>
-                        <span class="title">Home</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="but_esq">
-            <ul>
-                <li class="list">
-                    <p class="space">
-                        <span class="icon">
-                            <ion-icon name="person-outline"></ion-icon>
-                        </span>
-                        <span class="title">Usuário</span>
-                    </p>
-                </li>
-                <li class="list_inside">
-                    <a href="#" class="caixaLateral">
-                        <span class="title_inside">Cadastrar usuário</span>
-                    </a>
-                </li>
-                <li class="list_inside">
-                    <a href="#" class="caixaLateral">
-                        <span class="title_inside">Editar usuário</span>
-                    </a>
-                </li>
-                <li class="list_inside">
-                    <a href="#" class="caixaLateral">
-                        <span class="title_inside">Listar usuários</span>
-                    </a>
-                </li>
+            <div class="but_esq">
+                <ul>
+                    <li class="list">
+                        <a href="../dashboard/index.php" class="caixaLateral">
+                            <span class="icon"><ion-icon name="home-outline">Home</ion-icon></span>
+                            <span class="title">Home</span>
+                        </a>
+                    </li>               
+                </ul>
+            </div>
+            <div class="but_esq">
+                <ul>                   
+                    <li class="list">
+                        <p class="space">
+                            <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                            <span class="title">Usuário</span>
+                        </p>  
+                    </li>               
+                    <li class="list_inside">
+                        <a href="../cadastrarUsuario/index.php" class="caixaLateral">                       
+                            <span class="title_inside">Cadastrar usuário</span>
+                        </a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="../visualizarUsuario/index.php" class="caixaLateral">                           
+                            <span class="title_inside">Listar usuários</span>
+                        </a>
+                    </li>
 
-            </ul>
-        </div>
-        <div class="but_esq">
-            <ul>
-                <li class="list">
-                    <p class="space">
-                        <span class="icon">
-                            <ion-icon name="barbell-outline"></ion-icon>
-                        </span>
-                        <span class="title">Treino</span>
-                    </p>
-                </li>
-                <li class="list_inside">
-                    <a href="#" class="caixaLateral">
-                        <span class="title_inside">Criar treinos</span>
-                    </a>
-                </li>
-                <li class="list_inside">
-                    <a href="#" class="caixaLateral">
-                        <span class="title_inside">Alterar treinos</span>
-                    </a>
-                </li>
-                <li class="list_inside">
-                    <a href="#" class="caixaLateral">
-                        <span class="title_inside">Listar treinos</span>
-                    </a>
-                </li>
+                </ul>    
+            </div>
+            <div class="but_esq">
+                <ul>
+                    <li class="list">
+                        <p class="space">
+                            <span class="icon"><ion-icon name="barbell-outline"></ion-icon></span>
+                            <span class="title">Treino</span>
+                        </p>  
+                    </li>               
+                    <li class="list_inside">
+                        <a href="#" class="caixaLateral">                       
+                            <span class="title_inside">Criar treinos</span>
+                        </a>
+                    </li>
+                    
+                    <li class="list_inside">
+                        <a href="../visualizarTreino/index.php" class="caixaLateral">                           
+                            <span class="title_inside">Listar treinos</span>
+                        </a>
+                    </li>
 
-            </ul>
-        </div>
-        <div class="but_esq">
-            <ul>
-                <li class="list">
-                    <a href="#" class="caixaLateral">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </span>
-                        <span class="title">Sair</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+                </ul>    
+            </div>
+            <div class="but_esq">
+                <ul>                                
+                    <li class="list">
+                        <a href="../login/index.php" class="caixaLateral">
+                            <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>                       
+                            <span class="title">Sair</span>
+                        </a>
+                    </li>                   
+                </ul>    
+            </div>
+            
 
-
-    </asideL>
+        </asideL>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
