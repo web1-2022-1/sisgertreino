@@ -9,19 +9,19 @@ body {
    height: 100vh;
    display: grid;
    grid-template-areas:
-      "boxL meio meio"
-      "boxL meio meio"
       "boxL meio meio";
-   grid-template-rows: 40px 100vh 80px;
-   grid-template-columns: 240px 1fr 60px;
+   grid-template-rows:100vh;
+   grid-template-columns:26vh;
 }
 
 main {
    grid-area: meio;
-   background: white;
+   display: flex;
+   flex-direction: column;
 }
 
 asideL {
+   min-width: 200px;
    grid-area: boxL;
    background: #F9501B;
    border-top-right-radius: 10px;
@@ -94,65 +94,20 @@ asideL {
    padding-left: 30px;
 }
 
-.abas_listar {
-   width: 60vw;
-   height: 85vh;
-   margin: 100px auto;
-   background-color: #FFFFFF;
-   position: relative;
-   display: flex;
-   justify-content: center;
-
-}
-
-.abas_listar ul {
-   list-style: none;
-   display: flex;
-}
-
-.abas_listar ul li {
-   flex-direction: row;
-}
-
-.abas_listar label {
-   width: 180px;
-   padding: 10px;
-   display: block;
-   background-color: #DCDCDC;
-   cursor: pointer;
-   text-align: center;
-   color: #F9501B;
-   border-top-left-radius: 20px;
-   border-top-right-radius: 20px;
-}
-
-.a_tabs:checked~label {
-   background-color: #F9501B;
-   color: #FFFFFF;
-}
-
-.a_tabs {
-   display: none;
-}
-
 .conteudo {
    display: flex;
    justify-content: center;
-
-}
-
-.a_tabs:checked~.conteudo {
-   display: block;
 }
 
 .sequencia_topo {
    display: flex;
-   flex-direction: row;
-   margin: 50px auto;
-   padding-left: 16%;
-   gap: 10px;
-   font-family: 'Andika', sans-serif;
-   color: black;
+ flex-direction: row;
+ margin: 50px auto;
+
+ padding-right: 50%;
+ gap: 10px;
+ font-family: 'Andika', sans-serif;
+ color: black;
 }
 
 .sequencia_topo a {
@@ -187,13 +142,14 @@ asideL {
    display: flex;
    justify-content: center;
    align-items: center;
+   margin-top: 20px;
+   margin-bottom: px;
 }
 
 .botao-cadastro button {
    font-family: 'Bai Jamjuree', sans-serif;
    font-size: 15px;
    padding: 5px 24%;
-   margin-bottom: 100px;
    border: none;
    border-radius: 8px;
    outline: none;
@@ -215,7 +171,6 @@ asideL {
    color: #000000;
    border-top-left-radius: 0px;
    border-top-right-radius: 0px;
-
 }
 
 .edit-title {
@@ -223,4 +178,12 @@ asideL {
    display: flex;
    justify-content: center;
    align-items: center;
+}
+
+.cont_title{
+   margin-bottom: 50px;
+ }
+
+.cont_tudo{
+   overflow: scroll;
 }
