@@ -45,11 +45,10 @@
             $stm->bindParam(':dt_nascimento',$dt_nascimento);
             return $stm->execute();
         }
-        public function update($id){
-            $cpf_aluno=$this->getCpf_aluno();
+        public function update($cpf_aluno){
             $nome=$this->getNome();
             $dt_nascimento=$this->getDt_nascimento();         
-            $sql="UPDATE $this->tabela SET cpf_aluno= :cpf_aluno, nome= :nome dt_nascimento=:dt_nascimento WHERE cpf_aluno= :cpf_aluno";
+            $sql="UPDATE $this->tabela SET  nome= :nome, dt_nascimento=:dt_nascimento WHERE cpf_aluno= :cpf_aluno";
             $stm=DB::prepare($sql);
             $stm->bindParam(':cpf_aluno',$cpf_aluno);
             $stm->bindParam(':nome',$nome);

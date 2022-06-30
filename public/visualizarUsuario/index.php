@@ -73,7 +73,7 @@
                                     <td class="table_body"> <?php echo $value->dt_nascimento;?> </td>
                                     <td class="table_body"> <?php echo $value->cpf_instrutor;?> </td>
                                     <td>
-                                        <form action="editarCadastro.php" method="post">
+                                        <form action="../editar/editarFuncionario.php" method="post">
                                             <input name="cpf_instrutor" type="hidden" value="<?php echo $value->cpf_instrutor;?>"/>
                                             <input name="nome" type="hidden" value="<?php echo $value->nome;?>"/>
                                             <input name="usuario" type="hidden" value="<?php echo $value->usuario;?>"/>
@@ -136,7 +136,7 @@
                                         <td class="table_body"> <?php echo $value->dt_nascimento;?> </td>
                                         <td class="table_body"> <?php echo $value->cpf_aluno;?> </td>
                                         <td>
-                                        <form action="editarCadastro.php" method="post">
+                                        <form action="../editar/editarAluno.php" method="post">
                                             <input name="cpf_aluno" type="hidden" value="<?php echo $value->cpf_aluno;?>"/>
                                             <input name="nome" type="hidden" value="<?php echo $value->nome;?>"/>
                                             <input name="email" type="hidden" value="<?php echo $value->email;?>"/>
