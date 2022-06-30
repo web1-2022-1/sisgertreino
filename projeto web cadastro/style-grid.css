@@ -117,13 +117,13 @@ asideL {
 /*---------------------------------- form cadastro -----------*/
 
 .abas_listar{
-  width: 60vw;
-  margin: 100px auto;
+  height: 75%;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  overflow: scroll;
+  flex-direction: column;
 }
 
 .abas_listar ul{
@@ -205,6 +205,8 @@ asideL {
 
 .login-title{
    font-family: 'Bai Jamjuree', sans-serif;
+   display: flex;
+   justify-content: center;
 }
 
 .conteudo label{
@@ -223,4 +225,12 @@ asideL {
   display: none;
   position: absolute;
   width: 100vh;
+  left: 410px;
+}
+
+.cont_title{
+  margin-bottom: 100px;
+}
+.cont_cadastro{
+  height: 100%;
 }

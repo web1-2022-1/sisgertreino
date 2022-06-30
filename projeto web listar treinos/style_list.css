@@ -6,7 +6,7 @@
 
 body{
    margin: 0;
-   height: 100vh; 
+   height: 100vh;
    display: grid; 
    grid-template-areas:
    "boxL meio meio"; 
@@ -116,6 +116,7 @@ body{
 .conteudo{
    width: 100vh;
    height: 60vh;
+   overflow: scroll;
 }
 .table{
    width: 100%;
