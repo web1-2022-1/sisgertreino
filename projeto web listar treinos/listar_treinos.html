@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-        <link rel="stylesheet" href="style-1.css">
+        <link rel="stylesheet" href="style_list.css">
         <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
 
@@ -26,23 +26,20 @@
 
             </div>
             <div class="conteudo">
-                <h1 class="form-title">Treinos</h1>
-                <form method='POST' action="">
-                    <div class="search">
-                        <div class="campo-texto">
-                            <label for="nome_aluno">Nome do aluno</label>
-                            <input type="text" name="nome_aluno" list="pesquisa_aluno"/>
-                        </div>
-                        <div class="button_find">
-                            <button type="submit">Procurar Aluno</button>
-                        </div>
-                    </div>
-                    <datalist id="pesquisa_aluno">
-                        <option value="Carlos Silva Santos"></option>
-                        <option value="Ana Maria Costa de Oliveira"></option>
-                        <option value="Vitoria Cardoso Aguiar"></option>
-                    </datalist>
-                </form> 
+                <table class="table" border="1">
+                    <thead>
+                        <th class="table_head">Nome</th>
+                        <th class="table_head">Data do Treino</th>
+                        <th class="table_head">Ações</th>
+                    </thead>
+                    <tbody>
+                        <td class="table_body">Treino - Basquete</td>
+                        <td class="table_body">29/06/2022</td>
+                        <td class="table_body">
+                            
+                        </td>
+                    </tbody>
+                </table>
             </div>
         </main>
 
