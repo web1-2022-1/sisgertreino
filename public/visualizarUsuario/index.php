@@ -77,6 +77,7 @@
                                             <input name="cpf_instrutor" type="hidden" value="<?php echo $value->cpf_instrutor;?>"/>
                                             <input name="nome" type="hidden" value="<?php echo $value->nome;?>"/>
                                             <input name="usuario" type="hidden" value="<?php echo $value->usuario;?>"/>
+                                            <input name="senha" type="hidden" value="<?php echo $value->senha;?>"/>
                                             <input name="email" type="hidden" value="<?php echo $value->email;?>"/>
                                             <input name="telefone" type="hidden" value="<?php echo $value->telefone;?>"/>
                                             <input name="dt_nascimento" type="hidden" value="<?php echo $value->dt_nascimento;?>"/>

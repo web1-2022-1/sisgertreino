@@ -25,7 +25,7 @@
             return $stm->fetch();
         }
         public function findData(){
-            $sql="SELECT  i.nome, l.usuario, c.email, c.telefone, i.dt_nascimento, i.cpf_instrutor 
+            $sql="SELECT  i.nome, l.usuario,l.senha, c.email, c.telefone, i.dt_nascimento, i.cpf_instrutor 
             FROM instrutor  as i, login as l, contato as c
             where l.id_login=i.fk_login AND c.cpf_instrutor=i.cpf_instrutor";
             $stm=DB::prepare($sql);

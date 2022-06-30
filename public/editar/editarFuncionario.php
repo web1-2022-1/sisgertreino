@@ -1,6 +1,4 @@
 <?php
-   error_reporting(E_ALL);
-   ini_set("display_errors", 1);
     require_once '../../Controller/Instrutor/CrudInstrutor.php';
     require_once '../../Controller/Contato/CrudContato.php';
     require_once '../../Controller/Login/CrudLogin.php';
@@ -23,6 +21,10 @@
 
 if (isset($_POST['editar'])) :
 
+    $login=new CrudLogin;
+    $login->setUsuario($_POST['user']);
+    $login->setSenha($_POST['senha']);
+
     $instrutor= new Crudinstrutor;
 
     $instrutor->setCpf_instrutor($_POST['cpf']);
@@ -35,6 +37,13 @@ if (isset($_POST['editar'])) :
     $contato->setEmail($_POST['email']);
     $contato->setCpf_instrutor($_POST['cpf']);
 
+    $idLogin= new CrudLogin;
+    $idLogin->setUsuario($_POST['userAntigo']);
+
+    var_dump($_POST);
+    $idLogin2=$idLogin->getIdLogin();
+    var_dump($idLogin->getIdLogin());
+    $login->update($idLogin2->id_login);
     $instrutor->update($_POST['cpf']);
     $contato->update($_POST['cpf']);
     header("Location: ../visualizarUsuario/index.php");;
@@ -49,9 +58,9 @@ endif;
 
         <div class="sequencia_topo">
 
-            <a href="">Home</a>
+            <a href="../dashboard/index.php">Home</a>
             <p> > </p>
-            <a href="">Usuário</a>
+            <a href="../visualizarUsuario/index.php">Usuário</a>
             <p> > </p>
             <a href="">Editar usuários</a>
 
@@ -65,11 +74,16 @@ endif;
                     <input type="text" name="nome" value="<?php echo $_POST['nome'] ?>">
                 </div>
                 <div class="campo-texto">
-
-                    <input type="hidden" name="user" value="<?php echo $_POST['usuario'] ?>">
+                    <label for="nome">Usuario</label>
+                    <input type="text" name="user" value="<?php echo $_POST['usuario'] ?>">
+                    <input type="hidden" name="userAntigo" value="<?php echo $_POST['usuario'] ?>">
                 </div>
                 <div class="campo-texto">
-                    
+                    <label for="nome">Senha</label>
+                    <input type="password" name="senha" value="<?php echo $_POST['senha'] ?>" >
+                </div>
+                <div class="campo-texto">
+        
                     <input type="hidden" name="cpf" value="<?php echo $_POST['cpf_instrutor'] ?>">
                 </div>
                 <div class="campo-texto">
