@@ -162,6 +162,10 @@ asideL {
   display: block;
 }
 
+.a_tabs:checked ~ .conteudo2{
+  display: block;
+}
+
 .campo-texto{
   font-size: 13px;
   font-family: 'Andika', sans-serif;
@@ -223,11 +227,24 @@ asideL {
   border-top-right-radius: 0px;
 }
 
+.conteudo2 label{
+  width: 180px;
+  padding: 0px;
+  display: flex;
+  background-color: #FFFFFF;
+  cursor: auto;
+  text-align: none;
+  color: #000000;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
 .conteudo{
   display: none;
   position: absolute;
   width: 100vh;
-  left: 410px;
+  justify-content: center;
+  align-items: center;
 }
 
 .cont_title{
@@ -235,4 +252,13 @@ asideL {
 }
 .cont_cadastro{
   height: 100vh;
+}
+
+.conteudo2{
+  display: none;
+  position: absolute;
+  width: 100vh;
+  justify-content: center;
+  align-items: center;
+  left: 67vh;
 }
