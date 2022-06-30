@@ -15,7 +15,22 @@
     <body>
 
         <main>
-            ESSA É A TELA DO HOME;
+      
+            <div class="div-top">
+                <img src="../../css/css login/img/login-image1.png" alt="login-image1" class="image-home" >
+                <h1 id="porigym-title-home">PoriGYM</h1>
+                <p id="text-home">Sistema para Gerenciamento de Treinos na Academia<br>
+                    PoriGYM<br>
+                    Trabalho proposto para disciplina de Laborátorio de Programação WEB I
+                    Desenvolvido por:<br>
+                    Lucas Macena Santiago Fialho;<br>
+                    Iuri Eduardo Braga;<br>
+                    Murilo Viana Brito;<br>
+                    Luis Felipe Fernandes;<br>
+                    João Pedro Pacheco.</p>
+            </div>
+              
+          
         </main>
 
         <asideL>

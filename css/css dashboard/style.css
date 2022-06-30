@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body{
@@ -17,7 +18,8 @@ body{
  
  main {
  grid-area: meio; 
- background: white;
+ background-color: #DCDCDC;
+
  }
  
  asideL {
@@ -93,4 +95,37 @@ body{
    padding-left: 30px;
 }
 
+.div-top{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   gap:10px;
+   
+   height: 100vh;
+   
+}
+.image-home{
+   
+   width: 60vh;
+   height: 50vh;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+   border-bottom-left-radius: 10px;
+   border-bottom-right-radius: 10px;
+
+
+}
+
+#porigym-title-home{
+   font-family: 'Allerta Stencil', sans-serif;
+   font-size: 45px;
+}
+#text-home{
+   text-align: center;
+   font-size: 18px;
+   font-family: 'Andika' sans-serif;
+   
+   
+}
 
