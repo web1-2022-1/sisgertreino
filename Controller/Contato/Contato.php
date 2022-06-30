@@ -13,9 +13,7 @@
         public function setId_contato($id_contato){
             $this->id_contato=$id_contato;
         }
-        public function getId_contato(){
-            return $this->$id_contato;
-        }
+       
         public function setTelefone($telefone){
             $this->telefone=$telefone;
         }
