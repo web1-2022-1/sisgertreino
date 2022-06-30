@@ -40,8 +40,10 @@ if (isset($_POST['editar'])) :
 
 
     $idLogin=$instrutor->findFkLogin();
-    var_dump($login);
-    $login->update(intval($idLogin));
+    var_dump($idLogin);
+    settype($idLogin, "integer");
+
+    $login->update($idLogin);
     $instrutor->update($_POST['cpf']);
     $contato->update($_POST['cpf']);
     //header("Location: ../visualizarUsuario/index.php");

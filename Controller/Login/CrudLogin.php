@@ -41,11 +41,11 @@
             $stm->bindParam(':senha',$senha);
             return $stm->execute();
         }
-        public function update($id){
+        public function update ($id_login){
             $usuario=$this->getUsuario();           
-            $sql="UPDATE $this->tabela SET usuario= :usuario WHERE id_login = :id";
+            $sql="UPDATE $this->tabela SET usuario=:usuario where id_login=:id_login";
             $stm=DB::prepare($sql);
-            $stm->bindParam(':id',$id);
+            $stm->bindParam(':id_login',$id_login);
             $stm->bindParam(':usuario',$usuario);
             return $stm->execute();
         }
