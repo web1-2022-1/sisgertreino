@@ -1,41 +1,98 @@
+<?php
+   error_reporting(E_ALL);
+   ini_set("display_errors", 1);
+    require_once '../../Controller/Aluno/CrudAluno.php';
+    require_once '../../Controller/Contato/CrudContato.php'
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-        <link rel="stylesheet" href="../../css/css dashboard/style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/css editar/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
 
-        <title>PoriGYM</title>
+    <title>PoriGYM - Editar usuários</title>
 
-    </head>
+</head>
+<?php
+if (isset($_POST['editar'])) :
 
-    <body>
+ 
 
-        <main>
-      
-            <div class="div-top">
-                <img src="../../css/css login/img/login-image1.png" alt="login-image1" class="image-home" >
-                <h1 id="porigym-title-home">PoriGYM</h1>
-                <p id="text-home">Sistema para Gerenciamento de Treinos na Academia<br>
-                    PoriGYM<br>
-                    Trabalho proposto para disciplina de Laborátorio de Programação WEB I
-                    Desenvolvido por:<br>
-                    Lucas Macena Santiago Fialho;<br>
-                    Iuri Eduardo Braga;<br>
-                    Murilo Viana Brito;<br>
-                    Luis Felipe Fernandes;<br>
-                    João Pedro Pacheco.</p>
-            </div>
-              
-          
-        </main>
+    $aluno= new CrudAluno;
 
-        <asideL>
+    $aluno->setCpf_aluno($_POST['cpf']);
+    $aluno->setNome($_POST['nome']);
+    $aluno->setDt_nascimento($_POST['dt_nascimento']);
 
-            <div class="cont_esq">
+    $contato= new CrudContato;
+
+    $contato->setTelefone($_POST['tel']);
+    $contato->setEmail($_POST['email']);
+    $contato->setCpf_aluno($_POST['cpf']);
+
+
+    
+
+    $aluno->update($_POST['cpf']);
+    $contato->update($_POST['cpf']);
+    header("Location: ../visualizarUsuario/index.php");
+
+
+
+endif;
+?>
+
+<body>
+
+    <main>
+
+        <div class="sequencia_topo">
+
+            <a href="../dashboard/index.php">Home</a>
+            <p> > </p>
+            <a href="../visualizarUsuario/index.php">Usuário</a>
+            <p> > </p>
+            <a href="">Editar usuários</a>
+
+        </div>
+        <div class="conteudo">
+            <form action="" method='post'>
+                <h1 class="edit-title">Editar Aluno</h1>
+                <div class="campo-texto">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" value="<?php echo $_POST['nome'] ?>">
+                </div>
+                <div>
+                    <input type="hidden" name="cpf" value="<?php echo $_POST['cpf_aluno'] ?>">
+                </div>
+                <div class="campo-texto">
+                    <label for="dt_nascimento">Data de Nascimento</label>
+                    <input type="date" name="dt_nascimento" value="<?php echo $_POST['dt_nascimento'] ?>">
+                </div>
+                <div class="campo-texto">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" name="tel" value="<?php echo $_POST['telefone'] ?>">
+                </div>
+                <div class="campo-texto">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" value="<?php echo $_POST['email'] ?>">
+                </div>
+                <div class="botao-cadastro">
+                    <button type="submit" name="editar" class="botao">Editar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <asideL>
+
+    <div class="cont_esq">
                 <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
@@ -103,14 +160,13 @@
                     </li>                   
                 </ul>    
             </div>
-            
 
         </asideL>
 
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    </body>
+</body>
 
-    </html>
+</html>

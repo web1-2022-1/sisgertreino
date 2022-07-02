@@ -110,17 +110,19 @@ body{
 .abas_listar ul{
    list-style: none;
    display: flex;
+   
 }
 
 .abas_listar ul li{
    flex-direction: row;
+  
 }
 
 .abas_listar label{
    width: 180px;
-   padding: 25px;
+   padding: 10px;
    display: block;
-   background-color: #FFFAFA;
+   background-color: #DCDCDC;
    cursor: pointer;
    text-align: center;
    color: #F9501B;
@@ -131,10 +133,12 @@ body{
 .a_tabs:checked ~ label{
    background-color: #F9501B;
    color: #FFFFFF;
+   
 }
 
 .a_tabs{
    display: none;
+   
 }
 
 .conteudo{

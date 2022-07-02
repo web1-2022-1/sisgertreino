@@ -41,12 +41,12 @@
             $stm->bindParam(':senha',$senha);
             return $stm->execute();
         }
-        public function update($id){
-            $usuario=$this->getUsuario();
-            $senha=$this->getSenha();           
-            $sql="UPDATE $this->tabela SET usuario= :usuario, senha= :senha WHERE id = :id";
+        public function update ($id_login){
+            $usuario=$this->getUsuario();  
+            $senha=$this->getSenha();     
+            $sql="UPDATE $this->tabela SET usuario=:usuario, senha=:senha where id_login=:id_login";
             $stm=DB::prepare($sql);
-            $stm->bindParam(':id',$id,PDO::PARAM_INT);
+            $stm->bindParam(':id_login',$id_login);
             $stm->bindParam(':usuario',$usuario);
             $stm->bindParam(':senha',$senha);
             return $stm->execute();

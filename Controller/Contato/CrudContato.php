@@ -29,28 +29,26 @@
             $stm->bindParam(':cpf_instrutor',$cpf_instrutor);
             return $stm->execute();
         }
-        public function update($id){
-            $id_contato=$this->getId_contato();
+        public function update($cpf){
+            
             $telefone=$this->getTelefone();
             $email=$this->getEmail();
-            $cpf_aluno=$this->getCpf_aluno();
-            $cpf_instrutor= $this->getCpf_instrutor();
-            $sql="UPDATE $this->tabela SET telefone=:telefone, email=:email, cpf_aluno=:cpf_aluno, cpf_instrutor:cpf_instrutor WHERE id = :id_contato";
+            
+            $sql="UPDATE $this->tabela SET telefone=:telefone, email=:email WHERE cpf_instrutor=:cpf OR cpf_aluno=:cpf";
             $stm=DB::prepare($sql);
-            $stm->bindParam(':id_contato',$id_contato);
             $stm->bindParam(':telefone',$telefone);
             $stm->bindParam(':email',$email);
-            $stm->bindParam(':cpf_aluno',$cpf_aluno);
-            $stm->bindParam(':cpf_instrutor',$cpf_instrutor);
+            $stm->bindParam(':cpf',$cpf);
             return $stm->execute();
         }
-        public function delete($id){
-            $sql="DELETE FROM $this->tabela WHERE id= :id_contato";
-            $stm=DB::prepare($sql);
-            $stm->bindParam(':id_contato',$id_contato);
-            return $stm->execute();
+        
+    //     public function delete($id){
+    //         $sql="DELETE FROM $this->tabela WHERE id= :id_contato";
+    //         $stm=DB::prepare($sql);
+    //         $stm->bindParam(':id_contato',$id_contato);
+    //         return $stm->execute();
        
-    } 
+    // } 
 }
 
 

@@ -1,5 +1,5 @@
 <?php
-    require_once '../../Crud/Treino/CrudTreino.php'
+    require_once '../../Controller/Treino/CrudTreino.php'
 
 
 ?>
@@ -68,7 +68,8 @@
 
         <asideL>
 
-            <div class="cont_esq">
+        
+        <div class="cont_esq">
                 <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
@@ -97,12 +98,7 @@
                         </a>
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="caixaLateral">                           
-                            <span class="title_inside">Editar usuário</span>
-                        </a>
-                    </li>
-                    <li class="list_inside">
-                        <a href="#" class="caixaLateral">                           
+                        <a href="../visualizarUsuario/index.php" class="caixaLateral">                           
                             <span class="title_inside">Listar usuários</span>
                         </a>
                     </li>
@@ -122,13 +118,9 @@
                             <span class="title_inside">Criar treinos</span>
                         </a>
                     </li>
+                    
                     <li class="list_inside">
-                        <a href="#" class="caixaLateral">                           
-                            <span class="title_inside">Alterar treinos</span>
-                        </a>
-                    </li>
-                    <li class="list_inside">
-                        <a href="#" class="caixaLateral">                           
+                        <a href="../visualizarTreino/index.php" class="caixaLateral">                           
                             <span class="title_inside">Listar treinos</span>
                         </a>
                     </li>

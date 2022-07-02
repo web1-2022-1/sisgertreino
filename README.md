@@ -16,7 +16,7 @@ O sistema permitirá a criação de treinos, no qual cada treino é composto por
 ## :hammer: Funcionalidades do projeto
 
 - `Funcionalidade 1` `Cadastro de autores`: O sistema será capaz de realizar o cadastro de instrutores de academia e alunos que praticam a musculção, que serão os usuários do projeto. 
-- `Funcionalidade 2` `Cadastro de exercícios`: O sistema terá a opção de cadastrar novos exercícios que não estejam já estabelecidos previamente.
+- `Funcionalidade 2` `Cadastro de treinos`: O sistema terá a opção de cadastrar novos treinos utilizando os exercicios prreviamente cadastrados.
 - `Funcionalidade 3` `Montagem de treino`: O projeto tem como intuito a montagem de treinos compostos por exercícios.
 - `Funcionalidade 4` `Consulta de treino`: O aluno consultará o treino elaborado para o mesmo realizar.
 
