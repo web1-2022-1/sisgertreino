@@ -6,6 +6,16 @@
 
         protected $tabela= 'login';
 
+        public function ifExist($usuario){
+            $sql="SELECT  usuario 
+            FROM login where usuario=:usuario ";
+            $stm=DB::prepare($sql);
+            $stm->bindParam(':usuario',$usuario);
+            $stm->execute();
+            return $stm->fetch();
+
+        }
+
         public function getIdLogin(){
             $usuario=$this->getUsuario();
             $sql="SELECT id_login from login where usuario=:usuario";

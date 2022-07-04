@@ -2,14 +2,13 @@
 session_start();
 ob_start();
 error_reporting(E_ALL);
-    ini_set("display_errors", 1);
+ini_set("display_errors", 1);
 
 require_once '../../Controller/Instrutor/CrudInstrutor.php';
 require_once '../../Controller/Login/CrudLogin.php';
 require_once '../../Controller/Contato/CrudContato.php';
 require_once '../../Controller/Aluno/CrudAluno.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,20 +27,20 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 <body>
     <?php
 
-    $aluno= new CrudAluno;
+    $aluno = new CrudAluno;
     $instrutor = new CrudInstrutor;
     $login = new CrudLogin;
     $contato = new CrudContato;
 
-    //var_dump($_POST['abas']);
-    
+   
+
     if (isset($_POST['cadastrar'])) :
-       
-        if($_POST['abas']=='funcionario'){
-            
+
+        if ($_POST['abas'] == 'funcionario') {
+
             $login->setUsuario($_POST['user']);
             $login->setSenha($_POST['pass']);
-            
+
             $instrutor->setCpf_instrutor($_POST['cpf']);
             $instrutor->setNome($_POST['nome']);
             $instrutor->setDt_nascimento($_POST['dt_nascimento']);
@@ -49,160 +48,177 @@ require_once '../../Controller/Aluno/CrudAluno.php';
             $contato->setTelefone($_POST['tel']);
             $contato->setEmail($_POST['email']);
             $contato->setCpf_instrutor($_POST['cpf']);
-            
-            $isEmpty= $instrutor->ifExist($_POST['cpf']);
-            
-            if($isEmpty==false){
+
+            $isEmptyInstrutor = $instrutor->ifExist($_POST['cpf']);
+            $isEmptyUsuario =$login->ifExist($_POST['user']);
+
+            var_dump($isEmptyUsuario);
+
+            if ($isEmptyInstrutor == false && $isEmptyUsuario == false ) {
                 $login->insert();
                 $fk_login = $login->getIdLogin();
                 $instrutor->setFk_login($fk_login->id_login);
                 $instrutor->insert();
-                $contato->insert(); 
-            }else{
-                $_SESSION['msg']= "<p style='color: #ff0000'>CPF já cadastrado! </p>";
+                $contato->insert();
+            } else if($isEmptyInstrutor != false) {
+                $_SESSION['msg'] = "<p style='color: #ff0000'>CPF já cadastrado! </p>";
+            } else if($isEmptyUsuario != false){
+                $_SESSION['msg2'] = "<p style='color: #ff0000'>Usuario já cadastrado! </p>";
             }
 
-        }else if($_POST['abas']=='aluno'){
-         
+
+        } else if ($_POST['abas'] == 'aluno') {
+
             $aluno->setCpf_aluno($_POST['cpf_aluno']);
             $aluno->setNome($_POST['nome_aluno']);
             $aluno->setDt_nascimento($_POST['dt_nascimento_aluno']);
-            
-            
+
+
 
             $contato->setTelefone($_POST['tel_aluno']);
             $contato->setEmail($_POST['email_aluno']);
             $contato->setCpf_aluno($_POST['cpf_aluno']);
-            
-            $isEmpty= $aluno->ifExist($_POST['cpf_aluno']);
-            
-            if($isEmpty==false){
+
+            $isEmpty = $aluno->ifExist($_POST['cpf_aluno']);
+
+            if ($isEmpty == false) {
                 $aluno->insert();
-                $contato->insert(); 
-            }else{
-                $_SESSION['msg']= "<p style='color: #ff0000'>CPF já cadastrado! </p>";
+                $contato->insert();
+            } else {
+                $_SESSION['msg'] = "<p style='color: #ff0000'>CPF já cadastrado! </p>";
             }
         }
     endif;
-    
+
     ?>
 
+
     <main>
-
-
-
+    
         <div class="sequencia_topo">
-
+    
             <a href="">Home</a>
             <p> > </p>
-            <a href="">Usuário</a>
+            <a href="">Treino</a>
             <p> > </p>
-            <a href="">Cadastrar usuários</a>
+            <a href="">Criar treino</a>
+            
 
         </div>
-
-        <nav class="abas_listar">
-        <form action="" method='post'>
-
-            <ul>
-                <li>
-                    <input type="radio" name="abas" class="a_tabs" id="aba_1" value='funcionario' checked>
-                    <label for="aba_1">Funcionários</label>
-                
-
-                    <div class="conteudo">
+        <div class="cont_cadastro">
+            <nav class="abas_listar">
+                <form action="" method="post">
+                    <div class="cont_title">
                         <h1 class="login-title">Cadastro</h1>
-                        
-                       
-                            <div class="campo-texto">
-                                <label for="nome">Nome</label>
-                                <input type="text" name="nome">
-                            </div>
-                            <div class="campo-texto">
-                                <label for="user">Usuario</label>
-                                <input type="text" name="user">
-                            </div>
-                            <div class="campo-texto">
-                                <label for="cpf">CPF</label>
-                                <?php
-                                    if(isset($_SESSION['msg'])){
-                                        echo $_SESSION['msg']; 
-                                        unset($_SESSION['msg']);
-                                    }
-                                ?>
-                                <input type="text" name="cpf">
-                            </div>
-                            <div class="campo-texto">
-                                <label for="dt_nascimento">Data de Nascimento</label>
-                                <input type="date" name="dt_nascimento">
-                            </div>
-                            <div class="campo-texto">
-                                <label for="telefone">Telefone</label>
-                                <input type="text" name="tel">
-                            </div>
-                            <div class="campo-texto">
-                                <label for="email">E-mail</label>
-                                <input type="email" name="email">
-                            </div>
-                            <div class="campo-texto">
-                                <label for="senha">Senha</label>
-                                <input type="password" name="pass">
-                            </div>
-                            <div class="botao-cadastro">
-                                <button type="submit" name="cadastrar" class="botao">Cadastrar</button>
-                            </div>
-                       
-
-
                     </div>
-                </li>
+                    <div>
+                        <ul>
+                            <li>
 
-                <li>
-               
-                    <input type="radio" name="abas" class="a_tabs" id="aba_2" value='aluno'>
-                    <label for="aba_2">Alunos</label>
+                                <input type="radio" name="abas" class="a_tabs" id="aba_1" value="funcionario" checked>
+                                <label for="aba_1">Funcionários</label>
+                                <div class="conteudo">
 
-                    <div class="conteudo">
-                        <h1 class="login-title">Cadastro</h1>
-                        
-                        
-                            <div class="campo-texto">
-                                <label for="nome">Nome</label>
-                                <input type="text" name="nome_aluno">
-                            </div>
-                            <div class="campo-texto">
-                                <label for="cpf">CPF</label>
-                                <input type="text" name="cpf_aluno">
-                            </div>
-                            <div class="campo-texto">
-                                <label for="dt_nascimento">Data de Nascimento</label>
-                                <input type="date" name="dt_nascimento_aluno">
-                            </div>
-                            <div class="campo-texto">
-                                <label for="telefone">Telefone</label>
-                                <input type="text" name="tel_aluno">
-                            </div>
-                            <div class="campo-texto">
-                                <label for="email">E-mail</label>
-                                <input type="email" name="email_aluno">
-                            </div>
-                            <div class="botao-cadastro">
-                                <button type="submit" name="cadastrar" class="botao">Cadastrar</button>
-                            </div>
-                        
+                                    <div class="campo-texto">
+                                        <label for="nome">Nome</label>
+                                        <input type="text" name="nome">
+                                    </div>
+                                    <div class="campo-texto">
+                                        <label for="Usuario">Usuario</label>
+                                        <?php
+                                        if (isset($_SESSION['msg2'])) {
+                                            echo $_SESSION['msg2'];
+                                            unset($_SESSION['msg2']);
+                                        }
+                                        ?>
+                                        <input type="text" name="user">
+                                    </div>
+                                    <div class="campo-texto">
+                                        <label for="cpf">CPF</label>
+                                        <?php
+                                        if (isset($_SESSION['msg'])) {
+                                            echo $_SESSION['msg'];
+                                            unset($_SESSION['msg']);
+                                        }
+                                        ?>
+                                        <input type="text" name="cpf">
+                                    </div>
+                                    <div class="campo-texto">
+                                        <label for="dt_nascimento">Data de Nascimento</label>
+                                        <input type="date" name="dt_nascimento">
+                                    </div>
+                                    <div class="campo-texto">
+                                        <label for="telefone">Telefone</label>
+                                        <input type="text" name="tel">
+                                    </div>
+                                    <div class="campo-texto">
+                                        <label for="email">E-mail</label>
+                                        <input type="email" name="email">
+                                    </div>
+                                    <div class="campo-texto">
+                                        <label for="senha">Senha</label>
+                                        <input type="password" name="senha">
+                                    </div>
+                                    <div class="botao-cadastro">
+                                        <button type="submit" name="cadastrar" class="botao">Cadastrar</button>
+                                    </div>
 
+
+
+                                </div>
+                            </li>
+
+                            <li>
+
+                                <input type="radio" name="abas" class="a_tabs" id="aba_2" value="aluno">
+                                <label for="aba_2">Alunos</label>
+
+                                <div class="conteudo2">
+
+                                    <div class="campo-texto">
+                                        <label for="nome">Nome</label>
+                                        <input type="text" name="nome_aluno">
+                                    </div>
+                                    <div class="campo-texto">
+                                        <label for="cpf">CPF</label>
+                                        <?php
+                                        if (isset($_SESSION['msg'])) {
+                                            echo $_SESSION['msg'];
+                                            unset($_SESSION['msg']);
+                                        }
+                                        ?>
+                                        <input type="text" name="cpf_aluno">
+                                    </div>
+                                    <div class="campo-texto">
+                                        <label for="dt_nascimento">Data de Nascimento</label>
+                                        <input type="date" name="dt_nascimento_aluno">
+                                    </div>
+                                    <div class="campo-texto">
+                                        <label for="telefone">Telefone</label>
+                                        <input type="text" name="tel_aluno">
+                                    </div>
+                                    <div class="campo-texto">
+                                        <label for="email">E-mail</label>
+                                        <input type="email" name="email_aluno">
+                                    </div>
+                                    <div class="botao-cadastro">
+                                        <button type="submit" name="cadastrar" class="botao">Cadastrar</button>
+                                    </div>
+
+
+                                </div>
+                            </li>
+
+                        </ul>
                     </div>
-                </li>
+                </form>
+            </nav>
+            <div>
 
-            </ul>
-            </form>
-        </nav>
 
     </main>
 
     <asideL>
-
-    
     <div class="cont_esq">
                 <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
@@ -271,7 +287,6 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                     </li>                   
                 </ul>    
             </div>
-
 
     </asideL>
 
