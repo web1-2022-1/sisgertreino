@@ -4,8 +4,7 @@
 
     class FichaExercicio extends DB{
 
-        protected $tabela;
-        private $id_FichaExercicio;
+        protected $tabela;       
         private $nomeFicha;
         private $num_serie;
         private $repeticoes;
@@ -13,12 +12,7 @@
         private $tempo_descanso;
         private $fk_exercicio;
 
-        public function setId_FichaExercicio($id_FichaExercicio){
-            $this->id_FichaExercicio= $id_FichaExercicio;
-        }
-        public function getId_FichaExercicio(){
-            return $this->id_FichaExercicio;
-        }
+  
         public function setNomeFicha($nomeFicha){
             $this->nomeFicha=$nomeFicha;
         }
