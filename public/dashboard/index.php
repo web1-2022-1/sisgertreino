@@ -14,7 +14,7 @@
 
     <body>
 
-        <main>
+        <main id="scrollbar">
 
             <div class="back">
                 <div class="div-top">
