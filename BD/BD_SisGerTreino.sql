@@ -1,7 +1,3 @@
-create schema projetoweb;
-
-set schema 'projetoweb';
-
 create table login(
 	id_login serial not NULL,
 	usuario varchar(69),
@@ -67,8 +63,8 @@ create table historico(
 
 create table dado_fisicos(
 	id_dados_fisicos serial not null,
-	peso double precision,
-	altura double precision,
+	peso double,
+	altura double,
 	sexo char,
 	observacao_aluno text,
 	cpf_aluno integer
@@ -104,11 +100,11 @@ add foreign key (cpf_aluno) references aluno(cpf_aluno);
 alter table  contato
 add foreign key (cpf_instrutor) references instrutor(cpf_instrutor);
 
-
 alter table treino
 add foreign key (cpf_aluno) references aluno(cpf_aluno);
 alter table treino
 add foreign key (cpf_instrutor) references instrutor(cpf_instrutor);
+alter table treino
 add foreign key (fk_fichaExercicio) references fichaExercicio(id_fichaExercicio);
 
 alter table fichaExercicio
@@ -118,7 +114,6 @@ alter table historico
 add foreign key (cpf_aluno) references aluno(cpf_aluno);
 alter table historico
 add foreign key (fk_treino) references treino(id_treino);
-
 
 alter table dado_fisicos
 add foreign key (cpf_aluno) references aluno(cpf_aluno);
