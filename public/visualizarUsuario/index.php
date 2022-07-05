@@ -168,7 +168,7 @@
 
         <asideL>
 
-        
+        <div class="aaa">
         <div class="cont_esq">
                 <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
@@ -237,7 +237,7 @@
                     </li>                   
                 </ul>    
             </div>
-            
+        </div>    
 
         </asideL>
 
