@@ -125,6 +125,9 @@ asideL {
   overflow: scroll;
   flex-direction: column;
 }
+#scrollbar::-webkit-scrollbar { 
+  display: none;
+}
 
 .abas_listar ul{
   list-style: none;
