@@ -1,7 +1,7 @@
 <?php
-    require_once '../../Controller/Instrutor/CrudInstrutor.php';
-    require_once '../../Controller/Contato/CrudContato.php';
-    require_once '../../Controller/Login/CrudLogin.php';
+require_once '../../Controller/Instrutor/CrudInstrutor.php';
+require_once '../../Controller/Contato/CrudContato.php';
+require_once '../../Controller/Login/CrudLogin.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,27 +21,27 @@
 
 if (isset($_POST['editar'])) :
 
-    $login=new CrudLogin;
+    $login = new CrudLogin;
     $login->setUsuario($_POST['user']);
     $login->setSenha($_POST['senha']);
 
-    $instrutor= new Crudinstrutor;
+    $instrutor = new Crudinstrutor;
 
     $instrutor->setCpf_instrutor($_POST['cpf']);
     $instrutor->setNome($_POST['nome']);
     $instrutor->setDt_nascimento($_POST['dt_nascimento']);
 
-    $contato= new CrudContato;
+    $contato = new CrudContato;
 
     $contato->setTelefone($_POST['tel']);
     $contato->setEmail($_POST['email']);
     $contato->setCpf_instrutor($_POST['cpf']);
 
-    $idLogin= new CrudLogin;
+    $idLogin = new CrudLogin;
     $idLogin->setUsuario($_POST['userAntigo']);
 
     var_dump($_POST);
-    $idLogin2=$idLogin->getIdLogin();
+    $idLogin2 = $idLogin->getIdLogin();
     var_dump($idLogin->getIdLogin());
     $login->update($idLogin2->id_login);
     $instrutor->update($_POST['cpf']);
@@ -80,10 +80,10 @@ endif;
                 </div>
                 <div class="campo-texto">
                     <label for="nome">Senha</label>
-                    <input type="password" name="senha" value="<?php echo $_POST['senha'] ?>" >
+                    <input type="password" name="senha" value="<?php echo $_POST['senha'] ?>">
                 </div>
                 <div class="campo-texto">
-        
+
                     <input type="hidden" name="cpf" value="<?php echo $_POST['cpf_instrutor'] ?>">
                 </div>
                 <div class="campo-texto">
@@ -98,7 +98,7 @@ endif;
                     <label for="email">E-mail</label>
                     <input type="email" name="email" value="<?php echo $_POST['email'] ?>">
                 </div>
-               
+
                 <div class="botao-cadastro">
                     <button type="submit" name="editar" class="botao">Editar</button>
                 </div>
@@ -107,8 +107,8 @@ endif;
     </main>
 
     <asideL>
-
-    <div class="cont_esq">
+        <div class="aaa">
+            <div class="cont_esq">
                 <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
@@ -117,68 +117,76 @@ endif;
                 <ul>
                     <li class="list">
                         <a href="../dashboard/index.php" class="caixaLateral">
-                            <span class="icon"><ion-icon name="home-outline">Home</ion-icon></span>
+                            <span class="icon">
+                                <ion-icon name="home-outline">Home</ion-icon>
+                            </span>
                             <span class="title">Home</span>
                         </a>
-                    </li>               
+                    </li>
                 </ul>
-            </div>
-            <div class="but_esq">
-                <ul>                   
-                    <li class="list">
-                        <p class="space">
-                            <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                            <span class="title">Usuário</span>
-                        </p>  
-                    </li>               
-                    <li class="list_inside">
-                        <a href="../cadastrarUsuario/index.php" class="caixaLateral">                       
-                            <span class="title_inside">Cadastrar usuário</span>
-                        </a>
-                    </li>
-                    <li class="list_inside">
-                        <a href="../visualizarUsuario/index.php" class="caixaLateral">                           
-                            <span class="title_inside">Listar usuários</span>
-                        </a>
-                    </li>
-
-                </ul>    
             </div>
             <div class="but_esq">
                 <ul>
                     <li class="list">
                         <p class="space">
-                            <span class="icon"><ion-icon name="barbell-outline"></ion-icon></span>
-                            <span class="title">Treino</span>
-                        </p>  
-                    </li>               
+                            <span class="icon">
+                                <ion-icon name="person-outline"></ion-icon>
+                            </span>
+                            <span class="title">Usuário</span>
+                        </p>
+                    </li>
                     <li class="list_inside">
-                        <a href="#" class="caixaLateral">                       
+                        <a href="../cadastrarUsuario/index.php" class="caixaLateral">
+                            <span class="title_inside">Cadastrar usuário</span>
+                        </a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="../visualizarUsuario/index.php" class="caixaLateral">
+                            <span class="title_inside">Listar usuários</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="but_esq">
+                <ul>
+                    <li class="list">
+                        <p class="space">
+                            <span class="icon">
+                                <ion-icon name="barbell-outline"></ion-icon>
+                            </span>
+                            <span class="title">Treino</span>
+                        </p>
+                    </li>
+                    <li class="list_inside">
+                        <a href="#" class="caixaLateral">
                             <span class="title_inside">Criar treinos</span>
                         </a>
                     </li>
-                    
+
                     <li class="list_inside">
-                        <a href="../visualizarTreino/index.php" class="caixaLateral">                           
+                        <a href="../visualizarTreino/index.php" class="caixaLateral">
                             <span class="title_inside">Listar treinos</span>
                         </a>
                     </li>
 
-                </ul>    
+                </ul>
             </div>
             <div class="but_esq">
-                <ul>                                
+                <ul>
                     <li class="list">
                         <a href="../login/index.php" class="caixaLateral">
-                            <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>                       
+                            <span class="icon">
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </span>
                             <span class="title">Sair</span>
                         </a>
-                    </li>                   
-                </ul>    
+                    </li>
+                </ul>
             </div>
-            
 
-        </asideL>
+        </div>
+    </asideL>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
