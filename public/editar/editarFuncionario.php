@@ -68,7 +68,7 @@ endif;
 
         <div class="cont_tudo" id="scrollbar">
             <div class="cont_title">
-                <h1 class="edit-title">Editar Funcioná</h1>
+                <h1 class="edit-title">Editar Funcionário</h1>
             </div>
         <div class="conteudo">
             <form action="" method='post'>
