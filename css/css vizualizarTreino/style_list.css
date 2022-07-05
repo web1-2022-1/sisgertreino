@@ -118,6 +118,9 @@ body{
    height: 60vh;
    overflow: scroll;
 }
+#scrollbar::-webkit-scrollbar { 
+   display: none;
+ }
 .table{
    width: 100%;
    border: 1px solid;
