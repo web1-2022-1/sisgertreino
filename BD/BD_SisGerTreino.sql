@@ -21,8 +21,7 @@ create table treino(
 	id_treino integer not null,
 	nome_treino varchar(60),
 	dt_treino date,
-	cpf_aluno integer,
-	cpf_instrutor integer
+	cpf_aluno integer
 	
 );
 
