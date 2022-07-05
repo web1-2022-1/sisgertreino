@@ -9,20 +9,20 @@ body{
    height: 100vh; 
    display: grid; 
    grid-template-areas:
-   "boxL meio meio" 
-   "boxL meio meio" 
    "boxL meio meio"; 
-   grid-template-rows: 40px 100vh 80px;
-   grid-template-columns: 240px 1fr 60px;
+   grid-template-rows:100vh;
+   grid-template-columns: 26vh;
  }
  
  main {
+ display: flex;
  grid-area: meio; 
  background: white;
  }
  
  asideL {
- grid-area: boxL;
+ min-width: 200px;
+ grid-area: boxL; 
  background: #F9501B;
  border-top-right-radius: 10px;
  border-bottom-right-radius: 10px;
