@@ -21,7 +21,6 @@ create table treino(
 	id_treino integer not null,
 	nome_treino varchar(60),
 	dt_treino date,
-	fk_fichaExercicio serial,
 	cpf_aluno integer,
 	cpf_instrutor integer
 	
@@ -34,7 +33,8 @@ create table fichaExercicio(
 	repeticoes integer,
 	carga integer,
 	tempo_descanso varchar(36),
-	fk_exercicio integer
+	fk_exercicio integer,
+	fk_treino integer
 
 );
 
@@ -104,11 +104,11 @@ alter table treino
 add foreign key (cpf_aluno) references aluno(cpf_aluno);
 alter table treino
 add foreign key (cpf_instrutor) references instrutor(cpf_instrutor);
-alter table treino
-add foreign key (fk_fichaExercicio) references fichaExercicio(id_fichaExercicio);
 
 alter table fichaExercicio
 add foreign key (fk_exercicio) references exercicio(id_exercicio);
+alter table fichaExercicio
+add foreign key (fk_treino) references treino(id_treino);
 
 alter table historico
 add foreign key (cpf_aluno) references aluno(cpf_aluno);

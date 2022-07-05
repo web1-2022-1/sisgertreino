@@ -23,6 +23,12 @@
                 <a href="">Treino</a>
                 <p> > </p>
                 <a href="">Criar treino</a>
+                <?php 
+
+                $post_cpf_aluno=explode(':',$_POST['nome_aluno']);
+                $cpf_aluno=intval(substr($post_cpf_aluno[1],1,-2));
+                
+                ?>
 
             </div>
             
@@ -43,6 +49,7 @@
                             <div class="botao-cadastro">
                                 <button type="submit" name="cadastrar" class="botao">Criar</button>
                             </div>
+                            <input type="hidden" name="cpf_aluno" value="<?php echo $cpf_aluno ?>">
                 </form>
 
             </div>

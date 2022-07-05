@@ -1,10 +1,13 @@
+<?php
+    require_once '../../Controller/Aluno/CrudAluno.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-        <link rel="stylesheet" href="style-1.css">
+        <link rel="stylesheet" href="../../css/css treino/style-1.css">
         <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
 
@@ -13,6 +16,9 @@
     </head>
 
     <body>
+        <?php
+            $aluno= new CrudAluno;
+        ?>
 
         <main>
 
@@ -27,20 +33,27 @@
             </div>
             <div class="conteudo">
                 <h1 class="form-title">Treinos</h1>
-                <form method='POST' action="">
+                <form method='POST' action="nomeTreino.php">
                     <div class="search">
                         <div class="campo-texto">
                             <label for="nome_aluno">Nome do aluno</label>
-                            <input type="text" name="nome_aluno" list="pesquisa_aluno"/>
+                            <input  name="nome_aluno" list="pesquisa_aluno"/>
                         </div>
                         <div class="button_find">
-                            <button type="submit">Procurar Aluno</button>
+                            <button type="submit">Selecionar Aluno</button>
                         </div>
                     </div>
                     <datalist id="pesquisa_aluno">
-                        <option value="Carlos Silva Santos"></option>
-                        <option value="Ana Maria Costa de Oliveira"></option>
-                        <option value="Vitoria Cardoso Aguiar"></option>
+                    <?php
+                    foreach ($aluno->findAll() as $key => $value) {
+                        ?>
+                
+                        <option  name="nome e cpf" ><?php echo $value->nome.' (CPF: '. $value->cpf_aluno . ' )' ?></option>
+                        <input type="hidden" name="cpf_aluno" value="<?php echo $value->cpf_aluno?>">
+                        
+                   <?php }
+                
+                ?>
                     </datalist>
                 </form> 
             </div>
