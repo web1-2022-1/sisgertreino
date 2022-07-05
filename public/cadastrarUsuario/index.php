@@ -106,7 +106,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
         </div>
         <div class="cont_cadastro">
-            <nav class="abas_listar">
+            <nav class="abas_listar" id="scrollbar">
                 <form action="" method="post">
                     <div class="cont_title">
                         <h1 class="login-title">Cadastro</h1>
