@@ -18,6 +18,9 @@
   display: flex;
   grid-area: meio; 
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: whitesmoke;
  }
  
  asideL {
@@ -108,18 +111,23 @@
    justify-content: center;
    flex-direction: column;
    gap:10px;
-   height: 100vh;  
-}
-.image-home{
-   
-   width: 60vh;
-   height: 50vh;
+   height: 800px;
+   width: 800px; 
    border-top-left-radius: 10px;
    border-top-right-radius: 10px;
    border-bottom-left-radius: 10px;
    border-bottom-right-radius: 10px;
+   box-shadow: inset 0 0 1em #66382A;
+   box-shadow: 1px 0px 10px black;
+}
 
-
+.image-home{
+   width: 60vh;
+   height: 40vh;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+   border-bottom-left-radius: 10px;
+   border-bottom-right-radius: 10px;
 }
 
 #porigym-title-home{
@@ -130,7 +138,5 @@
    text-align: center;
    font-size: 18px;
    font-family: 'Andika' sans-serif;
-   
-   
 }
 
