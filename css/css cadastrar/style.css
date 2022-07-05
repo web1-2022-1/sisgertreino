@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Andika', sans-serif;
 }
 
 body{
@@ -37,6 +38,7 @@ asideL {
 }
 
 .cont_esq{
+  font-family: 'Allerta Stencil', sans-serif;
  align-items: center;
  display: flex;
  flex-direction: column;
@@ -99,7 +101,6 @@ asideL {
  display: flex;
  flex-direction: row;
  margin: 50px auto;
-
  padding-right: 50%;
  gap: 10px;
  font-family: 'Andika', sans-serif;

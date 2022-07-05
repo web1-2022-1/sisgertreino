@@ -66,9 +66,12 @@ endif;
 
         </div>
 
+        <div class="cont_tudo" id="scrollbar">
+            <div class="cont_title">
+                <h1 class="edit-title">Editar Funcionário</h1>
+            </div>
         <div class="conteudo">
             <form action="" method='post'>
-                <h1 class="edit-title">Editar Funcionário</h1>
                 <div class="campo-texto">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" value="<?php echo $_POST['nome'] ?>">
@@ -83,7 +86,6 @@ endif;
                     <input type="password" name="senha" value="<?php echo $_POST['senha'] ?>">
                 </div>
                 <div class="campo-texto">
-
                     <input type="hidden" name="cpf" value="<?php echo $_POST['cpf_instrutor'] ?>">
                 </div>
                 <div class="campo-texto">

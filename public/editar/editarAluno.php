@@ -61,7 +61,7 @@ endif;
             <a href="">Editar usuários</a>
 
         </div>
-        <div class="cont_tudo">
+        <div class="cont_tudo" id="scrollbar">
             <div class="cont_title">
                 <h1 class="edit-title">Editar Aluno</h1>
             </div>
@@ -95,6 +95,7 @@ endif;
     </main>
 
     <asideL>
+        <div class="aaa">
             <div class="cont_esq">
                 <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
@@ -171,6 +172,7 @@ endif;
                     </li>
                 </ul>
             </div>
+        </div>
     </asideL>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
