@@ -68,10 +68,9 @@ require_once '../../Controller/Login/CrudLogin.php';
                         <input type="text" name="usuario">
                     </div>
                     <div class="campo-texto">
-                        <div class="esqueceuSenha">
+                        
                             <label for="senha" class="pass">Senha</label>
-                            <a href="" class="pass">Esqueceu sua senha?</a>
-                        </div>
+                       
                         <input type="password" name="senha">
                     </div>
                     <div class="botao-login">
