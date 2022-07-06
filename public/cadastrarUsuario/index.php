@@ -220,7 +220,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
         <div class="aaa">
             <div class="cont_esq">
-                <img src="img/logo_braco.png" height="120px">
+                <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 
@@ -230,8 +230,8 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                         <a href="../dashboard/index.php" class="caixaLateral">
                             <span class="icon">
                                 <ion-icon name="home-outline"></ion-icon>
+                                <span class="title">Home</span>
                             </span>
-                            <span class="title">Home</span>
                         </a>
                     </li>
                 </ul>
@@ -289,8 +289,8 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                         <a href="../login/index.php" class="caixaLateral">
                             <span class="icon">
                                 <ion-icon name="log-out-outline"></ion-icon>
+                                <span class="title">Sair</span>
                             </span>
-                            <span class="title">Sair</span>
                         </a>
                     </li>
                 </ul>
