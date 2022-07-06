@@ -1,6 +1,3 @@
-<?php
-require_once '../../Controller/Treino/CrudTreino.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +5,7 @@ require_once '../../Controller/Treino/CrudTreino.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css treino/style-2.css">
+    <link rel="stylesheet" href="../../css/css vizualizarTreino/style_list.css">
     <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
 
@@ -27,53 +24,57 @@ require_once '../../Controller/Treino/CrudTreino.php';
             <a href="">Treino</a>
             <p> > </p>
             <a href="">Criar treino</a>
-            <?php
-
-            $post_cpf_aluno = explode(':', $_POST['nome_aluno']);
-            $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
-            $treino = new CrudTreino;
-            if (isset($_POST['cadastrar'])) {
-                $treino->setCpf_aluno($_POST['cpf_aluno']);
-                $treino->setDt_treino($_POST['dt_treino']);
-                $treino->setNome_treino($_POST['nome']);
-                $treino->insert();
-                header("Location: ../fichaExercicio/index.php");
-                
-            }
-            ?>
 
         </div>
+        <div class="conteudo" id="scrollbar">
+            <h1 class="edit-title">Lista de treinos</h1>
+            <table class="table" border="1">
+                <thead>
+                    <th class="table_head">Nome</th>
+                    <th class="table_head">Numero de Séries</th>
+                    <th class="table_head">Repetições</th>
+                    <th class="table_head">Carga</th>
+                    <th class="table_head">Tempo de descanso</th>
+                    <th class="table_head">Ações</th>
+                </thead>
+                <tbody>
 
-        <div class="conteudo">
+                        <tr>
+                            <td class="table_body"> Teste</td>
+                            <td class="table_body"> 2</td>
+                            <td class="table_body"> 3</td>
+                            <td class="table_body"> 4</td>
+                            <td class="table_body"> 5</td>
+                            <td>
+                                <form action="" method="post">
+                                    <button type="submit" name="visualizar">
+                                        <ion-icon name="eye-outline"></ion-icon>Visualizar
+                                    </button>
+                                    <input type="hidden" name="">
+                                </form>
+                                <button type="submit" name="alterar">
+                                    <ion-icon name="create-outline"></ion-icon>Alterar
+                                </button>
+                                <form action="" method="post">
+                                    <button type="submit" name="excluir">
+                                        <ion-icon name="trash-outline"></ion-icon>Excluir
+                                    </button>
+                                    <input type="hidden" name="id" value="">
+                                </form>
+                            </td>
+                            
+                        </tr>
 
-            <form action="" method='POST'>
-
-                <h1 class="edit-title">Criar Ficha</h1>
-
-                <div class="campo-texto">
-                    <label for="nome">Nome</label>
-                    <input type="text" name="nome">
-                </div>
-
-                <div class="campo-texto">
-                    <label for="user">Data</label>
-                    <input type="date" name="dt_treino">
-                </div>
-                <div class="botao-cadastro">
-                    <button type="submit" name="cadastrar" class="botao">Criar</button>
-                </div>
-                <input type="hidden" name="cpf_aluno" value="<?php echo $cpf_aluno ?>">
-            </form>
-
+                </tbody>
+            </table>
         </div>
-
     </main>
 
     <asideL>
         <div class="aaa">
 
             <div class="cont_esq">
-                <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
+                <img src="../../css/css vizualizarTreino/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 
