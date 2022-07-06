@@ -11,7 +11,7 @@ body{
    grid-template-areas:
    "boxL meio meio"; 
    grid-template-rows: 100vh;
-   grid-template-columns: 26vh;
+   grid-template-columns: 15vw;
  }
  
  main {
@@ -49,20 +49,26 @@ body{
    color: #FFFFFF;
  }
 
- .but_esq ul li a{
-   color: #FFFFFF;
+ .but_esq ul li a {
+  color: #FFFFFF;
+  display: flex;
+  height: 30px;
+  width: 15vw;
+  border-top-left-radius: 20px; 
+  border-bottom-left-radius: 20px;
+  text-decoration: none; 
 }
 
- .but_esq ul li a:hover{
-   color: #FF3D00;
-   background: #FFFFFF;
-   display: flex;
-   height: 30px;
-   width: 240px;
-   border-top-left-radius: 20px;
-   border-bottom-left-radius: 20px;
-   text-decoration: none;
- }
+.but_esq ul li a:hover {
+  color: #FF3D00;
+  background: #FFFFFF;
+  display: block;
+  height: 30px;
+  width: 15vw; 
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px; 
+  text-decoration: none;
+}
 
 .list a{
    text-decoration: none;
