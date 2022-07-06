@@ -163,7 +163,7 @@ body{
 .conteudo{
    display: none;
    position: absolute;
-   width: 100vh;
+   width: 50vw;
    height: 60vh;
    left: 0;
 }
@@ -188,9 +188,6 @@ body{
    text-align: center;
 }
 
-.cont_listar_usuario{
-   
-}
 
 
 
