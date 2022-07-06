@@ -253,6 +253,7 @@ asideL {
   width: 100vh;
   justify-content: center;
   align-items: center;
+  left: 61vh;
 }
 
 .cont_title{
@@ -268,5 +269,5 @@ asideL {
   width: 100vh;
   justify-content: center;
   align-items: center;
-  left: 67vh;
+  left: 61vh;
 }
