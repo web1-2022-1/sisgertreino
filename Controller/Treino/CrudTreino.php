@@ -6,6 +6,15 @@
 
         protected $tabela= 'treino';
 
+        public function findTreinoAluno(){
+            $cpf_aluno=$this->getCpf_aluno();
+            $sql="SELECT * FROM $this->tabela where cpf_aluno=:cpf_aluno";
+            $stm=DB::prepare($sql);
+            $stm->bindParam(':cpf_aluno',$cpf_aluno);
+            $stm->execute();
+            return $stm->fetchAll();
+        }
+
         //find all
         public function findAll(){
             $sql="SELECT * FROM $this->tabela";
