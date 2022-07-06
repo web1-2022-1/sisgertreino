@@ -37,7 +37,7 @@ require_once '../../Controller/Treino/CrudTreino.php';
                 $treino->setDt_treino($_POST['dt_treino']);
                 $treino->setNome_treino($_POST['nome']);
                 $treino->insert();
-                header("Location: ../fichaExercicio/index.php");
+                header("Location: ../criarFichaExercicio/index.php");
                 
             }
             ?>
