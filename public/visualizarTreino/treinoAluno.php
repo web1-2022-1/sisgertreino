@@ -135,7 +135,7 @@ $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
                         </p>
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="caixaLateral">
+                        <a href="../treino/index.php" class="caixaLateral">
                             <span class="title_inside">Criar treinos</span>
                         </a>
                     </li>
