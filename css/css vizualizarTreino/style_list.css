@@ -162,6 +162,28 @@ body{
    display: none;
  }
 
+ .button_find button{
+   font-family: 'Bai Jamjuree', sans-serif;
+   font-size: 15px;
+   margin-left: 15px;
+   padding: 8px;
+   border: none;
+   border-radius: 8px;
+   outline: none;
+   text-transform: uppercase;
+   font-weight: 700;
+   color: #FFFFFF;
+   background: #FF3D00;
+   cursor: pointer;
+   box-sizing: border-box;
+ }
+
+ .button_find{
+   display: flex;
+   justify-content: flex-end;
+   margin: 10px;
+ }
+
 
 
 
