@@ -32,7 +32,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
     $login = new CrudLogin;
     $contato = new CrudContato;
 
-   
+
 
     if (isset($_POST['cadastrar'])) :
 
@@ -50,23 +50,21 @@ require_once '../../Controller/Aluno/CrudAluno.php';
             $contato->setCpf_instrutor($_POST['cpf']);
 
             $isEmptyInstrutor = $instrutor->ifExist($_POST['cpf']);
-            $isEmptyUsuario =$login->ifExist($_POST['user']);
+            $isEmptyUsuario = $login->ifExist($_POST['user']);
 
             var_dump($isEmptyUsuario);
 
-            if ($isEmptyInstrutor == false && $isEmptyUsuario == false ) {
+            if ($isEmptyInstrutor == false && $isEmptyUsuario == false) {
                 $login->insert();
                 $fk_login = $login->getIdLogin();
                 $instrutor->setFk_login($fk_login->id_login);
                 $instrutor->insert();
                 $contato->insert();
-            } else if($isEmptyInstrutor != false) {
+            } else if ($isEmptyInstrutor != false) {
                 $_SESSION['msg'] = "<p style='color: #ff0000'>CPF já cadastrado! </p>";
-            } else if($isEmptyUsuario != false){
+            } else if ($isEmptyUsuario != false) {
                 $_SESSION['msg2'] = "<p style='color: #ff0000'>Usuario já cadastrado! </p>";
             }
-
-
         } else if ($_POST['abas'] == 'aluno') {
 
             $aluno->setCpf_aluno($_POST['cpf_aluno']);
@@ -94,15 +92,15 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
 
     <main>
-    
+
         <div class="sequencia_topo">
-    
+
             <a href="">Home</a>
             <p> > </p>
             <a href="">Treino</a>
             <p> > </p>
             <a href="">Criar treino</a>
-            
+
 
         </div>
         <div class="cont_cadastro">
@@ -219,8 +217,10 @@ require_once '../../Controller/Aluno/CrudAluno.php';
     </main>
 
     <asideL>
-    <div class="cont_esq">
-                <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
+
+        <div class="aaa">
+            <div class="cont_esq">
+                <img src="img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 
@@ -228,65 +228,74 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                 <ul>
                     <li class="list">
                         <a href="../dashboard/index.php" class="caixaLateral">
-                            <span class="icon"><ion-icon name="home-outline">Home</ion-icon></span>
+                            <span class="icon">
+                                <ion-icon name="home-outline"></ion-icon>
+                            </span>
                             <span class="title">Home</span>
                         </a>
-                    </li>               
+                    </li>
                 </ul>
-            </div>
-            <div class="but_esq">
-                <ul>                   
-                    <li class="list">
-                        <p class="space">
-                            <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                            <span class="title">Usuário</span>
-                        </p>  
-                    </li>               
-                    <li class="list_inside">
-                        <a href="../cadastrarUsuario/index.php" class="caixaLateral">                       
-                            <span class="title_inside">Cadastrar usuário</span>
-                        </a>
-                    </li>
-                    <li class="list_inside">
-                        <a href="../visualizarUsuario/index.php" class="caixaLateral">                           
-                            <span class="title_inside">Listar usuários</span>
-                        </a>
-                    </li>
-
-                </ul>    
             </div>
             <div class="but_esq">
                 <ul>
                     <li class="list">
                         <p class="space">
-                            <span class="icon"><ion-icon name="barbell-outline"></ion-icon></span>
+                            <span class="icon">
+                                <ion-icon name="person-outline"></ion-icon>
+                            </span>
+                            <span class="title">Usuário</span>
+                        </p>
+                    </li>
+                    <li class="list_inside">
+                        <a href="../cadastrarUsuario/index.php" class="caixaLateral">
+                            <span class="title_inside">Cadastrar usuário</span>
+                        </a>
+                    </li>
+                    <li class="list_inside">
+                        <a href="../visualizarUsuario/index.php" class="caixaLateral">
+                            <span class="title_inside">Listar usuários</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="but_esq">
+                <ul>
+                    <li class="list">
+                        <p class="space">
+                            <span class="icon">
+                                <ion-icon name="barbell-outline"></ion-icon>
+                            </span>
                             <span class="title">Treino</span>
-                        </p>  
-                    </li>               
+                        </p>
+                    </li>
                     <li class="list_inside">
                         <a href="../treino/index.php" class="caixaLateral">                       
                             <span class="title_inside">Criar treinos</span>
                         </a>
                     </li>
-                    
+
                     <li class="list_inside">
-                        <a href="../visualizarTreino/index.php" class="caixaLateral">                           
+                        <a href="../visualizarTreino/index.php" class="caixaLateral">
                             <span class="title_inside">Listar treinos</span>
                         </a>
                     </li>
 
-                </ul>    
+                </ul>
             </div>
             <div class="but_esq">
-                <ul>                                
+                <ul>
                     <li class="list">
                         <a href="../login/index.php" class="caixaLateral">
-                            <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>                       
+                            <span class="icon">
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </span>
                             <span class="title">Sair</span>
                         </a>
-                    </li>                   
-                </ul>    
+                    </li>
+                </ul>
             </div>
+        </div>
 
     </asideL>
 

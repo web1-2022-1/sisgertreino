@@ -1,14 +1,11 @@
-<?php
-require_once '../../Controller/Treino/CrudTreino.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css vizualizarTreino/style_list.css">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/css criar ficha de treino/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
 
@@ -29,56 +26,101 @@ require_once '../../Controller/Treino/CrudTreino.php';
             <a href="">Criar treino</a>
 
         </div>
-        <div class="conteudo" id="scrollbar">
-            <h1 class="edit-title">Lista de treinos</h1>
-            <table class="table" border="1">
-                <thead>
-                    <th class="table_head">Nome</th>
-                    <th class="table_head">Data do Treino</th>
-                    <th class="table_head">Ações</th>
-                </thead>
-                <tbody>
-                    <?php
+        <div class="conteudo">
+            <h1 class="form-title">Criar Ficha de Exercícios</h1>
+            <form method='POST' action="">
+                <div class="search">
+                    <div class="campo-texto">
+                        <label for="nome_aluno">Nome do exercício</label>
+                        <input type="text" name="nome_aluno" list="pesquisa_aluno" />
+                    </div>
+                    <div class="button_find">
+                        <a href="#modal_1" class="btn">Selecionar Exercício</a>
+                    </div>
+                </div>
+                <datalist id="pesquisa_aluno">
+                    <option value="Carlos Silva Santos"></option>
+                    <option value="Ana Maria Costa de Oliveira"></option>
+                    <option value="Vitoria Cardoso Aguiar"></option>
+                </datalist>
+            </form>
 
-                    $treino = new CrudTreino;
+            <!-- --------------->
 
-                    if(isset($_POST['excluir'])){
-                        $id=$_POST['id'];
-                        $treino->delete($id);
-                    }
-                    foreach ($treino->findAll() as $key => $value) {
-                    ?>
+
+            <!-- --------------->
+
+            <div class="table_exercicios">
+                <table class="table" border="1">
+                    <thead>
+                        <th class="table_head">Nome</th>
+                        <th class="table_head">Número de series</th>
+                        <th class="table_head">Repetições</th>
+                        <th class="table_head">Carga(kg)</th>
+                        <th class="table_head">Tempo de descanso</th>
+                        <th class="table_head">Ações</th>
+                    </thead>
+                    <tbody>
                         <tr>
-                            <td class="table_body"> <?php echo $value->nome_treino; ?> </td>
-                            <td class="table_body"> <?php echo $value->dt_treino; ?> </td>
-                            <td>
-                                <button type="submit" name="visualizar">
-                                    <ion-icon name="eye-outline"></ion-icon>Visualizar
-                                </button>
-                                <button type="submit" name="alterar">
-                                    <ion-icon name="create-outline"></ion-icon>Alterar
-                                </button>
-                                <form action="" method="post">
-                                <button type="submit" name="excluir">
-                                    <ion-icon name="trash-outline" ></ion-icon>Excluir
-                                </button>
-                                <input type="hidden" name="id" value="<?php echo $value->id_treino ?>">
-                                </form>
-
+                            <td class="table_body"> </td>
+                            <td class="table_body"> </td>
+                            <td class="table_body"> </td>
+                            <td class="table_body"> </td>
+                            <td class="table_body"> </td>
+                            <td id="acoes">
+                                <a type="submit" name="alterar" href="#">
+                                    <span class="icons_table">
+                                        <ion-icon name="create-outline"></ion-icon>
+                                    </span>
+                                </a>
+                                <a type="submit" name="excluir" href="#">
+                                    <span class="icons_table">
+                                        <ion-icon name="trash-outline"></ion-icon>
+                                    </span>
+                                </a>
                             </td>
                         </tr>
-                    <?php } ?>
-
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
+
+
     </main>
 
-    <asideL>
-        <div class="aaa">
+    <div id="modal_1" class="modal">
+        <div class="modal__content">
+            <h2 class="modal__title">
+                <strong>INCLUA OS VALORES</strong>
+            </h2>
+            <form class="modal__description">
+                <div class="text_field">
+                    <label for="num_serie">Número de séries</label>
+                    <input type="number" name="num_serie">
+                </div>
+                <div class="text_field">
+                    <label for="repeticoes">Repetições</label>
+                    <input type="number" name="repeticoes">
+                </div>
+                <div class="text_field">
+                    <label for="carga">Carga(kg)</label>
+                    <input type="number" name="carga">
+                </div>
+                <div class="text_field">
+                    <label for="descanso">Tempo de descanso</label>
+                    <input type="number" name="descanso">
+                </div>
+            </form>
+            <a href="#" class="modal__link">OK</a>
+        </div>
+    </div>
 
+    <asideL>
+
+        <div class="aaa">
             <div class="cont_esq">
-                <img src="../../css/css vizualizarTreino/img/logo_braco.png" height="120px">
+                <img src="../../css/css criar ficha de treino/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 
@@ -154,7 +196,6 @@ require_once '../../Controller/Treino/CrudTreino.php';
                 </ul>
             </div>
         </div>
-
 
     </asideL>
 
