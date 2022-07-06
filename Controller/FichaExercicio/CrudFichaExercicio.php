@@ -2,10 +2,17 @@
 
     require_once 'fichaExercicio.php';
 
-    class CrudExercicio extends fichaExercicio{
+    class CrudFichaExercicio extends fichaExercicio{
 
         protected $tabela= 'fichaExercicio';
 
+        public function findName($id){
+            $sql="SELECT nome_ficha FROM $this->tabela where id_fichaExercicio=:id_fichaExercicio";
+            $stm=DB::prepare($sql);
+            $stm->bindParam(':id_fichaExercicio',$id);
+            $stm->execute();
+            return $stm->fetch();
+        }
 
         public function findAll(){
             $sql="SELECT * FROM $this->tabela";
