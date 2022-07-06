@@ -28,6 +28,9 @@
         </div>
         <div class="conteudo" id="scrollbar">
             <h1 class="edit-title">Lista de Fichas</h1>
+            <div class="button_find">
+                <button type="submit">Adicionar Ficha</button>
+            </div>
             <table class="table" border="1">
                 <thead>
                     <th class="table_head">Nome</th>
