@@ -16,8 +16,8 @@ require_once '../../Controller/Treino/CrudTreino.php';
 
 </head>
 <?php
-     $post_cpf_aluno = explode(':', $_POST['nome_aluno']);
-     $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
+$post_cpf_aluno = explode(':', $_POST['nome_aluno']);
+$cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
 ?>
 
 <body>
@@ -46,8 +46,8 @@ require_once '../../Controller/Treino/CrudTreino.php';
 
                     $treino = new CrudTreino;
                     $treino->setCpf_aluno($cpf_aluno);
-                    if(isset($_POST['excluir'])){
-                        $id=$_POST['id'];
+                    if (isset($_POST['excluir'])) {
+                        $id = $_POST['id'];
                         $treino->delete($id);
                     }
                     foreach ($treino->findTreinoAluno() as $key => $value) {
@@ -56,17 +56,20 @@ require_once '../../Controller/Treino/CrudTreino.php';
                             <td class="table_body"> <?php echo $value->nome_treino; ?> </td>
                             <td class="table_body"> <?php echo $value->dt_treino; ?> </td>
                             <td>
-                                <button type="submit" name="visualizar">
-                                    <ion-icon name="eye-outline"></ion-icon>Visualizar
-                                </button>
+                                <form action="../visualizarFicha/index.php" method="post">
+                                    <button type="submit" name="visualizar">
+                                        <ion-icon name="eye-outline"></ion-icon>Visualizar
+                                    </button>
+                                    <input type="hidden" name="">
+                                </form>
                                 <button type="submit" name="alterar">
                                     <ion-icon name="create-outline"></ion-icon>Alterar
                                 </button>
                                 <form action="" method="post">
-                                <button type="submit" name="excluir">
-                                    <ion-icon name="trash-outline" ></ion-icon>Excluir
-                                </button>
-                                <input type="hidden" name="id" value="<?php echo $value->id_treino ?>">
+                                    <button type="submit" name="excluir">
+                                        <ion-icon name="trash-outline"></ion-icon>Excluir
+                                    </button>
+                                    <input type="hidden" name="id" value="<?php echo $value->id_treino ?>">
                                 </form>
 
                             </td>
