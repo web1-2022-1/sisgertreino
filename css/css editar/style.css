@@ -9,9 +9,8 @@ body {
    height: 100vh;
    display: grid;
    grid-template-areas:
-      "boxL meio meio";
-   grid-template-rows: 100vh;
-   grid-template-columns: 26vh;
+   "boxL meio meio";
+   grid-template-columns: 15vw;
 }
 
 main {
@@ -50,15 +49,22 @@ asideL {
 }
 
 .but_esq ul li a {
+   min-width: 200px;
    color: #FFFFFF;
+   display: flex;
+   height: 30px;
+   width: 15vw;
+   border-top-left-radius: 20px;
+   border-bottom-left-radius: 20px;
+   text-decoration: none; 
 }
 
 .but_esq ul li a:hover {
    color: #FF3D00;
    background: #FFFFFF;
-   display: flex;
+   display: block;
    height: 30px;
-   width: 240px;
+   width: 15vw;
    border-top-left-radius: 20px;
    border-bottom-left-radius: 20px;
    text-decoration: none;

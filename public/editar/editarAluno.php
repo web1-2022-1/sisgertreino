@@ -95,6 +95,7 @@ endif;
     </main>
 
     <asideL>
+
         <div class="aaa">
             <div class="cont_esq">
                 <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
@@ -106,9 +107,9 @@ endif;
                     <li class="list">
                         <a href="../dashboard/index.php" class="caixaLateral">
                             <span class="icon">
-                                <ion-icon name="home-outline">Home</ion-icon>
+                                <ion-icon name="home-outline"></ion-icon>
+                                <span class="title">Home</span>
                             </span>
-                            <span class="title">Home</span>
                         </a>
                     </li>
                 </ul>
@@ -166,13 +167,14 @@ endif;
                         <a href="../login/index.php" class="caixaLateral">
                             <span class="icon">
                                 <ion-icon name="log-out-outline"></ion-icon>
+                                <span class="title">Sair</span>
                             </span>
-                            <span class="title">Sair</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
+
     </asideL>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

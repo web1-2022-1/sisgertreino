@@ -10,7 +10,6 @@
   display: grid; 
   grid-template-areas:
   "boxL meio meio"; 
-  grid-template-rows: 100vh;
   grid-template-columns: 15vw;
  }
  
@@ -53,6 +52,7 @@
  }
  
  .but_esq ul li a {
+   min-width: 200px;
    color: #FFFFFF;
    display: flex;
    height: 30px;
@@ -64,7 +64,7 @@
  
 .but_esq ul li a:hover {
    color: #FF3D00;
-   background: #000000;
+   background: #FFFFFF;
    display: block;
    height: 30px;
    width: 15vw;

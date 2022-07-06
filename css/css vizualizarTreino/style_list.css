@@ -10,8 +10,7 @@ body{
    display: grid; 
    grid-template-areas:
    "boxL meio meio"; 
-   grid-template-rows: 100vh;
-   grid-template-columns: 26vh;
+   grid-template-columns: 15vw;
  }
  
  main {
@@ -50,20 +49,27 @@ body{
    color: #FFFFFF;
  }
 
- .but_esq ul li a{
+ .but_esq ul li a {
+   min-width: 200px;
    color: #FFFFFF;
-}
-
- .but_esq ul li a:hover{
-   color: #FF3D00;
-   background: #FFFFFF;
    display: flex;
    height: 30px;
-   width: 240px;
-   border-top-left-radius: 20px;
+   width: 15vw;
+   border-top-left-radius: 20px; 
    border-bottom-left-radius: 20px;
+   text-decoration: none; 
+}
+
+.but_esq ul li a:hover {
+   color: #FF3D00;
+   background: #FFFFFF;
+   display: block;
+   height: 30px;
+   width: 15vw; 
+   border-top-left-radius: 20px;
+   border-bottom-left-radius: 20px; 
    text-decoration: none;
- }
+}
 
 .list a{
    text-decoration: none;
@@ -111,12 +117,15 @@ body{
    color: black;
 }
 
+.aaa{
+   background-color: #F9501B;
+}
+
 /*-------------------------table */
 
 .conteudo{
    width: 100vh;
    height: 60vh;
-   overflow: scroll;
 }
 #scrollbar::-webkit-scrollbar { 
    display: none;
@@ -144,6 +153,14 @@ body{
    align-items: center;
    margin-bottom: 35px;
 }
+
+.container_main{
+   overflow: scroll;
+}
+
+#scrollbar::-webkit-scrollbar { 
+   display: none;
+ }
 
 
 
