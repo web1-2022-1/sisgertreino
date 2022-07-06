@@ -1,3 +1,6 @@
+<?php
+require_once '../../Controller/Treino/CrudTreino.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <link rel="stylesheet" href="style_list.css">
+    <link rel="stylesheet" href="../../css/css treino/style-2.css">
     <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
 
@@ -24,35 +27,53 @@
             <a href="">Treino</a>
             <p> > </p>
             <a href="">Criar treino</a>
+            <?php
+
+            $post_cpf_aluno = explode(':', $_POST['nome_aluno']);
+            $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
+            $treino = new CrudTreino;
+            if (isset($_POST['cadastrar'])) {
+                $treino->setCpf_aluno($_POST['cpf_aluno']);
+                $treino->setDt_treino($_POST['dt_treino']);
+                $treino->setNome_treino($_POST['nome']);
+                $treino->insert();
+                header("Location: ../fichaExercicio/index.php");
+                
+            }
+            ?>
 
         </div>
 
-        <div class="container_main" id="scrollbar">
+        <div class="conteudo">
 
-            <div class="conteudo">
-                <h1 class="edit-title">Exercício</h1>
-                <h3 class="edit-title">Abdominal Giro Russo no Banco com Peso</h3>
-                <table class="table" border="1">
-                    <thead>
-                        <th class="table_head">Descrição</th>
-                    </thead>
-                    <tbody>
-                        <td class="table_body">Deite-se no banco inclinado com os pés no apoio do banco. Levante as
-                            costas
-                            do banco e segure uma anilha com os braços esticados.
-                            Gire o tronco para o lado, movendo também os braços e o peso.
-                            Volte para a posição inicial e repita o giro para o outro lado.</td>
-                    </tbody>
-                </table>
-            </div>
+            <form action="" method='POST'>
+
+                <h1 class="edit-title">Criar Ficha</h1>
+
+                <div class="campo-texto">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome">
+                </div>
+
+                <div class="campo-texto">
+                    <label for="user">Data</label>
+                    <input type="date" name="dt_treino">
+                </div>
+                <div class="botao-cadastro">
+                    <button type="submit" name="cadastrar" class="botao">Criar</button>
+                </div>
+                <input type="hidden" name="cpf_aluno" value="<?php echo $cpf_aluno ?>">
+            </form>
+
         </div>
+
     </main>
 
     <asideL>
-
         <div class="aaa">
+
             <div class="cont_esq">
-                <img src="img/logo_braco.png" height="120px">
+                <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 
@@ -61,9 +82,9 @@
                     <li class="list">
                         <a href="../dashboard/index.php" class="caixaLateral">
                             <span class="icon">
-                                <ion-icon name="home-outline"></ion-icon>
-                                <span class="title">Home</span>
+                                <ion-icon name="home-outline">Home</ion-icon>
                             </span>
+                            <span class="title">Home</span>
                         </a>
                     </li>
                 </ul>
@@ -102,7 +123,7 @@
                         </p>
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="caixaLateral">
+                        <a href="../treino/index.php" class="caixaLateral">
                             <span class="title_inside">Criar treinos</span>
                         </a>
                     </li>
@@ -121,13 +142,14 @@
                         <a href="../login/index.php" class="caixaLateral">
                             <span class="icon">
                                 <ion-icon name="log-out-outline"></ion-icon>
-                                <span class="title">Sair</span>
                             </span>
+                            <span class="title">Sair</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
+
 
     </asideL>
 
