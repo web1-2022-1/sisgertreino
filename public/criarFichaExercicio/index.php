@@ -112,7 +112,7 @@
                     <input type="number" name="descanso">
                 </div>
             </form>
-            <a href="#" class="modal__link">OK</a>
+            <a href="index.php" class="modal__link">OK</a>
         </div>
     </div>
 
@@ -170,7 +170,7 @@
                         </p>
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="caixaLateral">
+                        <a href="../treino/index.php" class="caixaLateral">
                             <span class="title_inside">Criar treinos</span>
                         </a>
                     </li>
