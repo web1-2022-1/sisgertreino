@@ -10,7 +10,6 @@ body{
    display: grid; 
    grid-template-areas:
    "boxL meio meio"; 
-   grid-template-rows: 100vh;
    grid-template-columns: 15vw;
  }
  
@@ -127,7 +126,6 @@ body{
 .conteudo{
    width: 100vh;
    height: 60vh;
-   overflow: scroll;
 }
 .table{
    width: 100%;
@@ -152,6 +150,14 @@ body{
    align-items: center;
    margin-bottom: 35px;
 }
+
+.container_main{
+   overflow: scroll;
+}
+
+#scrollbar::-webkit-scrollbar { 
+   display: none;
+ }
 
 
 
