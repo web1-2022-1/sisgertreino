@@ -35,6 +35,9 @@ $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
         </div>
         <div class="conteudo" id="scrollbar">
             <h1 class="edit-title">Lista de treinos</h1>
+                <div class="button_find">
+                    <button type="submit">Criar Novo Treino</button>
+                </div>
             <table class="table" border="1">
                 <thead>
                     <th class="table_head">Nome</th>
