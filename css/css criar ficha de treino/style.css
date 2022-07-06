@@ -349,7 +349,6 @@ a {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    position: absolute;
-    margin-top: 91vh;
-    margin-left: 90vw;
+    margin-right: 2vw;
+    margin-bottom: 10px;
 }
