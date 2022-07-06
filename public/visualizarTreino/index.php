@@ -80,9 +80,9 @@ require_once '../../Controller/Treino/CrudTreino.php'
                     <li class="list">
                         <a href="../dashboard/index.php" class="caixaLateral">
                             <span class="icon">
-                                <ion-icon name="home-outline">Home</ion-icon>
+                                <ion-icon name="home-outline"></ion-icon>
+                                <span class="title">Home</span>
                             </span>
-                            <span class="title">Home</span>
                         </a>
                     </li>
                 </ul>
@@ -140,8 +140,8 @@ require_once '../../Controller/Treino/CrudTreino.php'
                         <a href="../login/index.php" class="caixaLateral">
                             <span class="icon">
                                 <ion-icon name="log-out-outline"></ion-icon>
-                            </span>
-                            <span class="title">Sair</span>
+                                <span class="title">Sair</span>
+                            </span>  
                         </a>
                     </li>
                 </ul>
