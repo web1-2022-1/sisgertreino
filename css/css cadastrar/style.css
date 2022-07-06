@@ -201,12 +201,15 @@ asideL {
   margin-top: 20px;
   margin-bottom: 50px;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .botao-cadastro button{
   font-family: 'Bai Jamjuree', sans-serif;
   font-size: 15px;
-  padding: 5px 21%;
+  width: 250px;
+  padding: 7px;
   border: none;
   border-radius: 8px;
   text-transform: uppercase;
@@ -216,6 +219,7 @@ asideL {
   cursor: pointer;
   box-sizing: border-box;
 }
+
 
 .login-title{
    font-family: 'Bai Jamjuree', sans-serif;
@@ -250,7 +254,6 @@ asideL {
 .conteudo{
   display: none;
   position: absolute;
-  width: 100vh;
   justify-content: center;
   align-items: center;
   left: 61vh;
@@ -266,7 +269,6 @@ asideL {
 .conteudo2{
   display: none;
   position: absolute;
-  width: 100vh;
   justify-content: center;
   align-items: center;
   left: 61vh;
