@@ -9,8 +9,7 @@ body {
    height: 100vh;
    display: grid;
    grid-template-areas:
-      "boxL meio meio";
-   grid-template-rows: 100vh;
+   "boxL meio meio";
    grid-template-columns: 15vw;
 }
 
