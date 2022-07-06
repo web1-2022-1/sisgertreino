@@ -49,8 +49,9 @@
                         <a href="../dashboard/index.php" class="caixaLateral">
                             <span class="icon">
                                 <ion-icon name="home-outline"></ion-icon>
+                                <span class="title">Home</span>
                             </span>
-                            <span class="title">Home</span>
+                            
                         </a>
                     </li>
                 </ul>
@@ -108,8 +109,8 @@
                         <a href="../login/index.php" class="caixaLateral">
                             <span class="icon">
                                 <ion-icon name="log-out-outline"></ion-icon>
+                                <span class="title">Sair</span>
                             </span>
-                            <span class="title">Sair</span>
                         </a>
                     </li>
                 </ul>
