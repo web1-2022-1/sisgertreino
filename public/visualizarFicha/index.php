@@ -1,3 +1,6 @@
+<?php 
+    require_once '../../Controller/FichaExercicio/CrudFichaExercicio.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +15,11 @@
     <title>PoriGYM</title>
 
 </head>
+<?php 
+    $fichaTreino= new CrudFichaExercicio;
+    $fichaTreino->setNomeFicha($fichaTreino->findName($_POST['id_ficha']));
+
+?>
 
 <body>
 
@@ -31,7 +39,7 @@
 
             <div class="conteudo">
                 <h1 class="edit-title">Lista de treinos</h1>
-                <h3 class="edit-title">Ficha 1</h3>
+                <h3 class="edit-title"><?php echo $fichaTreino->getNomeFicha() ?></h3>
             </div>
             <div class="conteudo" id="scrollbar">
                 
