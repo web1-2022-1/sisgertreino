@@ -53,6 +53,7 @@
  }
  
  .but_esq ul li a {
+   min-width: 200px;
    color: #FFFFFF;
    display: flex;
    height: 30px;
