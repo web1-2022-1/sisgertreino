@@ -146,7 +146,8 @@ asideL {
 }
 
 .abas_listar label{
-  width: 180px;
+  width: 12vw;
+  min-width: 135px;
   padding: 10px;
   display: block;
   background-color: #DCDCDC;
