@@ -14,9 +14,9 @@ body{
  }
  
  main {
- display: flex;
- grid-area: meio; 
- background: white;
+   display: flex;
+   grid-area: meio; 
+   flex-direction: column;
  }
  
  asideL {
@@ -104,6 +104,21 @@ body{
    background-color: #F9501B;
 }
 
+.sequencia_topo{
+   display: flex;
+   flex-direction: row;
+   margin: 50px auto;
+   padding-right: 50%;
+   gap: 10px;
+   font-family: 'Andika', sans-serif;
+   color: black;
+}
+
+.sequencia_topo a{
+   text-decoration: none;
+   color: black;
+}
+
 /*-------------Listagem dos usuarios--*/
 
 .abas_listar{
@@ -112,22 +127,16 @@ body{
    margin: 100px auto;
    background-color: #FFFFFF;
    position: relative;
-
-}
-
-.abas_listar{
    display: flex;
 }
 
 .abas_listar ul{
    list-style: none;
    display: flex;
-   
 }
 
 .abas_listar ul li{
    flex-direction: row;
-  
 }
 
 .abas_listar label{
@@ -145,12 +154,10 @@ body{
 .a_tabs:checked ~ label{
    background-color: #F9501B;
    color: #FFFFFF;
-   
 }
 
 .a_tabs{
    display: none;
-   
 }
 
 .conteudo{
@@ -169,7 +176,6 @@ body{
    width: 100%;
    border: 1px solid;
    border-collapse: collapse;
-
 }
 
 .table_head{
@@ -182,18 +188,9 @@ body{
    text-align: center;
 }
 
-.sequencia_topo{
-   display: flex;
-   flex-direction: row;
-   margin: 50px auto;
-   padding-left: 16%;
-   gap: 10px;
-   font-family: 'Andika', sans-serif;
-   color: black;
+.cont_listar_usuario{
+   
 }
 
-.sequencia_topo a{
-   text-decoration: none;
-   color: black;
-}
+
 
