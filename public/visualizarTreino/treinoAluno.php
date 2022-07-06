@@ -16,8 +16,15 @@ require_once '../../Controller/Treino/CrudTreino.php';
 
 </head>
 <?php
-$post_cpf_aluno = explode(':', $_POST['nome_aluno']);
-$cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
+if($_POST['cpf_aluno']==NULL){
+    $post_cpf_aluno = explode(':', $_POST['nome_aluno']);
+    $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
+    $treino = new CrudTreino;
+    $treino->setCpf_aluno($cpf_aluno);
+}else{
+    $treino = new CrudTreino;
+    $treino->setCpf_aluno($_POST['cpf_aluno']);
+}
 ?>
 
 <body>
@@ -31,6 +38,7 @@ $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
             <a href="">Treino</a>
             <p> > </p>
             <a href="">Criar treino</a>
+           
 
         </div>
         <div class="conteudo" id="scrollbar">
@@ -47,8 +55,7 @@ $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
                 <tbody>
                     <?php
 
-                    $treino = new CrudTreino;
-                    $treino->setCpf_aluno($cpf_aluno);
+                   
                     if (isset($_POST['excluir'])) {
                         $id = $_POST['id'];
                         $treino->delete($id);
@@ -63,7 +70,7 @@ $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
                                     <button type="submit" name="visualizar">
                                         <ion-icon name="eye-outline"></ion-icon>Visualizar
                                     </button>
-                                    <input type="hidden" name="">
+                                    <input type="hidden" name="id_treino" value="<?php echo $value->id_treino ?>">
                                 </form>
                                 <button type="submit" name="alterar">
                                     <ion-icon name="create-outline"></ion-icon>Alterar
@@ -73,6 +80,8 @@ $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
                                         <ion-icon name="trash-outline"></ion-icon>Excluir
                                     </button>
                                     <input type="hidden" name="id" value="<?php echo $value->id_treino ?>">
+                                    <input type="hidden" name="cpf_aluno" value="<?php echo $value->cpf_aluno ?>">
+
                                 </form>
 
                             </td>
