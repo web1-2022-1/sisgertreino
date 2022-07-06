@@ -1,3 +1,11 @@
+<?php 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+    require_once '../../Controller/Treino/CrudTreino.php';
+    require_once '../../Controller/FichaExercicio/CrudFichaExercicio.php';
+    require_once '../../Controller/Exercicio/CrudExercicio.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +20,24 @@
     <title>PoriGYM</title>
 
 </head>
+<?php 
+    if($_POST['nome']!=NULL){
+     $treino = new CrudTreino;
+     $treino->setCpf_aluno($_POST['cpf_aluno']);
+     $treino->setDt_treino($_POST['dt_treino']);
+     $treino->setNome_treino($_POST['nome']);
+     $treino->insert(); 
+    }
+     $exercicio = new CrudExercicio;
+     if(isset($_POST['ok'])){
+        $exercicio->setNome($_POST['nome_exercicio']);
+        $idExercicio= $exercicio->findId();
+        $fichaexercicio= new CrudFichaExercicio;
+        $fichaexercicio->setFk_exercicio($idExercicio->id_exercicio);
+        // $fichaexercicio->setNomeficha;
+     }
 
+?>
 <body>
 
     <main>
@@ -28,20 +53,28 @@
         </div>
         <div class="conteudo">
             <h1 class="form-title">Criar Ficha de Exercícios</h1>
+
             <form method='POST' action="">
                 <div class="search">
                     <div class="campo-texto">
                         <label for="nome_aluno">Nome do exercício</label>
-                        <input type="text" name="nome_aluno" list="pesquisa_aluno" />
+                        <input type="text" name="nome_exercicio" list="pesquisa_aluno" />
                     </div>
                     <div class="button_find">
-                        <a href="#modal_1" class="btn">Selecionar Exercício</a>
+                    <button type="submit" name="selecionar" class="btn">SELECIONAR EXERCÍCIO</button>
                     </div>
                 </div>
                 <datalist id="pesquisa_aluno">
-                    <option value="Carlos Silva Santos"></option>
-                    <option value="Ana Maria Costa de Oliveira"></option>
-                    <option value="Vitoria Cardoso Aguiar"></option>
+                <?php
+                    foreach ($exercicio->findAll() as $key => $value) {
+                    ?>
+
+                        <option name="nome_exercicio"><?php echo $value->nome ?></option>
+                        
+
+                    <?php }
+
+                    ?>
                 </datalist>
             </form>
 
@@ -113,8 +146,10 @@
                     <label for="descanso">Tempo de descanso</label>
                     <input type="number" name="descanso">
                 </div>
+                <input type="hidden" name="nome_ficha" value="<?php echo $_Post['nome_ficha']?>">
+                <button type="submit" name="ok" class="modal_link">OK</button>
+                
             </form>
-            <a href="index.php" class="modal__link">OK</a>
         </div>
     </div>
 
