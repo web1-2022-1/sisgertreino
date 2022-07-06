@@ -50,7 +50,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                     ?>
 
                         <option name="nome e cpf"><?php echo $value->nome . ' (CPF: ' . $value->cpf_aluno . ' )' ?></option>
-                        <input type="hidden" name="cpf_aluno" value="<?php echo $value->cpf_aluno ?>">
+                       
 
                     <?php }
 
