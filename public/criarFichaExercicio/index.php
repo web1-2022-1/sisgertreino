@@ -86,7 +86,7 @@
         </div>
 
         <div class="button_find" id="botao_salvar_ficha">
-            <a href="#modal_2" class="btn">Salvar Ficha</a>
+            <button type="submit" class="btn">Salvar Ficha</button>
         </div>
 
     </main>
@@ -112,21 +112,6 @@
                 <div class="text_field">
                     <label for="descanso">Tempo de descanso</label>
                     <input type="number" name="descanso">
-                </div>
-            </form>
-            <a href="index.php" class="modal__link">OK</a>
-        </div>
-    </div>
-
-    <div id="modal_2" class="modal">
-        <div class="modal__content">
-            <h2 class="modal__title">
-                <strong>Nome da Ficha</strong>
-            </h2>
-            <form class="modal__description">
-                <div class="text_field">
-                    <label for="nome_ficha"></label>
-                    <input type="text" name="nome_ficha">
                 </div>
             </form>
             <a href="index.php" class="modal__link">OK</a>
