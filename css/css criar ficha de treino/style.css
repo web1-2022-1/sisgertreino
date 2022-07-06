@@ -342,3 +342,13 @@ a {
 }
 
 /*--------------------------*/
+
+/*----------botao de salvar a ficha criada -------*/
+
+#botao_salvar_ficha{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: 30vh;
+    margin-right: 2vw;
+}

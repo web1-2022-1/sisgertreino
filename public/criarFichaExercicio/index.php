@@ -85,7 +85,9 @@
             </div>
         </div>
 
-
+        <div class="button_find" id="botao_salvar_ficha">
+            <button type="submit">Salvar Ficha</button>
+        </div>
 
     </main>
 
