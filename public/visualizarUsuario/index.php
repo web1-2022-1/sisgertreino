@@ -34,144 +34,147 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
         </div>
 
-        <nav class="abas_listar">
+        <div class="cont_listar_usuario">
 
-            <ul>
-                <li>
+            <nav class="abas_listar">
 
-                    <input type="radio" name="abas" class="a_tabs" id="aba_1" checked>
-                    <label for="aba_1">Funcionários</label>
+                <ul>
+                    <li>
 
-                    <div class="conteudo">
+                        <input type="radio" name="abas" class="a_tabs" id="aba_1" checked>
+                        <label for="aba_1">Funcionários</label>
 
-                        <table class="table" border="1">
-                            <thead>
-                                <th class="table_head">Nome</th>
-                                <th class="table_head">Usuário</th>
-                                <th class="table_head">E-mail</th>
-                                <th class="table_head">Telefone(CEL)</th>
-                                <th class="table_head">Nascimento</th>
-                                <th class="table_head">CPF</th>
-                                <th class="table_head">Ações</th>
-                            </thead>
-                            <tbody>
-                                <?php
+                        <div class="conteudo">
 
-                                $instrutor = new CrudInstrutor;
+                            <table class="table" border="1">
+                                <thead>
+                                    <th class="table_head">Nome</th>
+                                    <th class="table_head">Usuário</th>
+                                    <th class="table_head">E-mail</th>
+                                    <th class="table_head">Telefone(CEL)</th>
+                                    <th class="table_head">Nascimento</th>
+                                    <th class="table_head">CPF</th>
+                                    <th class="table_head">Ações</th>
+                                </thead>
+                                <tbody>
+                                    <?php
 
-                                if (isset($_POST['excluir'])) {
-                                    $id = $_POST['cpf_instrutor'];
-                                    $instrutor->delete($id);
-                                }
+                                    $instrutor = new CrudInstrutor;
 
-                                foreach ($instrutor->findData() as $key => $value) {
-                                ?>
-                                    <tr>
-                                        <td class="table_body"> <?php echo $value->nome; ?> </td>
-                                        <td class="table_body"> <?php echo $value->usuario; ?> </td>
-                                        <td class="table_body"> <?php echo $value->email; ?> </td>
-                                        <td class="table_body"> <?php echo $value->telefone; ?> </td>
-                                        <td class="table_body"> <?php echo $value->dt_nascimento; ?> </td>
-                                        <td class="table_body"> <?php echo $value->cpf_instrutor; ?> </td>
-                                        <td>
-                                            <form action="../editar/editarFuncionario.php" method="post">
-                                                <input name="cpf_instrutor" type="hidden" value="<?php echo $value->cpf_instrutor; ?>" />
-                                                <input name="nome" type="hidden" value="<?php echo $value->nome; ?>" />
-                                                <input name="usuario" type="hidden" value="<?php echo $value->usuario; ?>" />
-                                                <input name="senha" type="hidden" value="<?php echo $value->senha; ?>" />
-                                                <input name="email" type="hidden" value="<?php echo $value->email; ?>" />
-                                                <input name="telefone" type="hidden" value="<?php echo $value->telefone; ?>" />
-                                                <input name="dt_nascimento" type="hidden" value="<?php echo $value->dt_nascimento; ?>" />
+                                    if (isset($_POST['excluir'])) {
+                                        $id = $_POST['cpf_instrutor'];
+                                        $instrutor->delete($id);
+                                    }
 
-
-                                                <button type="submit" name="alterar">
-                                                    <ion-icon name="create-outline"></ion-icon>Alterar
-                                                </button>
-                                            </form>
-                                            <form action="" method="post">
-                                                <input name="cpf_instrutor" type="hidden" value="<?php echo $value->cpf_instrutor; ?>" />
-                                                <button type="submit" name="excluir">
-                                                    <ion-icon name="trash-outline"></ion-icon>Excluir
-                                                </button>
-                                            </form>
-                                        </td>
-
-                                    </tr>
-                                <?php } ?>
+                                    foreach ($instrutor->findData() as $key => $value) {
+                                    ?>
+                                        <tr>
+                                            <td class="table_body"> <?php echo $value->nome; ?> </td>
+                                            <td class="table_body"> <?php echo $value->usuario; ?> </td>
+                                            <td class="table_body"> <?php echo $value->email; ?> </td>
+                                            <td class="table_body"> <?php echo $value->telefone; ?> </td>
+                                            <td class="table_body"> <?php echo $value->dt_nascimento; ?> </td>
+                                            <td class="table_body"> <?php echo $value->cpf_instrutor; ?> </td>
+                                            <td>
+                                                <form action="../editar/editarFuncionario.php" method="post">
+                                                    <input name="cpf_instrutor" type="hidden" value="<?php echo $value->cpf_instrutor; ?>" />
+                                                    <input name="nome" type="hidden" value="<?php echo $value->nome; ?>" />
+                                                    <input name="usuario" type="hidden" value="<?php echo $value->usuario; ?>" />
+                                                    <input name="senha" type="hidden" value="<?php echo $value->senha; ?>" />
+                                                    <input name="email" type="hidden" value="<?php echo $value->email; ?>" />
+                                                    <input name="telefone" type="hidden" value="<?php echo $value->telefone; ?>" />
+                                                    <input name="dt_nascimento" type="hidden" value="<?php echo $value->dt_nascimento; ?>" />
 
 
-                            </tbody>
-                        </table>
+                                                    <button type="submit" name="alterar">
+                                                        <ion-icon name="create-outline"></ion-icon>Alterar
+                                                    </button>
+                                                </form>
+                                                <form action="" method="post">
+                                                    <input name="cpf_instrutor" type="hidden" value="<?php echo $value->cpf_instrutor; ?>" />
+                                                    <button type="submit" name="excluir">
+                                                        <ion-icon name="trash-outline"></ion-icon>Excluir
+                                                    </button>
+                                                </form>
+                                            </td>
 
-                    </div>
-                </li>
-
-                <li>
-
-                    <input type="radio" name="abas" class="a_tabs" id="aba_2">
-                    <label for="aba_2">Alunos</label>
-
-                    <div class="conteudo">
-
-                        <table class="table" border="1">
-                            <thead>
-                                <th class="table_head">Nome</th>
-                                <th class="table_head">E-mail</th>
-                                <th class="table_head">Telefone(CEL)</th>
-                                <th class="table_head">Nascimento</th>
-                                <th class="table_head">CPF</th>
-                                <th class="table_head">Ações</th>
-
-                            </thead>
-                            <tbody>
-                                <?php
-
-                                $aluno = new CrudAluno;
-
-                                if (isset($_POST['excluir2'])) {
-                                    $id = $_POST['cpf_aluno'];
-                                    $aluno->delete($id);
-                                }
-
-                                foreach ($aluno->findData() as $key => $value) {
-                                ?>
-                                    <tr>
-                                        <td class="table_body"> <?php echo $value->nome; ?> </td>
-                                        <td class="table_body"> <?php echo $value->email; ?> </td>
-                                        <td class="table_body"> <?php echo $value->telefone; ?> </td>
-                                        <td class="table_body"> <?php echo $value->dt_nascimento; ?> </td>
-                                        <td class="table_body"> <?php echo $value->cpf_aluno; ?> </td>
-                                        <td>
-                                            <form action="../editar/editarAluno.php" method="post">
-                                                <input name="cpf_aluno" type="hidden" value="<?php echo $value->cpf_aluno; ?>" />
-                                                <input name="nome" type="hidden" value="<?php echo $value->nome; ?>" />
-                                                <input name="email" type="hidden" value="<?php echo $value->email; ?>" />
-                                                <input name="telefone" type="hidden" value="<?php echo $value->telefone; ?>" />
-                                                <input name="dt_nascimento" type="hidden" value="<?php echo $value->dt_nascimento; ?>" />
+                                        </tr>
+                                    <?php } ?>
 
 
-                                                <button type="submit" name="alterar">
-                                                    <ion-icon name="create-outline"></ion-icon>Alterar
-                                                </button>
-                                            </form>
-                                            <form action="" method="post">
-                                                <input name="cpf_aluno" type="hidden" value="<?php echo $value->cpf_aluno; ?>" />
-                                                <button type="submit" name="excluir2">
-                                                    <ion-icon name="trash-outline"></ion-icon>Excluir
-                                                </button>
-                                            </form>
-                                        </td>
+                                </tbody>
+                            </table>
 
-                                    </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
+                        </div>
+                    </li>
 
-                    </div>
-                </li>
+                    <li>
 
-            </ul>
-        </nav>
+                        <input type="radio" name="abas" class="a_tabs" id="aba_2">
+                        <label for="aba_2">Alunos</label>
+
+                        <div class="conteudo">
+
+                            <table class="table" border="1">
+                                <thead>
+                                    <th class="table_head">Nome</th>
+                                    <th class="table_head">E-mail</th>
+                                    <th class="table_head">Telefone(CEL)</th>
+                                    <th class="table_head">Nascimento</th>
+                                    <th class="table_head">CPF</th>
+                                    <th class="table_head">Ações</th>
+
+                                </thead>
+                                <tbody>
+                                    <?php
+
+                                    $aluno = new CrudAluno;
+
+                                    if (isset($_POST['excluir2'])) {
+                                        $id = $_POST['cpf_aluno'];
+                                        $aluno->delete($id);
+                                    }
+
+                                    foreach ($aluno->findData() as $key => $value) {
+                                    ?>
+                                        <tr>
+                                            <td class="table_body"> <?php echo $value->nome; ?> </td>
+                                            <td class="table_body"> <?php echo $value->email; ?> </td>
+                                            <td class="table_body"> <?php echo $value->telefone; ?> </td>
+                                            <td class="table_body"> <?php echo $value->dt_nascimento; ?> </td>
+                                            <td class="table_body"> <?php echo $value->cpf_aluno; ?> </td>
+                                            <td>
+                                                <form action="../editar/editarAluno.php" method="post">
+                                                    <input name="cpf_aluno" type="hidden" value="<?php echo $value->cpf_aluno; ?>" />
+                                                    <input name="nome" type="hidden" value="<?php echo $value->nome; ?>" />
+                                                    <input name="email" type="hidden" value="<?php echo $value->email; ?>" />
+                                                    <input name="telefone" type="hidden" value="<?php echo $value->telefone; ?>" />
+                                                    <input name="dt_nascimento" type="hidden" value="<?php echo $value->dt_nascimento; ?>" />
+
+
+                                                    <button type="submit" name="alterar">
+                                                        <ion-icon name="create-outline"></ion-icon>Alterar
+                                                    </button>
+                                                </form>
+                                                <form action="" method="post">
+                                                    <input name="cpf_aluno" type="hidden" value="<?php echo $value->cpf_aluno; ?>" />
+                                                    <button type="submit" name="excluir2">
+                                                        <ion-icon name="trash-outline"></ion-icon>Excluir
+                                                    </button>
+                                                </form>
+                                            </td>
+
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
 
     </main>
 
