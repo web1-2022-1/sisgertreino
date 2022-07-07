@@ -189,7 +189,9 @@ if (isset($_POST['ok'])) {
                 <input type="hidden" name="nomeExercicio" value="<?php echo $_POST['nome_exercicio']; ?>">
                 <input type="hidden" name="fk_treino" value="<?php echo $_POST['fk']; ?>">
                 <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
-                <button type="submit" name="ok">OK</button>
+                <div class="div_button">
+                    <button type="submit" name="ok" class="btn_modal">OK</button>
+                </div>
         </div>
         </form>
     </div>

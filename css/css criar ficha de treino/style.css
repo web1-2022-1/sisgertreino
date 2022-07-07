@@ -247,6 +247,26 @@ a {
     box-sizing: border-box;
 }
 
+.btn_modal {
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-size: 15px;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #FFFFFF;
+    background: #FF3D00;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.div_button{
+    display: flex;
+    justify-content: center;
+}
+
 .modal {
     position: fixed;
     width: 100%;
