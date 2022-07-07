@@ -1,10 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-require_once '../../Controller/Treino/CrudTreino.php';
 require_once '../../Controller/FichaExercicio/CrudFichaExercicio.php';
-require_once '../../Controller/Exercicio/CrudExercicio.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,8 +7,8 @@ require_once '../../Controller/Exercicio/CrudExercicio.php';
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css criar ficha de treino/style.css">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/css vizualizarTreino/style_list.css">
     <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
 
@@ -21,41 +16,8 @@ require_once '../../Controller/Exercicio/CrudExercicio.php';
 
 </head>
 <?php
-
-
-
-if (isset($_POST['excluir'])) {
-    $idTreino = $_POST['fk'];
-}
-if (isset($_POST['nome'])) {
-    $treino = new CrudTreino;
-    $treino->setCpf_aluno($_POST['cpf_aluno']);
-    $treino->setDt_treino($_POST['dt_treino']);
-    $treino->setNome_treino($_POST['nome']);
-    $treino->insert();
-    $treinoid = $treino->findId();
-    $idTreino = $treinoid->id_treino;
-}
-$exercicio = new CrudExercicio;
 $fichaexercicio = new CrudFichaExercicio;
 
-if (isset($_POST['ok'])) {
-
-    $exercicio->setNome($_POST['nomeExercicio']);
-    $idExercicio = $exercicio->findId();
-    $fichaexercicio->setNomeFicha($_POST['nome_ficha']);
-    $fichaexercicio->setFk_exercicio($idExercicio->id_exercicio);
-    $fichaexercicio->setCarga($_POST['carga']);
-    $fichaexercicio->setRepeticoes($_POST['repeticoes']);
-    $fichaexercicio->setTempo_descanso($_POST['descanso']);
-    $fichaexercicio->setNum_serie($_POST['num_serie']);
-    $fichaexercicio->setFk_treino($_POST['fk_treino']);
-    $fichaexercicio->insert();
-    $idTreino = $_POST['fk_treino'];
-}
-if(isset($_POST['cadastrarNovaFicha'])){
-    $idTreino = $_POST['id_treino'];
-}
 
 ?>
 
@@ -72,59 +34,21 @@ if(isset($_POST['cadastrarNovaFicha'])){
             <a href="">Criar treino</a>
 
         </div>
-        <div class="conteudo">
-            <h1 class="form-title">Criar Ficha de Exercícios</h1>
 
-            <form method='POST' action="#modal_1">
-                <div class="search">
-                    <div class="campo-texto">
-                        <label for="nome_aluno">Nome do exercício</label>
-                        <input type="text" name="nome_exercicio" list="pesquisa_aluno" />
-                        <input type="hidden" name="fk" value="<?php echo $idTreino; ?>">
-                        <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
+        <div class="container_main" id="scrollbar">
 
-                    </div>
-                    <div class="button_find">
-                        <button type="submit" class="btn">SELECIONAR EXERCÍCIO</button>
-                    </div>
-                </div>
-                <datalist id="pesquisa_aluno">
-                    <?php
-                    foreach ($exercicio->findAll() as $key => $value) {
-                    ?>
+            <div class="conteudo">
+                <h1 class="edit-title">Lista de Exercícios</h1>
+                <h3 class="edit-title"><?php echo $_POST['nome_ficha'] ?></h3>
+            </div>
+            <div class="conteudo" id="scrollbar">
 
-                        <option name="nome_exercicio"><?php echo $value->nome ?></option>
-
-
-                    <?php }
-
-                    ?>
-                </datalist>
-
-
-
-            </form>
-
-
-
-
-
-
-
-
-
-            <!-- --------------->
-
-
-            <!-- --------------->
-
-            <div class="table_exercicios">
                 <table class="table" border="1">
                     <thead>
                         <th class="table_head">Nome</th>
-                        <th class="table_head">Número de series</th>
+                        <th class="table_head">Numero de séries</th>
                         <th class="table_head">Repetições</th>
-                        <th class="table_head">Carga(kg)</th>
+                        <th class="table_head">Carga</th>
                         <th class="table_head">Tempo de descanso</th>
                         <th class="table_head">Ações</th>
                     </thead>
@@ -136,7 +60,7 @@ if(isset($_POST['cadastrarNovaFicha'])){
                             $id = $_POST['id'];
                             $fichaexercicio->deleteExercicio($id);
                         }
-                        foreach ($fichaexercicio->findData($_POST['nome_ficha'], $idTreino) as $key => $value) {
+                        foreach ($fichaexercicio->findData($_POST['nome_ficha'], $_POST['id_treino']) as $key => $value) {
                         ?>
                             <tr>
                                 <td class="table_body"> <?php echo $value->nome; ?> </td>
@@ -146,18 +70,27 @@ if(isset($_POST['cadastrarNovaFicha'])){
                                 <td class="table_body"> <?php echo $value->tempo_descanso; ?> </td>
                                 <td id="acoes">
                                     <form action="" method="post">
+                                        <button type="submit" name="visualizar">
+                                            <span class="icons_table">
+                                                <ion-icon name="eye-outline"></ion-icon>
+                                            </span>
+                                        </button>
+                                    </form>
+                                    <form action="" method="post">
                                         <button type="submit" name="alterar">
                                             <span class="icons_table">
                                                 <ion-icon name="create-outline"></ion-icon>
                                             </span>
                                         </button>
+                                    </form>
 
+                                    <form action="" method="post">
                                         <button type="submit" name="excluir">
                                             <span class="icons_table">
                                                 <ion-icon name="trash-outline"></ion-icon>
                                                 <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
                                                 <input type="hidden" name="id" value="<?php echo $value->id_fichaExercicio; ?>">
-                                                <input type="hidden" name="fk" value="<?php echo $idTreino; ?>">
+                                                <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
 
                                             </span>
                                         </button>
@@ -167,50 +100,11 @@ if(isset($_POST['cadastrarNovaFicha'])){
 
                             </tr>
                     </tbody>
+
                 </table>
             </div>
         </div>
-        <form action="../visualizarFicha/index.php" method="post">
-            <div class="button_find" id="botao_salvar_ficha">
-                <button type="submit" class="btn">Salvar Ficha</button>
-                <input type="hidden" name="id_treino" value="<?php echo $idTreino ?>">
-            </div>
-        </form>
-
     </main>
-    <div id="modal_1" class="modal">
-
-        <div class="modal__content">
-            <h2 class="modal__title">
-                <strong>INCLUA OS VALORES</strong>
-            </h2>
-            <form action="index.php" method="post">
-                <div class="text_field">
-                    <label for="num_serie">Número de séries</label>
-                    <input type="number" name="num_serie">
-                </div>
-                <div class="text_field">
-                    <label for="repeticoes">Repetições</label>
-                    <input type="number" name="repeticoes">
-                </div>
-                <div class="text_field">
-                    <label for="carga">Carga(kg)</label>
-                    <input type="number" name="carga">
-                </div>
-                <div class="text_field">
-                    <label for="descanso">Tempo de descanso</label>
-                    <input type="number" name="descanso">
-                </div>
-                <input type="hidden" name="nomeExercicio" value="<?php echo $_POST['nome_exercicio']; ?>">
-                <input type="hidden" name="fk_treino" value="<?php echo $_POST['fk']; ?>">
-                <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
-                <div class="div_button">
-                    <button type="submit" name="ok" class="btn_modal">OK</button>
-                </div>
-        </div>
-        </form>
-    </div>
-
 
     <asideL>
 
@@ -225,7 +119,7 @@ if(isset($_POST['cadastrarNovaFicha'])){
                     <li class="list">
                         <a href="../dashboard/index.php" class="caixaLateral">
                             <span class="icon">
-                                <ion-icon name="home-outline">Home</ion-icon>
+                                <ion-icon name="home-outline"></ion-icon>
                                 <span class="title">Home</span>
                             </span>
                         </a>
@@ -266,7 +160,7 @@ if(isset($_POST['cadastrarNovaFicha'])){
                         </p>
                     </li>
                     <li class="list_inside">
-                        <a href="../treino/index.php" class="caixaLateral">
+                        <a href="#" class="caixaLateral">
                             <span class="title_inside">Criar treinos</span>
                         </a>
                     </li>
