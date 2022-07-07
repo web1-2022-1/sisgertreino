@@ -70,6 +70,13 @@ $fichaexercicio = new CrudFichaExercicio;
                                 <td class="table_body"> <?php echo $value->tempo_descanso; ?> </td>
                                 <td id="acoes">
                                     <form action="" method="post">
+                                        <button type="submit" name="visualizar">
+                                            <span class="icons_table">
+                                                <ion-icon name="eye-outline"></ion-icon>
+                                            </span>
+                                        </button>
+                                    </form>
+                                    <form action="" method="post">
                                         <button type="submit" name="alterar">
                                             <span class="icons_table">
                                                 <ion-icon name="create-outline"></ion-icon>
@@ -77,7 +84,7 @@ $fichaexercicio = new CrudFichaExercicio;
                                         </button>
                                     </form>
 
-                                        <form action="" method="post">
+                                    <form action="" method="post">
                                         <button type="submit" name="excluir">
                                             <span class="icons_table">
                                                 <ion-icon name="trash-outline"></ion-icon>
