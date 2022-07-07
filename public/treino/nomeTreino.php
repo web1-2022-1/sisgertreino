@@ -38,7 +38,7 @@ require_once '../../Controller/Treino/CrudTreino.php';
 
         <div class="conteudo">
 
-            <form action="../criarFichaExercicio/index.php" method='POST'>
+            <form action="#modal_1" method='POST'>
 
                 <h1 class="edit-title">Criar Treino</h1>
 
@@ -51,7 +51,7 @@ require_once '../../Controller/Treino/CrudTreino.php';
                     <input type="date" name="dt_treino">
                 </div>
                 <div class="botao-cadastro" id="botao_salvar_ficha">
-                    <a href="#modal_1" class="botao-cadastro-a">Salvar Treino</a>
+                    <button type="submit" class="botao-cadastro-a">Salvar Treino</button>
                 </div>
                 <input type="hidden" name="cpf_aluno" value="<?php echo $cpf_aluno ?>">
             </form>
@@ -63,7 +63,7 @@ require_once '../../Controller/Treino/CrudTreino.php';
                 <h2 class="modal__title">
                     <strong>Digite o nome</strong>
                 </h2>
-                <form class="modal__description">
+                <form action="../criarFichaExercicio/index.php" class="modal__description" method="POST">
                     <div class="text_field">
                         <label for="nome_ficha">Nome da Ficha</label>
                         <input type="text" name="nome_ficha">
@@ -71,6 +71,10 @@ require_once '../../Controller/Treino/CrudTreino.php';
                     <div class="botao-cadastro" id="botao_salvar_ficha">
                         <button class="save-name-modal" type="submit">OK</button>
                     </div>
+                    <input type="hidden" name="nome" value="<?php echo $_POST['nome']?>">
+                    <input type="hidden" name="dt_treino" value="<?php echo $_POST['dt_treino'] ?>">
+                    <input type="hidden" name="cpf_aluno" value="<?php echo $_POST['cpf_aluno'] ?>">
+
                 </form>
             </div>
         </div>

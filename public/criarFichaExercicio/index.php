@@ -23,7 +23,7 @@ require_once '../../Controller/Exercicio/CrudExercicio.php';
 <?php
    
 
- var_dump($_POST); 
+ 
 if (isset($_POST['nome'])) {
     $treino = new CrudTreino;
     $treino->setCpf_aluno($_POST['cpf_aluno']);
@@ -35,12 +35,13 @@ if (isset($_POST['nome'])) {
     
     
 }
-$exercicio = new CrudExercicio;
 if (isset($_POST['ok'])) {
+    $exercicio= new CrudExercicio;
     $exercicio->setNome($_POST['nomeExercicio']);
     $idExercicio = $exercicio->findId();
     $fichaexercicio = new CrudFichaExercicio;
-    $fichaexercicio->setFk_exercicio($idExercicio);
+    $fichaexercicio->setNomeFicha($_POST['nome_ficha']);
+    $fichaexercicio->setFk_exercicio($idExercicio->id_exercicio);
     $fichaexercicio->setCarga($_POST['carga']);
     $fichaexercicio->setRepeticoes($_POST['repeticoes']);
     $fichaexercicio->setTempo_descanso($_POST['descanso']);
@@ -74,6 +75,8 @@ if (isset($_POST['ok'])) {
                         <label for="nome_aluno">Nome do exercício</label>
                         <input type="text" name="nome_exercicio" list="pesquisa_aluno" />
                         <input type="hidden" name="fk" value="<?php echo $idTreino; ?>">
+                        <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha'] ;?>">
+
                     </div>
                     <div class="button_find">
                         <button type="submit" class="btn">SELECIONAR EXERCÍCIO</button>

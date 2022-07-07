@@ -23,22 +23,24 @@
         
         public function insert(){
             
-            $nome=$this->getNomeFicha();
+            $nome_ficha=$this->getNomeFicha();
             $num_serie=$this->getNum_serie();
             $repeticoes=$this->getRepeticoes();
             $carga=$this->getCarga();
             $tempo_descanso=$this->getTempo_descanso();
             $fk_exercicio=$this->getFk_exercicio();
-            $sql="INSERT INTO $this->tabela (nome, num_serie,repeticoes,carga,tempo_descanso,fk_exercicio) 
-            VALUES (:nome, :num_serie,:repeticoes,:carga,:tempo_descanso,:fk_exercicio)";
+            $fk_treino=$this->getFk_treino();
+
+            $sql="INSERT INTO $this->tabela (nome_ficha, num_serie,repeticoes,carga,tempo_descanso,fk_exercicio, fk_treino) 
+            VALUES (:nome_ficha, :num_serie,:repeticoes,:carga,:tempo_descanso,:fk_exercicio, :fk_treino)";
             $stm=DB::prepare($sql);
-            $stm->bindParam(':nome',$nome);
+            $stm->bindParam(':nome_ficha',$nome_ficha);
             $stm->bindParam(':num_serie',$num_serie);
             $stm->bindParam(':repeticoes',$repeticoes);
             $stm->bindParam(':carga',$carga);
             $stm->bindParam(':tempo_descanso',$tempo_descanso);
             $stm->bindParam(':fk_exercicio',$fk_exercicio);
-
+            $stm->bindParam(':fk_treino',$fk_treino);
             return $stm->execute();
         } 
         /*public function update($id){
