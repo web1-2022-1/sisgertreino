@@ -204,7 +204,6 @@ asideL {
 
 .table button{
     border:none;
-    outline:none;
 }
 
 .table_head {
@@ -231,9 +230,6 @@ asideL {
     text-align: center;
 }
 
-#acoes button{
-    outline: none;
-}
 
 /*-------------------------modal*/
 a {
