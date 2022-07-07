@@ -226,6 +226,10 @@ asideL {
     text-align: center;
 }
 
+#acoes button{
+    outline: none;
+}
+
 /*-------------------------modal*/
 a {
     text-decoration: none;
