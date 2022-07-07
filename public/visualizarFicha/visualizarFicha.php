@@ -33,11 +33,8 @@
             </div>
             <table class="table" border="1">
                 <thead>
-                    <th class="table_head">Nome</th>
-                    <th class="table_head">Numero de Séries</th>
-                    <th class="table_head">Repetições</th>
-                    <th class="table_head">Carga</th>
-                    <th class="table_head">Tempo de descanso</th>
+                    <th class="table_head">Nome da Ficha</th>
+                    <th class="table_head">Data</th>
                     <th class="table_head">Ações</th>
                 </thead>
                 <tbody>
@@ -45,9 +42,6 @@
                         <tr>
                             <td class="table_body"> Teste</td>
                             <td class="table_body"> 2</td>
-                            <td class="table_body"> 3</td>
-                            <td class="table_body"> 4</td>
-                            <td class="table_body"> 5</td>
                             <td>
                                 <form action="" method="post">
                                     <button type="submit" name="visualizar">
