@@ -186,8 +186,8 @@ $fichaExercicio = new CrudFichaExercicio;
                         <a href="../login/index.php" class="caixaLateral">
                             <span class="icon">
                                 <ion-icon name="log-out-outline"></ion-icon>
+                                <span class="title">Sair</span>
                             </span>
-                            <span class="title">Sair</span>
                         </a>
                     </li>
                 </ul>
