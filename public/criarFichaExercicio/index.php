@@ -1,9 +1,9 @@
-<?php 
+<?php
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-    require_once '../../Controller/Treino/CrudTreino.php';
-    require_once '../../Controller/FichaExercicio/CrudFichaExercicio.php';
-    require_once '../../Controller/Exercicio/CrudExercicio.php';
+require_once '../../Controller/Treino/CrudTreino.php';
+require_once '../../Controller/FichaExercicio/CrudFichaExercicio.php';
+require_once '../../Controller/Exercicio/CrudExercicio.php';
 
 ?>
 <!DOCTYPE html>
@@ -20,24 +20,38 @@ ini_set("display_errors", 1);
     <title>PoriGYM</title>
 
 </head>
-<?php 
-    if($_POST['nome']!=NULL){
-     $treino = new CrudTreino;
-     $treino->setCpf_aluno($_POST['cpf_aluno']);
-     $treino->setDt_treino($_POST['dt_treino']);
-     $treino->setNome_treino($_POST['nome']);
-     $treino->insert(); 
-    }
-     $exercicio = new CrudExercicio;
-     if(isset($_POST['ok'])){
-        $exercicio->setNome($_POST['nome_exercicio']);
-        $idExercicio= $exercicio->findId();
-        $fichaexercicio= new CrudFichaExercicio;
-        $fichaexercicio->setFk_exercicio($idExercicio->id_exercicio);
-        // $fichaexercicio->setNomeficha;
-     }
+<?php
+   
+
+ var_dump($_POST); 
+if (isset($_POST['nome'])) {
+    $treino = new CrudTreino;
+    $treino->setCpf_aluno($_POST['cpf_aluno']);
+    $treino->setDt_treino($_POST['dt_treino']);
+    $treino->setNome_treino($_POST['nome']);
+    $treino->insert();
+    $treinoid=$treino->findId();
+    $idTreino=$treinoid->id_treino;
+    
+    
+}
+$exercicio = new CrudExercicio;
+if (isset($_POST['ok'])) {
+    $exercicio->setNome($_POST['nomeExercicio']);
+    $idExercicio = $exercicio->findId();
+    $fichaexercicio = new CrudFichaExercicio;
+    $fichaexercicio->setFk_exercicio($idExercicio);
+    $fichaexercicio->setCarga($_POST['carga']);
+    $fichaexercicio->setRepeticoes($_POST['repeticoes']);
+    $fichaexercicio->setTempo_descanso($_POST['descanso']);
+    $fichaexercicio->setNum_serie($_POST['num_serie']);
+    $fichaexercicio->setFk_treino($_POST['fk_treino']);
+    $fichaexercicio->insert();
+    $idTreino=$_POST['fk_treino'];
+}
 
 ?>
+
 <body>
 
     <main>
@@ -54,29 +68,41 @@ ini_set("display_errors", 1);
         <div class="conteudo">
             <h1 class="form-title">Criar Ficha de Exercícios</h1>
 
-            <form method='POST' action="">
+            <form method='POST' action="#modal_1">
                 <div class="search">
                     <div class="campo-texto">
                         <label for="nome_aluno">Nome do exercício</label>
                         <input type="text" name="nome_exercicio" list="pesquisa_aluno" />
+                        <input type="hidden" name="fk" value="<?php echo $idTreino; ?>">
                     </div>
                     <div class="button_find">
-                    <button type="submit" name="selecionar" class="btn">SELECIONAR EXERCÍCIO</button>
+                        <button type="submit" class="btn">SELECIONAR EXERCÍCIO</button>
                     </div>
                 </div>
                 <datalist id="pesquisa_aluno">
-                <?php
+                    <?php
                     foreach ($exercicio->findAll() as $key => $value) {
                     ?>
 
                         <option name="nome_exercicio"><?php echo $value->nome ?></option>
-                        
+
 
                     <?php }
 
                     ?>
                 </datalist>
+                
+
+             
             </form>
+                    
+
+
+
+
+
+
+
 
             <!-- --------------->
 
@@ -123,35 +149,37 @@ ini_set("display_errors", 1);
         </div>
 
     </main>
-
     <div id="modal_1" class="modal">
-        <div class="modal__content">
-            <h2 class="modal__title">
-                <strong>INCLUA OS VALORES</strong>
-            </h2>
-            <form class="modal__description">
-                <div class="text_field">
-                    <label for="num_serie">Número de séries</label>
-                    <input type="number" name="num_serie">
+                        
+                    <div class="modal__content">
+                        <h2 class="modal__title">
+                            <strong>INCLUA OS VALORES</strong>
+                        </h2>
+                        <form action="index.php" method="post">
+                            <div class="text_field">
+                                <label for="num_serie">Número de séries</label>
+                                <input type="number" name="num_serie">
+                            </div>
+                            <div class="text_field">
+                                <label for="repeticoes">Repetições</label>
+                                <input type="number" name="repeticoes">
+                            </div>
+                            <div class="text_field">
+                                <label for="carga">Carga(kg)</label>
+                                <input type="number" name="carga">
+                            </div>
+                            <div class="text_field">
+                                <label for="descanso">Tempo de descanso</label>
+                                <input type="number" name="descanso">
+                            </div>
+                            <input type="hidden" name="nomeExercicio" value="<?php echo $_POST['nome_exercicio'];?>">
+                            <input type="hidden" name="fk_treino" value="<?php echo $_POST['fk']; ?>">
+                            <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha'] ;?>">
+                            <button type="submit" name="ok" >OK</button>
+                    </div>
+                    </form>
                 </div>
-                <div class="text_field">
-                    <label for="repeticoes">Repetições</label>
-                    <input type="number" name="repeticoes">
-                </div>
-                <div class="text_field">
-                    <label for="carga">Carga(kg)</label>
-                    <input type="number" name="carga">
-                </div>
-                <div class="text_field">
-                    <label for="descanso">Tempo de descanso</label>
-                    <input type="number" name="descanso">
-                </div>
-                <input type="hidden" name="nome_ficha" value="<?php echo $_Post['nome_ficha']?>">
-                <button type="submit" name="ok" class="modal_link">OK</button>
-                
-            </form>
-        </div>
-    </div>
+
 
     <asideL>
 
@@ -168,7 +196,7 @@ ini_set("display_errors", 1);
                             <span class="icon">
                                 <ion-icon name="home-outline">Home</ion-icon>
                                 <span class="title">Home</span>
-                            </span>   
+                            </span>
                         </a>
                     </li>
                 </ul>

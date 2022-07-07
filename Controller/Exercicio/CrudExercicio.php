@@ -9,9 +9,9 @@
 
         public function findId(){
             $nome_exercicio=$this->getNome();
-            $sql="SELECT id_exercicio FROM $this->tabela WHERE nome_exercicio=:nome_exercicio";
+            $sql="SELECT id_exercicio FROM $this->tabela WHERE nome=:nome";
             $stm=DB::prepare($sql);
-            $stm->bindParam(':nome_exercicio',$nome_exercicio);
+            $stm->bindParam(':nome',$nome_exercicio);
             $stm->execute();
             return $stm->fetch();
         }
