@@ -34,14 +34,12 @@
             <table class="table" border="1">
                 <thead>
                     <th class="table_head">Nome da Ficha</th>
-                    <th class="table_head">Data</th>
                     <th class="table_head">Ações</th>
                 </thead>
                 <tbody>
 
                         <tr>
                             <td class="table_body"> Teste</td>
-                            <td class="table_body"> 2</td>
                             <td>
                                 <form action="" method="post">
                                     <button type="submit" name="visualizar">
