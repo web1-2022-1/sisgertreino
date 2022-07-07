@@ -38,7 +38,6 @@ require_once '../../Controller/Treino/CrudTreino.php';
                 $treino->setNome_treino($_POST['nome']);
                 $treino->insert();
                 header("Location: ../criarFichaExercicio/index.php");
-                
             }
             ?>
 
@@ -54,20 +53,35 @@ require_once '../../Controller/Treino/CrudTreino.php';
                     <label for="nome">Nome</label>
                     <input type="text" name="nome">
                 </div>
-
                 <div class="campo-texto">
                     <label for="user">Data</label>
                     <input type="date" name="dt_treino">
                 </div>
-                <div class="botao-cadastro">
-                    <button type="submit" name="cadastrar" class="botao">Criar</button>
+                <div class="botao-cadastro" id="botao_salvar_ficha">
+                    <a href="#modal_1" class="botao-cadastro-a">Salvar Treino</a>
                 </div>
                 <input type="hidden" name="cpf_aluno" value="<?php echo $cpf_aluno ?>">
             </form>
 
         </div>
-
     </main>
+    <div id="modal_1" class="modal">
+            <div class="modal__content">
+                <h2 class="modal__title">
+                    <strong>Digite o nome</strong>
+                </h2>
+                <form class="modal__description">
+                    <div class="text_field">
+                        <label for="nome_ficha">Nome da Ficha</label>
+                        <input type="text" name="nome_ficha">
+                    </div>
+                    <div class="botao-cadastro" id="botao_salvar_ficha">
+                        <button class="save-name-modal" type="submit">OK</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
 
     <asideL>
         <div class="aaa">
