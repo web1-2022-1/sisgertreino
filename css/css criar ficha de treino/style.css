@@ -307,6 +307,8 @@ a {
     display: flex;
     align-items: center;
     flex-direction: column;
+    min-width: 370px;
+    min-height: 500px;
 }
 
 .modal__title {
