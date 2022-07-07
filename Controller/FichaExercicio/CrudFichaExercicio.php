@@ -7,13 +7,21 @@
         protected $tabela= 'fichaExercicio';
 
         public function findData($nome_ficha,$id_treino){
-            $sql="SELECT e.nome, f.num_serie, f.repeticoes, f.carga, f.tempo_descanso 
+            $sql="SELECT f.id_fichaExercicio, e.nome, f.num_serie, f.repeticoes, f.carga, f.tempo_descanso 
             FROM exercicio as e, fichaExercicio as f 
             WHERE e.id_exercicio=f.fk_exercicio AND f.nome_ficha=:nome_ficha 
             AND f.fk_treino=(select  id_treino from treino where id_treino=:id_treino)";
             $stm=DB::prepare($sql);
             $stm->bindParam(':id_treino',$id_treino);
             $stm->bindParam(':nome_ficha',$nome_ficha);
+            $stm->execute();
+            return $stm->fetchAll();
+        }
+        public function findFichas($fk_treino){
+            $sql="SELECT f.nome_ficha FROM fichaExercicio as f 
+            WHERE  fk_treino=:fk_treino group by nome_ficha";
+            $stm=DB::prepare($sql);
+            $stm->bindParam(':fk_treino',$fk_treino);
             $stm->execute();
             return $stm->fetchAll();
         }
@@ -65,10 +73,17 @@
             $stm->bindParam(':senha',$senha);
             return $stm->execute();
         }*/
-        public function delete($id_exercicio){
-            $sql="DELETE FROM $this->tabela WHERE id_= :id_fichaExercicio";
+        public function deleteExercicio($id_exercicio){
+            $sql="DELETE FROM $this->tabela WHERE id_fichaExercicio=:id_fichaExercicio";
             $stm=DB::prepare($sql);
-            $stm->bindParam(':id',$id_exercicio,PDO::PARAM_INT);
+            $stm->bindParam(':id_fichaExercicio',$id_exercicio,PDO::PARAM_INT);
+            return $stm->execute();
+        }
+        public function delete($id_treino, $nome_ficha){
+            $sql="DELETE FROM $this->tabela WHERE fk_treino=:fk_treino AND nome_ficha=:nome_ficha";
+            $stm=DB::prepare($sql);
+            $stm->bindParam(':fk_treino',$id_treino,PDO::PARAM_INT);
+            $stm->bindParam(':nome_ficha',$nome_ficha);
             return $stm->execute();
         }
     }

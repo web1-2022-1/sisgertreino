@@ -24,6 +24,9 @@ require_once '../../Controller/Exercicio/CrudExercicio.php';
 
 
 
+if (isset($_POST['excluir'])) {
+    $idTreino = $_POST['fk'];
+}
 if (isset($_POST['nome'])) {
     $treino = new CrudTreino;
     $treino->setCpf_aluno($_POST['cpf_aluno']);
@@ -49,6 +52,9 @@ if (isset($_POST['ok'])) {
     $fichaexercicio->setFk_treino($_POST['fk_treino']);
     $fichaexercicio->insert();
     $idTreino = $_POST['fk_treino'];
+}
+if(isset($_POST['cadastrarNovaFicha'])){
+    $idTreino = $_POST['id_treino'];
 }
 
 ?>
@@ -128,9 +134,9 @@ if (isset($_POST['ok'])) {
 
                         if (isset($_POST['excluir'])) {
                             $id = $_POST['id'];
-                            $treino->delete($id);
+                            $fichaexercicio->deleteExercicio($id);
                         }
-                        foreach ($fichaexercicio->findData($_POST['nome_ficha'],$idTreino) as $key => $value) {
+                        foreach ($fichaexercicio->findData($_POST['nome_ficha'], $idTreino) as $key => $value) {
                         ?>
                             <tr>
                                 <td class="table_body"> <?php echo $value->nome; ?> </td>
@@ -138,29 +144,38 @@ if (isset($_POST['ok'])) {
                                 <td class="table_body"> <?php echo $value->repeticoes; ?> </td>
                                 <td class="table_body"> <?php echo $value->carga; ?> </td>
                                 <td class="table_body"> <?php echo $value->tempo_descanso; ?> </td>
+                                <td id="acoes">
+                                    <form action="" method="post">
+                                        <button type="submit" name="alterar">
+                                            <span class="icons_table">
+                                                <ion-icon name="create-outline"></ion-icon>
+                                            </span>
+                                        </button>
 
+                                        <button type="submit" name="excluir">
+                                            <span class="icons_table">
+                                                <ion-icon name="trash-outline"></ion-icon>
+                                                <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
+                                                <input type="hidden" name="id" value="<?php echo $value->id_fichaExercicio; ?>">
+                                                <input type="hidden" name="fk" value="<?php echo $idTreino; ?>">
+
+                                            </span>
+                                        </button>
+                                    </form>
+                                </td>
                             <?php } ?>
-                            <td id="acoes">
-                                <a type="submit" name="alterar" href="#">
-                                    <span class="icons_table">
-                                        <ion-icon name="create-outline"></ion-icon>
-                                    </span>
-                                </a>
-                                <a type="submit" name="excluir" href="#">
-                                    <span class="icons_table">
-                                        <ion-icon name="trash-outline"></ion-icon>
-                                    </span>
-                                </a>
-                            </td>
+
                             </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-
-        <div class="button_find" id="botao_salvar_ficha">
-            <button type="submit" class="btn">Salvar Ficha</button>
-        </div>
+        <form action="../visualizarFicha/index.php" method="post">
+            <div class="button_find" id="botao_salvar_ficha">
+                <button type="submit" class="btn">Salvar Ficha</button>
+                <input type="hidden" name="id_treino" value="<?php echo $idTreino ?>">
+            </div>
+        </form>
 
     </main>
     <div id="modal_1" class="modal">

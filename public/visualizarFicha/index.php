@@ -1,5 +1,8 @@
-<?php 
-    require_once '../../Controller/FichaExercicio/CrudFichaExercicio.php';
+<?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+require_once '../../Controller/Treino/CrudTreino.php';
+require_once '../../Controller/FichaExercicio/CrudFichaExercicio.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,17 +11,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-        <link rel="stylesheet" href="../../css/css vizualizarTreino/style_list.css">
-        <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/css vizualizarTreino/style_list.css">
+    <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
 
     <title>PoriGYM</title>
 
 </head>
-<?php 
-    $fichaTreino= new CrudFichaExercicio;
-    $fichaTreino->setNomeFicha($fichaTreino->findName($_POST['id_ficha']));
-
+<?php
+$fichaExercicio = new CrudFichaExercicio;
 ?>
 
 <body>
@@ -34,53 +35,89 @@
             <a href="">Criar treino</a>
 
         </div>
+        <div class="conteudo" id="scrollbar">
+            <h1 class="edit-title">Lista de Fichas</h1>
 
-        <div class="container_main" id="scrollbar">
+            <form action="#modal_1" method="post">
+            <div class="button_find">
+                <button type="submit">Adicionar Ficha</button>
+                <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
+            </div>
+            </form>
 
-            <div class="conteudo">
-                <h1 class="edit-title">Lista de treinos</h1>
-                <h3 class="edit-title"><?php echo $fichaTreino->getNomeFicha() ?></h3>
-            </div>
-            <div class="conteudo" id="scrollbar">
-                
-                <table class="table" border="1">
-                    <thead>
-                        <th class="table_head">Nome</th>
-                        <th class="table_head">Numero de séries</th>
-                        <th class="table_head">Repetições</th>
-                        <th class="table_head">Carga</th>
-                        <th class="table_head">Tempo de descanso</th>
-                        <th class="table_head">Ações</th>
-                    </thead>
-                    <tbody>
-                        <td class="table_body">Rosca Alternada</td>
-                        <td class="table_body">3</td>
-                        <td class="table_body">52</td>
-                        <td class="table_body">500kg</td>
-                        <td class="table_body">2 segs</td>
-                        <td class="table_body">
-                            <button type="submit" name="visualizar">
-                                <ion-icon name="eye-outline"></ion-icon>Visualizar
-                            </button>
-                            <button type="submit" name="alterar">
-                                <ion-icon name="create-outline"></ion-icon>Alterar
-                            </button>
-                            <button type="submit" name="excluir">
-                                <ion-icon name="trash-outline"></ion-icon>Excluir
-                            </button>
-                        </td>
-                    </tbody>
-                    
-                </table>
-            </div>
+            <table class="table" border="1">
+                <thead>
+                    <th class="table_head">Nome da Ficha</th>
+                    <th class="table_head">Ações</th>
+                </thead>
+                <tbody>
+
+                    <?php
+
+
+                    if (isset($_POST['excluir'])) {
+                        $id = $_POST['id_treino'];
+                        $fichaExercicio->delete($id, $_POST['nome_ficha']);
+                    }
+                   
+                    foreach ($fichaExercicio->findFichas($_POST['id_treino']) as $key => $value) {
+                    ?>
+                        <tr>
+                            <td class="table_body"> <?php echo $value->nome_ficha; ?> </td>
+                            <td>
+                                <form action="visualizarExerciciosFicha.php" method="post">
+                                    <button type="submit" name="visualizar">
+                                        <ion-icon name="eye-outline"></ion-icon>Visualizar
+                                    </button>
+                                    <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino']?>">
+                                    <input type="hidden" name="nome_ficha" value="<?php echo $value->nome_ficha?>">
+                                    </form>
+                                    
+                                <form action="" method="post">
+                                <button type="submit" name="alterar">
+                                    <ion-icon name="create-outline"></ion-icon>Alterar
+                                </button>
+                                </form>
+                                <form action="" method="post">
+                                    <button type="submit" name="excluir">
+                                        <ion-icon name="trash-outline"></ion-icon>Excluir
+                                    </button>
+                                    <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino']?>">
+                                    <input type="hidden" name="nome_ficha" value="<?php echo $value->nome_ficha?>">
+                                </form>
+                            </td>
+                        <?php } ?>
+                        </tr>
+
+                </tbody>
+            </table>
         </div>
     </main>
+    <div id="modal_1" class="modal">
+        <div class="modal__content">
+            <h2 class="modal__title">
+                <strong>Digite o nome</strong>
+            </h2>
+            <form action="../criarFichaExercicio/index.php" class="modal__description" method="POST">
+                <div class="text_field">
+                    <label for="nome_ficha">Nome da Ficha</label>
+                    <input type="text" name="nome_ficha">
+                </div>
+                <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
+                <div class="botao-cadastro" id="botao_salvar_ficha">
+                    <button name='cadastrarNovaFicha' class="save-name-modal" type="submit">OK</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
 
     <asideL>
-
         <div class="aaa">
+
             <div class="cont_esq">
-                <img src="../../css/css criar ficha de treino/img/logo_braco.png" height="120px">
+                <img src="../../css/css vizualizarTreino/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 
@@ -89,9 +126,9 @@
                     <li class="list">
                         <a href="../dashboard/index.php" class="caixaLateral">
                             <span class="icon">
-                                <ion-icon name="home-outline"></ion-icon>
-                                <span class="title">Home</span>
+                                <ion-icon name="home-outline">Home</ion-icon>
                             </span>
+                            <span class="title">Home</span>
                         </a>
                     </li>
                 </ul>
@@ -130,7 +167,7 @@
                         </p>
                     </li>
                     <li class="list_inside">
-                        <a href="#" class="caixaLateral">
+                        <a href="../treino/index.php" class="caixaLateral">
                             <span class="title_inside">Criar treinos</span>
                         </a>
                     </li>
@@ -149,13 +186,14 @@
                         <a href="../login/index.php" class="caixaLateral">
                             <span class="icon">
                                 <ion-icon name="log-out-outline"></ion-icon>
-                                <span class="title">Sair</span>
                             </span>
+                            <span class="title">Sair</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
+
 
     </asideL>
 

@@ -1,3 +1,6 @@
+<?php
+require_once '../../Controller/FichaExercicio/CrudFichaExercicio.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +15,11 @@
     <title>PoriGYM</title>
 
 </head>
+<?php
+$fichaexercicio = new CrudFichaExercicio;
+
+
+?>
 
 <body>
 
@@ -26,50 +34,76 @@
             <a href="">Criar treino</a>
 
         </div>
-        <div class="conteudo" id="scrollbar">
-            <h1 class="edit-title">Lista de Fichas</h1>
-            <div class="button_find">
-                <button type="submit">Adicionar Ficha</button>
+
+        <div class="container_main" id="scrollbar">
+
+            <div class="conteudo">
+                <h1 class="edit-title">Lista de Exercícios</h1>
+                <h3 class="edit-title"><?php echo $_POST['nome_ficha'] ?></h3>
             </div>
-            <table class="table" border="1">
-                <thead>
-                    <th class="table_head">Nome da Ficha</th>
-                    <th class="table_head">Ações</th>
-                </thead>
-                <tbody>
+            <div class="conteudo" id="scrollbar">
 
-                        <tr>
-                            <td class="table_body"> Teste</td>
-                            <td>
-                                <form action="" method="post">
-                                    <button type="submit" name="visualizar">
-                                        <ion-icon name="eye-outline"></ion-icon>Visualizar
-                                    </button>
-                                    <input type="hidden" name="">
-                                </form>
-                                <button type="submit" name="alterar">
-                                    <ion-icon name="create-outline"></ion-icon>Alterar
-                                </button>
-                                <form action="" method="post">
-                                    <button type="submit" name="excluir">
-                                        <ion-icon name="trash-outline"></ion-icon>Excluir
-                                    </button>
-                                    <input type="hidden" name="id" value="">
-                                </form>
-                            </td>
-                            
-                        </tr>
+                <table class="table" border="1">
+                    <thead>
+                        <th class="table_head">Nome</th>
+                        <th class="table_head">Numero de séries</th>
+                        <th class="table_head">Repetições</th>
+                        <th class="table_head">Carga</th>
+                        <th class="table_head">Tempo de descanso</th>
+                        <th class="table_head">Ações</th>
+                    </thead>
+                    <tbody>
+                        <?php
 
-                </tbody>
-            </table>
+
+                        if (isset($_POST['excluir'])) {
+                            $id = $_POST['id'];
+                            $fichaexercicio->deleteExercicio($id);
+                        }
+                        foreach ($fichaexercicio->findData($_POST['nome_ficha'], $_POST['id_treino']) as $key => $value) {
+                        ?>
+                            <tr>
+                                <td class="table_body"> <?php echo $value->nome; ?> </td>
+                                <td class="table_body"> <?php echo $value->num_serie; ?> </td>
+                                <td class="table_body"> <?php echo $value->repeticoes; ?> </td>
+                                <td class="table_body"> <?php echo $value->carga; ?> </td>
+                                <td class="table_body"> <?php echo $value->tempo_descanso; ?> </td>
+                                <td id="acoes">
+                                    <form action="" method="post">
+                                        <button type="submit" name="alterar">
+                                            <span class="icons_table">
+                                                <ion-icon name="create-outline"></ion-icon>
+                                            </span>
+                                        </button>
+                                    </form>
+
+                                        <form action="" method="post">
+                                        <button type="submit" name="excluir">
+                                            <span class="icons_table">
+                                                <ion-icon name="trash-outline"></ion-icon>
+                                                <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
+                                                <input type="hidden" name="id" value="<?php echo $value->id_fichaExercicio; ?>">
+                                                <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
+
+                                            </span>
+                                        </button>
+                                    </form>
+                                </td>
+                            <?php } ?>
+
+                            </tr>
+                    </tbody>
+
+                </table>
+            </div>
         </div>
     </main>
 
     <asideL>
-        <div class="aaa">
 
+        <div class="aaa">
             <div class="cont_esq">
-                <img src="../../css/css vizualizarTreino/img/logo_braco.png" height="120px">
+                <img src="../../css/css criar ficha de treino/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 
@@ -78,9 +112,9 @@
                     <li class="list">
                         <a href="../dashboard/index.php" class="caixaLateral">
                             <span class="icon">
-                                <ion-icon name="home-outline">Home</ion-icon>
+                                <ion-icon name="home-outline"></ion-icon>
+                                <span class="title">Home</span>
                             </span>
-                            <span class="title">Home</span>
                         </a>
                     </li>
                 </ul>
@@ -119,7 +153,7 @@
                         </p>
                     </li>
                     <li class="list_inside">
-                        <a href="../treino/index.php" class="caixaLateral">
+                        <a href="#" class="caixaLateral">
                             <span class="title_inside">Criar treinos</span>
                         </a>
                     </li>
@@ -138,14 +172,13 @@
                         <a href="../login/index.php" class="caixaLateral">
                             <span class="icon">
                                 <ion-icon name="log-out-outline"></ion-icon>
+                                <span class="title">Sair</span>
                             </span>
-                            <span class="title">Sair</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
-
 
     </asideL>
 
