@@ -1,3 +1,11 @@
+<?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+require_once '../../Controller/Treino/CrudTreino.php';
+require_once '../../Controller/FichaExercicio/CrudFichaExercicio.php';
+require_once '../../Controller/Exercicio/CrudExercicio.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +20,38 @@
     <title>PoriGYM</title>
 
 </head>
+<?php
+
+
+
+if (isset($_POST['nome'])) {
+    $treino = new CrudTreino;
+    $treino->setCpf_aluno($_POST['cpf_aluno']);
+    $treino->setDt_treino($_POST['dt_treino']);
+    $treino->setNome_treino($_POST['nome']);
+    $treino->insert();
+    $treinoid = $treino->findId();
+    $idTreino = $treinoid->id_treino;
+}
+$exercicio = new CrudExercicio;
+$fichaexercicio = new CrudFichaExercicio;
+
+if (isset($_POST['ok'])) {
+
+    $exercicio->setNome($_POST['nomeExercicio']);
+    $idExercicio = $exercicio->findId();
+    $fichaexercicio->setNomeFicha($_POST['nome_ficha']);
+    $fichaexercicio->setFk_exercicio($idExercicio->id_exercicio);
+    $fichaexercicio->setCarga($_POST['carga']);
+    $fichaexercicio->setRepeticoes($_POST['repeticoes']);
+    $fichaexercicio->setTempo_descanso($_POST['descanso']);
+    $fichaexercicio->setNum_serie($_POST['num_serie']);
+    $fichaexercicio->setFk_treino($_POST['fk_treino']);
+    $fichaexercicio->insert();
+    $idTreino = $_POST['fk_treino'];
+}
+
+?>
 
 <body>
 
@@ -28,22 +68,44 @@
         </div>
         <div class="conteudo">
             <h1 class="form-title">Criar Ficha de Exercícios</h1>
-            <form method='POST' action="">
+
+            <form method='POST' action="#modal_1">
                 <div class="search">
                     <div class="campo-texto">
                         <label for="nome_aluno">Nome do exercício</label>
-                        <input type="text" name="nome_aluno" list="pesquisa_aluno" />
+                        <input type="text" name="nome_exercicio" list="pesquisa_aluno" />
+                        <input type="hidden" name="fk" value="<?php echo $idTreino; ?>">
+                        <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
+
                     </div>
                     <div class="button_find">
-                        <a href="#modal_1" class="btn">Selecionar Exercício</a>
+                        <button type="submit" class="btn">SELECIONAR EXERCÍCIO</button>
                     </div>
                 </div>
                 <datalist id="pesquisa_aluno">
-                    <option value="Carlos Silva Santos"></option>
-                    <option value="Ana Maria Costa de Oliveira"></option>
-                    <option value="Vitoria Cardoso Aguiar"></option>
+                    <?php
+                    foreach ($exercicio->findAll() as $key => $value) {
+                    ?>
+
+                        <option name="nome_exercicio"><?php echo $value->nome ?></option>
+
+
+                    <?php }
+
+                    ?>
                 </datalist>
+
+
+
             </form>
+
+
+
+
+
+
+
+
 
             <!-- --------------->
 
@@ -61,12 +123,23 @@
                         <th class="table_head">Ações</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="table_body"> </td>
-                            <td class="table_body"> </td>
-                            <td class="table_body"> </td>
-                            <td class="table_body"> </td>
-                            <td class="table_body"> </td>
+                        <?php
+
+
+                        if (isset($_POST['excluir'])) {
+                            $id = $_POST['id'];
+                            $treino->delete($id);
+                        }
+                        foreach ($fichaexercicio->findData($_POST['nome_ficha'],$idTreino) as $key => $value) {
+                        ?>
+                            <tr>
+                                <td class="table_body"> <?php echo $value->nome; ?> </td>
+                                <td class="table_body"> <?php echo $value->num_serie; ?> </td>
+                                <td class="table_body"> <?php echo $value->repeticoes; ?> </td>
+                                <td class="table_body"> <?php echo $value->carga; ?> </td>
+                                <td class="table_body"> <?php echo $value->tempo_descanso; ?> </td>
+
+                            <?php } ?>
                             <td id="acoes">
                                 <a type="submit" name="alterar" href="#">
                                     <span class="icons_table">
@@ -79,24 +152,24 @@
                                     </span>
                                 </a>
                             </td>
-                        </tr>
+                            </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
         <div class="button_find" id="botao_salvar_ficha">
-            <a href="#modal_2" class="btn">Salvar Ficha</a>
+            <button type="submit" class="btn">Salvar Ficha</button>
         </div>
 
     </main>
-
     <div id="modal_1" class="modal">
+
         <div class="modal__content">
             <h2 class="modal__title">
                 <strong>INCLUA OS VALORES</strong>
             </h2>
-            <form class="modal__description">
+            <form action="index.php" method="post">
                 <div class="text_field">
                     <label for="num_serie">Número de séries</label>
                     <input type="number" name="num_serie">
@@ -113,25 +186,14 @@
                     <label for="descanso">Tempo de descanso</label>
                     <input type="number" name="descanso">
                 </div>
-            </form>
-            <a href="index.php" class="modal__link">OK</a>
+                <input type="hidden" name="nomeExercicio" value="<?php echo $_POST['nome_exercicio']; ?>">
+                <input type="hidden" name="fk_treino" value="<?php echo $_POST['fk']; ?>">
+                <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
+                <button type="submit" name="ok">OK</button>
         </div>
+        </form>
     </div>
 
-    <div id="modal_2" class="modal">
-        <div class="modal__content">
-            <h2 class="modal__title">
-                <strong>Nome da Ficha</strong>
-            </h2>
-            <form class="modal__description">
-                <div class="text_field">
-                    <label for="nome_ficha"></label>
-                    <input type="text" name="nome_ficha">
-                </div>
-            </form>
-            <a href="index.php" class="modal__link">OK</a>
-        </div>
-    </div>
 
     <asideL>
 
@@ -148,7 +210,7 @@
                             <span class="icon">
                                 <ion-icon name="home-outline">Home</ion-icon>
                                 <span class="title">Home</span>
-                            </span>   
+                            </span>
                         </a>
                     </li>
                 </ul>

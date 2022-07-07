@@ -31,22 +31,14 @@ require_once '../../Controller/Treino/CrudTreino.php';
 
             $post_cpf_aluno = explode(':', $_POST['nome_aluno']);
             $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
-            $treino = new CrudTreino;
-            if (isset($_POST['cadastrar'])) {
-                $treino->setCpf_aluno($_POST['cpf_aluno']);
-                $treino->setDt_treino($_POST['dt_treino']);
-                $treino->setNome_treino($_POST['nome']);
-                $treino->insert();
-                header("Location: ../criarFichaExercicio/index.php");
-                
-            }
+           
             ?>
 
         </div>
 
         <div class="conteudo">
 
-            <form action="" method='POST'>
+            <form action="#modal_1" method='POST'>
 
                 <h1 class="edit-title">Criar Treino</h1>
 
@@ -54,20 +46,39 @@ require_once '../../Controller/Treino/CrudTreino.php';
                     <label for="nome">Nome</label>
                     <input type="text" name="nome">
                 </div>
-
                 <div class="campo-texto">
                     <label for="user">Data</label>
                     <input type="date" name="dt_treino">
                 </div>
-                <div class="botao-cadastro">
-                    <button type="submit" name="cadastrar" class="botao">Criar</button>
+                <div class="botao-cadastro" id="botao_salvar_ficha">
+                    <button type="submit" class="botao-cadastro-a">Salvar Treino</button>
                 </div>
                 <input type="hidden" name="cpf_aluno" value="<?php echo $cpf_aluno ?>">
             </form>
 
         </div>
-
     </main>
+    <div id="modal_1" class="modal">
+            <div class="modal__content">
+                <h2 class="modal__title">
+                    <strong>Digite o nome</strong>
+                </h2>
+                <form action="../criarFichaExercicio/index.php" class="modal__description" method="POST">
+                    <div class="text_field">
+                        <label for="nome_ficha">Nome da Ficha</label>
+                        <input type="text" name="nome_ficha">
+                    </div>
+                    <div class="botao-cadastro" id="botao_salvar_ficha">
+                        <button class="save-name-modal" type="submit">OK</button>
+                    </div>
+                    <input type="hidden" name="nome" value="<?php echo $_POST['nome']?>">
+                    <input type="hidden" name="dt_treino" value="<?php echo $_POST['dt_treino'] ?>">
+                    <input type="hidden" name="cpf_aluno" value="<?php echo $_POST['cpf_aluno'] ?>">
+
+                </form>
+            </div>
+        </div>
+
 
     <asideL>
         <div class="aaa">
