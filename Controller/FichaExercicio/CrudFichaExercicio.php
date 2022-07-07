@@ -63,16 +63,21 @@
             $stm->bindParam(':fk_treino',$fk_treino);
             return $stm->execute();
         } 
-        /*public function update($id){
-            $usuario=$this->getUsuario();
-            $senha=$this->getSenha();           
-            $sql="UPDATE $this->tabela SET usuario= :usuario, senha= :senha WHERE id = :id";
+        public function update($id){
+            $num_serie= $this->getNum_serie();
+            $repeticoes= $this->getRepeticoes();
+            $carga= $this->getCarga();
+            $tempo_descanso= $this->getTempo_descanso();
+            $sql="UPDATE $this->tabela SET num_serie=:num_serie ,repeticoes=:repeticoes ,carga=:carga ,tempo_descanso=:tempo_descanso 
+            WHERE id_fichaExercicio = :id";
             $stm=DB::prepare($sql);
             $stm->bindParam(':id',$id,PDO::PARAM_INT);
-            $stm->bindParam(':usuario',$usuario);
-            $stm->bindParam(':senha',$senha);
+            $stm->bindParam(':num_serie',$num_serie);
+            $stm->bindParam(':repeticoes',$repeticoes);
+            $stm->bindParam(':carga',$carga);
+            $stm->bindParam(':tempo_descanso',$tempo_descanso);
             return $stm->execute();
-        }*/
+        }
         public function updateName($id,$nomeAntigo){
             
             $nome_ficha=$this->getNomeFicha();           
