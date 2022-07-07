@@ -273,6 +273,36 @@ a {
    font-family: 'Andika', sans-serif;
  }
  
+ /*----------------------Botão voltar*/
+
+ #botao_salvar_ficha{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-right: 2vw;
+  margin-bottom: 10px;
+}
+
+.button_find {
+  display: flex;
+  left: 40px;
+}
+
+.button_find button {
+  font-family: 'Bai Jamjuree', sans-serif;
+  font-size: 15px;
+  margin-left: 15px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: #FF3D00;
+  cursor: pointer;
+  box-sizing: border-box;
+}
 
 
 

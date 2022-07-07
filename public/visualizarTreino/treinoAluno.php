@@ -184,8 +184,8 @@ if(isset($_POST['alterar'])){
                         <p class="space">
                             <span class="icon">
                                 <ion-icon name="barbell-outline"></ion-icon>
+                                <span class="title">Treino</span>
                             </span>
-                            <span class="title">Treino</span>
                         </p>
                     </li>
                     <li class="list_inside">
@@ -208,8 +208,8 @@ if(isset($_POST['alterar'])){
                         <a href="../login/index.php" class="caixaLateral">
                             <span class="icon">
                                 <ion-icon name="log-out-outline"></ion-icon>
+                                <span class="title">Sair</span>
                             </span>
-                            <span class="title">Sair</span>
                         </a>
                     </li>
                 </ul>
