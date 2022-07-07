@@ -19,7 +19,6 @@ require_once '../../Controller/FichaExercicio/CrudFichaExercicio.php';
 
 </head>
 <?php
-var_dump($_POST);
 $fichaExercicio = new CrudFichaExercicio;
 if(isset($_POST['alterar'])){
     $fichaExercicioAlterar= new CrudFichaExercicio;
