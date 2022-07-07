@@ -31,21 +31,14 @@ require_once '../../Controller/Treino/CrudTreino.php';
 
             $post_cpf_aluno = explode(':', $_POST['nome_aluno']);
             $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
-            $treino = new CrudTreino;
-            if (isset($_POST['cadastrar'])) {
-                $treino->setCpf_aluno($_POST['cpf_aluno']);
-                $treino->setDt_treino($_POST['dt_treino']);
-                $treino->setNome_treino($_POST['nome']);
-                $treino->insert();
-                header("Location: ../criarFichaExercicio/index.php");
-            }
+           
             ?>
 
         </div>
 
         <div class="conteudo">
 
-            <form action="" method='POST'>
+            <form action="../criarFichaExercicio/index.php" method='POST'>
 
                 <h1 class="edit-title">Criar Treino</h1>
 

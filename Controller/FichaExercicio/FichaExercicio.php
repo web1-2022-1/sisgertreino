@@ -11,6 +11,7 @@
         private $carga;
         private $tempo_descanso;
         private $fk_exercicio;
+        private $fk_treino;
 
   
         public function setNomeFicha($nomeFicha){
@@ -48,6 +49,12 @@
         }
         public function getFk_exercicio(){
             return $this->fk_exercicio;
+        }
+        public function setFk_treino($fk_treino){
+            $this->fk_treino=$fk_treino;
+        }
+        public function getFk_treino(){
+            return $this->fk_treino;
         }
     }
 

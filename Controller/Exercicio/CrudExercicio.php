@@ -7,6 +7,15 @@
         protected $tabela= 'exercicio';
 
 
+        public function findId(){
+            $nome_exercicio=$this->getNome();
+            $sql="SELECT id_exercicio FROM $this->tabela WHERE nome=:nome";
+            $stm=DB::prepare($sql);
+            $stm->bindParam(':nome',$nome_exercicio);
+            $stm->execute();
+            return $stm->fetch();
+        }
+
         public function findAll(){
             $sql="SELECT * FROM $this->tabela";
             $stm=DB::prepare($sql);

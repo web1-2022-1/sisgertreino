@@ -6,6 +6,17 @@
 
         protected $tabela= 'treino';
 
+        public function findId(){
+            $nome_treino=$this->getNome_treino();
+            $cpf_aluno=$this->getCpf_aluno();
+            $sql="SELECT id_treino FROM $this->tabela WHERE nome_treino=:nome_treino AND cpf_aluno=:cpf_aluno";
+            $stm=DB::prepare($sql);
+            $stm->bindParam(':nome_treino',$nome_treino);
+            $stm->bindParam(':cpf_aluno',$cpf_aluno);
+            $stm->execute();
+            return $stm->fetch();
+        }
+
         public function findTreinoAluno(){
             $cpf_aluno=$this->getCpf_aluno();
             $sql="SELECT * FROM $this->tabela where cpf_aluno=:cpf_aluno";

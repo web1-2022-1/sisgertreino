@@ -1,6 +1,6 @@
 <?php 
 
-    require_once 'fichaExercicio.php';
+    require_once 'FichaExercicio.php';
 
     class CrudFichaExercicio extends fichaExercicio{
 
