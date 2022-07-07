@@ -202,6 +202,10 @@ asideL {
 
 }
 
+.table button{
+    border:none;
+}
+
 .table_head {
     width: 16%;
     background-color: #C4C4C4;
@@ -225,6 +229,7 @@ asideL {
 #acoes{
     text-align: center;
 }
+
 
 /*-------------------------modal*/
 a {
@@ -307,6 +312,8 @@ a {
     display: flex;
     align-items: center;
     flex-direction: column;
+    min-width: 370px;
+    min-height: 500px;
 }
 
 .modal__title {
