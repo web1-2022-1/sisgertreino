@@ -6,12 +6,24 @@
 
         protected $tabela= 'fichaExercicio';
 
+        public function findData($nome_ficha,$id_treino){
+            $sql="SELECT e.nome, f.num_serie, f.repeticoes, f.carga, f.tempo_descanso 
+            FROM exercicio as e, fichaExercicio as f 
+            WHERE e.id_exercicio=f.fk_exercicio AND f.nome_ficha=:nome_ficha 
+            AND f.fk_treino=(select  id_treino from treino where id_treino=:id_treino)";
+            $stm=DB::prepare($sql);
+            $stm->bindParam(':id_treino',$id_treino);
+            $stm->bindParam(':nome_ficha',$nome_ficha);
+            $stm->execute();
+            return $stm->fetchAll();
+        }
+
         public function findName($id){
             $sql="SELECT nome_ficha FROM $this->tabela where id_fichaExercicio=:id_fichaExercicio";
             $stm=DB::prepare($sql);
             $stm->bindParam(':id_fichaExercicio',$id);
             $stm->execute();
-            return $stm->fetch();
+            return $stm->fetchAll();
         }
 
         public function findAll(){

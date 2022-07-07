@@ -21,25 +21,25 @@ require_once '../../Controller/Exercicio/CrudExercicio.php';
 
 </head>
 <?php
-   
 
- 
+
+
 if (isset($_POST['nome'])) {
     $treino = new CrudTreino;
     $treino->setCpf_aluno($_POST['cpf_aluno']);
     $treino->setDt_treino($_POST['dt_treino']);
     $treino->setNome_treino($_POST['nome']);
     $treino->insert();
-    $treinoid=$treino->findId();
-    $idTreino=$treinoid->id_treino;
-    
-    
+    $treinoid = $treino->findId();
+    $idTreino = $treinoid->id_treino;
 }
+$exercicio = new CrudExercicio;
+$fichaexercicio = new CrudFichaExercicio;
+
 if (isset($_POST['ok'])) {
-    $exercicio= new CrudExercicio;
+
     $exercicio->setNome($_POST['nomeExercicio']);
     $idExercicio = $exercicio->findId();
-    $fichaexercicio = new CrudFichaExercicio;
     $fichaexercicio->setNomeFicha($_POST['nome_ficha']);
     $fichaexercicio->setFk_exercicio($idExercicio->id_exercicio);
     $fichaexercicio->setCarga($_POST['carga']);
@@ -48,7 +48,7 @@ if (isset($_POST['ok'])) {
     $fichaexercicio->setNum_serie($_POST['num_serie']);
     $fichaexercicio->setFk_treino($_POST['fk_treino']);
     $fichaexercicio->insert();
-    $idTreino=$_POST['fk_treino'];
+    $idTreino = $_POST['fk_treino'];
 }
 
 ?>
@@ -75,7 +75,7 @@ if (isset($_POST['ok'])) {
                         <label for="nome_aluno">Nome do exercício</label>
                         <input type="text" name="nome_exercicio" list="pesquisa_aluno" />
                         <input type="hidden" name="fk" value="<?php echo $idTreino; ?>">
-                        <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha'] ;?>">
+                        <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
 
                     </div>
                     <div class="button_find">
@@ -94,11 +94,11 @@ if (isset($_POST['ok'])) {
 
                     ?>
                 </datalist>
-                
 
-             
+
+
             </form>
-                    
+
 
 
 
@@ -123,12 +123,23 @@ if (isset($_POST['ok'])) {
                         <th class="table_head">Ações</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="table_body"> </td>
-                            <td class="table_body"> </td>
-                            <td class="table_body"> </td>
-                            <td class="table_body"> </td>
-                            <td class="table_body"> </td>
+                        <?php
+
+
+                        if (isset($_POST['excluir'])) {
+                            $id = $_POST['id'];
+                            $treino->delete($id);
+                        }
+                        foreach ($fichaexercicio->findData($_POST['nome_ficha'],$idTreino) as $key => $value) {
+                        ?>
+                            <tr>
+                                <td class="table_body"> <?php echo $value->nome; ?> </td>
+                                <td class="table_body"> <?php echo $value->num_serie; ?> </td>
+                                <td class="table_body"> <?php echo $value->repeticoes; ?> </td>
+                                <td class="table_body"> <?php echo $value->carga; ?> </td>
+                                <td class="table_body"> <?php echo $value->tempo_descanso; ?> </td>
+
+                            <?php } ?>
                             <td id="acoes">
                                 <a type="submit" name="alterar" href="#">
                                     <span class="icons_table">
@@ -141,7 +152,7 @@ if (isset($_POST['ok'])) {
                                     </span>
                                 </a>
                             </td>
-                        </tr>
+                            </tr>
                     </tbody>
                 </table>
             </div>
@@ -153,35 +164,35 @@ if (isset($_POST['ok'])) {
 
     </main>
     <div id="modal_1" class="modal">
-                        
-                    <div class="modal__content">
-                        <h2 class="modal__title">
-                            <strong>INCLUA OS VALORES</strong>
-                        </h2>
-                        <form action="index.php" method="post">
-                            <div class="text_field">
-                                <label for="num_serie">Número de séries</label>
-                                <input type="number" name="num_serie">
-                            </div>
-                            <div class="text_field">
-                                <label for="repeticoes">Repetições</label>
-                                <input type="number" name="repeticoes">
-                            </div>
-                            <div class="text_field">
-                                <label for="carga">Carga(kg)</label>
-                                <input type="number" name="carga">
-                            </div>
-                            <div class="text_field">
-                                <label for="descanso">Tempo de descanso</label>
-                                <input type="number" name="descanso">
-                            </div>
-                            <input type="hidden" name="nomeExercicio" value="<?php echo $_POST['nome_exercicio'];?>">
-                            <input type="hidden" name="fk_treino" value="<?php echo $_POST['fk']; ?>">
-                            <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha'] ;?>">
-                            <button type="submit" name="ok" >OK</button>
-                    </div>
-                    </form>
+
+        <div class="modal__content">
+            <h2 class="modal__title">
+                <strong>INCLUA OS VALORES</strong>
+            </h2>
+            <form action="index.php" method="post">
+                <div class="text_field">
+                    <label for="num_serie">Número de séries</label>
+                    <input type="number" name="num_serie">
                 </div>
+                <div class="text_field">
+                    <label for="repeticoes">Repetições</label>
+                    <input type="number" name="repeticoes">
+                </div>
+                <div class="text_field">
+                    <label for="carga">Carga(kg)</label>
+                    <input type="number" name="carga">
+                </div>
+                <div class="text_field">
+                    <label for="descanso">Tempo de descanso</label>
+                    <input type="number" name="descanso">
+                </div>
+                <input type="hidden" name="nomeExercicio" value="<?php echo $_POST['nome_exercicio']; ?>">
+                <input type="hidden" name="fk_treino" value="<?php echo $_POST['fk']; ?>">
+                <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
+                <button type="submit" name="ok">OK</button>
+        </div>
+        </form>
+    </div>
 
 
     <asideL>
