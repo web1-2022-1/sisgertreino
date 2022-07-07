@@ -181,6 +181,25 @@ body{
    margin: 10px;
  }
 
+ .save-name-modal{
+   margin: 10%;
+   font-family: 'Bai Jamjuree', sans-serif;
+   font-size: 15px;
+   padding: 5px 21%;
+   border: none;
+   border-radius: 8px;
+   outline: none;
+   text-transform: uppercase;
+   font-weight: 700;
+   color: #FFFFFF;
+   background: #FF3D00;
+   cursor: pointer;
+   box-sizing: border-box;
+ }
+ 
+ .save-name-modal:hover{
+   background-color: #F9501B;
+ }
 /*------------MODAL------------*/
 a {
    text-decoration: none;
@@ -205,7 +224,7 @@ a {
  .modal__content {
    background-color: #ffffff;
    min-height: 250px;
-   height: 40vh;
+   height: 50vh;
    min-width: 250px;
    width: 20vw;
    min-width: none;

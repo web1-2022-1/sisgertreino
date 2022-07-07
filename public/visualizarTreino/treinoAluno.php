@@ -16,14 +16,21 @@ require_once '../../Controller/Treino/CrudTreino.php';
 
 </head>
 <?php
-if($_POST['cpf_aluno']==NULL){
+$treino = new CrudTreino;
+if ($_POST['cpf_aluno'] == NULL) {
     $post_cpf_aluno = explode(':', $_POST['nome_aluno']);
     $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
-    $treino = new CrudTreino;
     $treino->setCpf_aluno($cpf_aluno);
-}else{
-    $treino = new CrudTreino;
+} else {
+   
     $treino->setCpf_aluno($_POST['cpf_aluno']);
+}
+if(isset($_POST['alterar'])){
+    $treinoAlterar= new CrudTreino;
+    $treino->setCpf_aluno($_POST['cpf_aluno']);
+    $treinoAlterar->setNome_treino($_POST['nome_treino']);
+    $treinoAlterar->setDt_treino($_POST['dt_treino']);
+    $treinoAlterar->update($_POST['id_treino']);
 }
 ?>
 
@@ -38,14 +45,18 @@ if($_POST['cpf_aluno']==NULL){
             <a href="">Treino</a>
             <p> > </p>
             <a href="">Criar treino</a>
-           
+
 
         </div>
         <div class="conteudo">
             <h1 class="edit-title">Lista de treinos</h1>
+            <form action="../treino/nomeTreino.php" method="post">
                 <div class="button_find">
                     <button type="submit">Criar Novo Treino</button>
+                    <input type="hidden" name="cpf_aluno" value="<?php echo  $cpf_aluno;?>">
+                    <input type="hidden" name="booleano" value='1'>
                 </div>
+            </form>
             <table class="table" border="1">
                 <thead>
                     <th class="table_head">Nome</th>
@@ -55,10 +66,10 @@ if($_POST['cpf_aluno']==NULL){
                 <tbody>
                     <?php
 
-                   
+
                     if (isset($_POST['excluir'])) {
                         $id = $_POST['id'];
-                        $treino->delete($id);
+                        $treino->deleteCascade($id);
                     }
                     foreach ($treino->findTreinoAluno() as $key => $value) {
                     ?>
@@ -72,9 +83,15 @@ if($_POST['cpf_aluno']==NULL){
                                     </button>
                                     <input type="hidden" name="id_treino" value="<?php echo $value->id_treino ?>">
                                 </form>
+                                <form action="#modal_1" method="post">
                                 <button type="submit" name="alterar">
                                     <ion-icon name="create-outline"></ion-icon>Alterar
                                 </button>
+                                <input type="hidden" name="nome_treino" value="<?php echo $value->nome_treino;?>">
+                                <input type="hidden" name="dt_treino" value="<?php echo $value->dt_treino;?>">
+                                <input type="hidden" name="id_treino" value="<?php echo $value->id_treino; ?>">
+                                <input type="hidden" name="cpf_aluno" value="<?php echo $value->cpf_aluno;?>">    
+                            </form>
                                 <form action="" method="post">
                                     <button type="submit" name="excluir">
                                         <ion-icon name="trash-outline"></ion-icon>Excluir
@@ -92,6 +109,31 @@ if($_POST['cpf_aluno']==NULL){
             </table>
         </div>
     </main>
+    <div id="modal_1" class="modal">
+        <div class="modal__content">
+            <h2 class="modal__title">
+                <strong>Editar Treino</strong>
+            </h2>
+            <form action="treinoAluno.php" class="modal__description" method="POST">
+                <div class="text_field">
+                    <label for="nome_ficha">Nome do treino:</label>
+                    <input type="text" name="nome_treino" value="<?php echo $_POST['nome_treino'] ?>">
+                </div>
+                <div class="text_field">
+                    <label for="nome_ficha">Data do treino:</label>
+                    <input type="date" name="dt_treino" value="<?php echo $_POST['dt_treino'] ?>">
+                    <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino']; ?>">
+                    <input type="hidden" name="cpf_aluno" value="<?php echo $_POST['cpf_aluno']; ?>">
+
+                </div>
+                <div class="botao-cadastro" id="botao_salvar_ficha">
+                    <button class="save-name-modal" name="alterar" type="submit">ALTERAR</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
 
     <asideL>
         <div class="aaa">

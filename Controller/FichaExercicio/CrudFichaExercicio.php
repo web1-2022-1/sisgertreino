@@ -73,6 +73,17 @@
             $stm->bindParam(':senha',$senha);
             return $stm->execute();
         }*/
+        public function updateName($id,$nomeAntigo){
+            
+            $nome_ficha=$this->getNomeFicha();           
+            $sql="UPDATE $this->tabela SET nome_ficha= :nome_ficha WHERE fk_treino = :id AND nome_ficha=:nomeAntigo";
+            $stm=DB::prepare($sql);
+            $stm->bindParam(':id',$id,PDO::PARAM_INT);
+            $stm->bindParam(':nome_ficha',$nome_ficha);
+            $stm->bindParam(':nomeAntigo',$nomeAntigo);
+
+            return $stm->execute();
+        }
         public function deleteExercicio($id_exercicio){
             $sql="DELETE FROM $this->tabela WHERE id_fichaExercicio=:id_fichaExercicio";
             $stm=DB::prepare($sql);
