@@ -235,6 +235,11 @@ asideL {
 #acoes{
     text-align: center;
 }
+.alinha_botao {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
 
 
 /*-------------------------modal*/
