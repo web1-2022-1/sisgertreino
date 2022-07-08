@@ -28,7 +28,7 @@ require_once '../../Controller/Login/CrudLogin.php';
                 <img src="../../img/logo/logo_braco.png" alt="login-image1" class="image-top" width="200">
                 <h1 id="porigym-title">PoriGYM</h1>
             </div>
-                <img src="../../img/login-image/login-image1" alt="login-image2" class="image-bottom" width="200">
+                <img src="../../img/login-image/login-image1.png" alt="login-image2" class="image-bottom" width="200">
         </div>
         <div class="right-login">
             <?php 

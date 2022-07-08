@@ -246,7 +246,7 @@ if (isset($_POST['alterar'])) {
             <form action="index.php" method="post">
                 <div class="text_field">
                     <label for="num_serie">Número de séries</label>
-                    <input type="number" name="num_serie" required>
+                    <input type="number" name="num_serie"  required>
                 </div>
                 <div class="text_field">
                     <label for="repeticoes">Repetições</label>

@@ -202,9 +202,10 @@ body{
  }
 
  .img-exercicio{
-  border: 5px dotted #FF3D00;
+  border: 5px solid #FF3D00;
   margin-bottom: 20px;
   padding: 3px;
+  
  }
 
 /*------------MODAL------------*/
