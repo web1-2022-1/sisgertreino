@@ -304,6 +304,11 @@ a {
   box-sizing: border-box;
 }
 
+.alinha_botao{
+  display: flex;
+  justify-content: center;
+}
+
 
 
 

@@ -20,11 +20,10 @@ require_once '../../Controller/FichaExercicio/CrudFichaExercicio.php';
 </head>
 <?php
 $fichaExercicio = new CrudFichaExercicio;
-if(isset($_POST['alterar'])){
-    $fichaExercicioAlterar= new CrudFichaExercicio;
+if (isset($_POST['alterar'])) {
+    $fichaExercicioAlterar = new CrudFichaExercicio;
     $fichaExercicioAlterar->setNomeFicha($_POST['nome_ficha']);
-    $fichaExercicioAlterar->updateName($_POST['id_treino'],$_POST['nomeAntigo']);
-    
+    $fichaExercicioAlterar->updateName($_POST['id_treino'], $_POST['nomeAntigo']);
 }
 ?>
 
@@ -34,7 +33,7 @@ if(isset($_POST['alterar'])){
 
         <div class="sequencia_topo">
 
-        <p>Home</p>
+            <p>Home</p>
             <p> > </p>
             <p>Treino</p>
             <p> > </p>
@@ -73,28 +72,36 @@ if(isset($_POST['alterar'])){
                         <tr>
                             <td class="table_body"> <?php echo $value->nome_ficha; ?> </td>
                             <td>
-                                <form action="visualizarExerciciosFicha.php" method="post">
-                                    <button type="submit" name="visualizar">
-                                        <ion-icon name="eye-outline"></ion-icon>Visualizar
-                                    </button>
-                                    <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
-                                    <input type="hidden" name="nome_ficha" value="<?php echo $value->nome_ficha ?>">
-                                </form>
+                                <div class="alinha_botao">
+                                    <form action="visualizarExerciciosFicha.php" method="post">
+                                        <button type="submit" name="visualizar">
+                                            <span class="icons_table">
+                                                <ion-icon name="eye-outline"></ion-icon>
+                                            </span>
+                                        </button>
+                                        <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
+                                        <input type="hidden" name="nome_ficha" value="<?php echo $value->nome_ficha ?>">
+                                    </form>
 
-                                <form action="#modal_2" method="post">
-                                    <button type="submit" name="alterar">
-                                        <ion-icon name="create-outline"></ion-icon>Alterar
-                                    </button>
-                                    <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
-                                    <input type="hidden" name="nome_ficha" value="<?php echo $value->nome_ficha; ?>">
-                                </form>
-                                <form action="" method="post">
-                                    <button type="submit" name="excluir">
-                                        <ion-icon name="trash-outline"></ion-icon>Excluir
-                                    </button>
-                                    <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
-                                    <input type="hidden" name="nome_ficha" value="<?php echo $value->nome_ficha ?>">
-                                </form>
+                                    <form action="#modal_2" method="post">
+                                        <button type="submit" name="alterar">
+                                            <span class="icons_table">
+                                                <ion-icon name="create-outline"></ion-icon>
+                                            </span>
+                                        </button>
+                                        <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
+                                        <input type="hidden" name="nome_ficha" value="<?php echo $value->nome_ficha; ?>">
+                                    </form>
+                                    <form action="" method="post">
+                                        <button type="submit" name="excluir">
+                                            <span class="icons_table">
+                                                <ion-icon name="trash-outline"></ion-icon>
+                                            </span>
+                                        </button>
+                                        <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
+                                        <input type="hidden" name="nome_ficha" value="<?php echo $value->nome_ficha ?>">
+                                    </form>
+                                </div>
                             </td>
                         <?php } ?>
                         </tr>
@@ -114,7 +121,7 @@ if(isset($_POST['alterar'])){
                     <input type="text" name="nome_ficha" value="<?php echo $_POST['nome_ficha'] ?>">
                 </div>
                 <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
-                
+
 
                 <div class="botao-cadastro" id="botao_salvar_ficha">
                     <button name='cadastrarNovaFicha' class="save-name-modal" type="submit">OK</button>
