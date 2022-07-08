@@ -19,7 +19,7 @@
 
         <div class="back">
             <div class="div-top">
-                <img src="../../css/css login/img/login-image1.png" alt="login-image1" class="image-home">
+                <img src="../../img/login-image/login-image1.png" alt="login-image1" class="image-home">
                 <h1 id="porigym-title-home">PoriGYM</h1>
                 <p id="text-home">Sistema para Gerenciamento de Treinos na Academia<br>
                     PoriGYM<br>
