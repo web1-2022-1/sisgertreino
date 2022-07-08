@@ -152,7 +152,7 @@ if(isset($_POST['alterar'])){
         <div class="aaa">
 
             <div class="cont_esq">
-                <img src="../../css/css vizualizarTreino/img/logo_braco.png" height="120px">
+                <img src="../../img/logo/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 
