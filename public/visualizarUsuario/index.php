@@ -87,13 +87,13 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
 
                                                     <button type="submit" name="alterar">
-                                                        <ion-icon name="create-outline"></ion-icon>Alterar
+                                                        <ion-icon name="create-outline"></ion-icon>
                                                     </button>
                                                 </form>
                                                 <form action="" method="post">
                                                     <input name="cpf_instrutor" type="hidden" value="<?php echo $value->cpf_instrutor; ?>" />
                                                     <button type="submit" name="excluir">
-                                                        <ion-icon name="trash-outline"></ion-icon>Excluir
+                                                        <ion-icon name="trash-outline"></ion-icon>
                                                     </button>
                                                 </form>
                                             </td>
@@ -163,7 +163,6 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                                                     </button>
                                                 </form>
                                             </td>
-
                                         </tr>
                                     <?php } ?>
                                 </tbody>
