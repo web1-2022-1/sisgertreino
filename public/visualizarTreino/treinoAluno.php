@@ -40,11 +40,13 @@ if(isset($_POST['alterar'])){
 
         <div class="sequencia_topo">
 
-            <a href="">Home</a>
+            <p>Home</p>
             <p> > </p>
-            <a href="">Treino</a>
+            <p>Treino</p>
             <p> > </p>
-            <a href="">Criar treino</a>
+            <p>Selecionar Aluno</p>
+            <p> > </p>
+            <p>Listar Treinos</p>
 
 
         </div>

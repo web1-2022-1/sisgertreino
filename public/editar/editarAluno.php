@@ -54,11 +54,13 @@ endif;
 
         <div class="sequencia_topo">
 
-            <a href="../dashboard/index.php">Home</a>
+            <p>Home</p>
             <p> > </p>
-            <a href="../visualizarUsuario/index.php">Usuário</a>
+            <p>Usuário</p>
             <p> > </p>
-            <a href="">Editar usuários</a>
+            <p>Listar Usuários</p>
+            <p> > </p>
+            <p> Editar Aluno </p>
 
         </div>
         <div class="cont_tudo" id="scrollbar">

@@ -25,15 +25,15 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
         <div class="sequencia_topo">
 
-            <a href="">Home</a>
+            <p>Home</p>
             <p> > </p>
-            <a href="">Treino</a>
+            <p>Treino</p>
             <p> > </p>
-            <a href="">Criar treino</a>
+            <p>Selecionar Aluno</p>
 
         </div>
         <div class="conteudo">
-            <h1 class="form-title">Treinos</h1>
+            <h1 class="form-title">Selecionar Aluno</h1>
             <form method='POST' action="nomeTreino.php">
                 <div class="search">
                     <div class="campo-texto">

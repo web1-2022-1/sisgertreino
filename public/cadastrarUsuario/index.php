@@ -95,11 +95,11 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
         <div class="sequencia_topo">
 
-            <a href="">Home</a>
+            <p>Home</p>
             <p> > </p>
-            <a href="">Treino</a>
+            <p>Usuário</p>
             <p> > </p>
-            <a href="">Criar treino</a>
+            <p>Cadastrar Usuário</p>
 
 
         </div>

@@ -65,11 +65,13 @@ if(isset($_POST['cadastrarNovaFicha'])){
 
         <div class="sequencia_topo">
 
-            <a href="">Home</a>
+            <p>Home</p>
             <p> > </p>
-            <a href="">Treino</a>
+            <p>Treino</p>
             <p> > </p>
-            <a href="">Criar treino</a>
+            <p>Criar Treino</p>
+            <p> > </p>
+            <p> Criar Ficha de Exercício</p>
 
         </div>
         <div class="conteudo">
