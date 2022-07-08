@@ -79,13 +79,17 @@ if(isset($_POST['alterar'])){
                             <td>
                                 <form action="../visualizarFicha/index.php" method="post">
                                     <button type="submit" name="visualizar">
-                                        <ion-icon name="eye-outline"></ion-icon>
+                                        <span class="icons_table">
+                                            <ion-icon name="eye-outline"></ion-icon>
+                                        </span>
                                     </button>
                                     <input type="hidden" name="id_treino" value="<?php echo $value->id_treino ?>">
                                 </form>
                                 <form action="#modal_1" method="post">
                                 <button type="submit" name="alterar">
-                                    <ion-icon name="create-outline"></ion-icon>
+                                    <span class="icons_table">
+                                        <ion-icon name="create-outline"></ion-icon>
+                                    </span>
                                 </button>
                                 <input type="hidden" name="nome_treino" value="<?php echo $value->nome_treino;?>">
                                 <input type="hidden" name="dt_treino" value="<?php echo $value->dt_treino;?>">
@@ -94,7 +98,9 @@ if(isset($_POST['alterar'])){
                             </form>
                                 <form action="" method="post">
                                     <button type="submit" name="excluir">
-                                        <ion-icon name="trash-outline"></ion-icon>
+                                        <span class="icons_table">
+                                            <ion-icon name="trash-outline"></ion-icon>
+                                        <span class="icons_table">
                                     </button>
                                     <input type="hidden" name="id" value="<?php echo $value->id_treino ?>">
                                     <input type="hidden" name="cpf_aluno" value="<?php echo $value->cpf_aluno ?>">

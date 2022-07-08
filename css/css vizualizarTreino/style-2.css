@@ -128,6 +128,12 @@ body{
    width: 100vh;
    height: 60vh;
 }
+
+.conteudo button{
+  border: none;
+  background: white;
+}
+
 #scrollbar::-webkit-scrollbar { 
    display: none;
  }
@@ -137,6 +143,11 @@ body{
    border-collapse: collapse;
    border-radius: 5px;
 }
+
+.table button{
+  border: none;
+}
+
 .table_head{
    width: 16%;
    background-color: #C4C4C4;
@@ -200,6 +211,17 @@ body{
  .save-name-modal:hover{
    background-color: #F9501B;
  }
+
+ .icons_table{
+  color: #F9501B;
+  font-size: 25px;
+}
+
+.icons_table:hover{
+  color: #361207;
+  font-size: 25px;
+}
+
 /*------------MODAL------------*/
 a {
    text-decoration: none;

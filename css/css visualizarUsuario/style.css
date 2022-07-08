@@ -178,6 +178,11 @@ body{
    border-collapse: collapse;
 }
 
+.conteudo button{
+   border: none;
+   background: white;
+}
+
 .table_head{
    width: 16%;
    background-color: #C4C4C4;
@@ -186,6 +191,16 @@ body{
 
 .table_body{
    text-align: center;
+}
+
+.icons_table{
+   color: #F9501B;
+   font-size: 25px;
+}
+
+.icons_table:hover{
+   color: #361207;
+   font-size: 25px;
 }
 
 
