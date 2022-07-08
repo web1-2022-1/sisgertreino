@@ -82,7 +82,6 @@ if (isset($_POST['alterar'])) {
                                         <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
                                         <input type="hidden" name="nome_ficha" value="<?php echo $value->nome_ficha ?>">
                                     </form>
-
                                     <form action="#modal_2" method="post">
                                         <button type="submit" name="alterar">
                                             <span class="icons_table">

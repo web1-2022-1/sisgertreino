@@ -160,7 +160,6 @@ if(isset($_POST['cadastrarNovaFicha'])){
                                                 <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
                                                 <input type="hidden" name="id" value="<?php echo $value->id_fichaExercicio; ?>">
                                                 <input type="hidden" name="fk" value="<?php echo $idTreino; ?>">
-
                                             </span>
                                         </button>
                                     </form>
