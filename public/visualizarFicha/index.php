@@ -87,6 +87,8 @@ if (isset($_POST['alterar'])) {
                                         <button type="submit" name="alterar">
                                             <span class="icons_table">
                                                 <ion-icon name="create-outline"></ion-icon>
+                                        <input type="hidden" name="nomeAntigo" value="<?php echo $value->nome_ficha ?>">
+
                                             </span>
                                         </button>
                                         <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
