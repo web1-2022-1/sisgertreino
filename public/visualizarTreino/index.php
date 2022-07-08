@@ -29,7 +29,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
             <p> > </p>
             <p>Treino</p>
             <p> > </p>
-            <p>Selecionar Aluno</p>
+            <p>Listar Treino</p>
 
         </div>
         <div class="conteudo">
