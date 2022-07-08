@@ -64,7 +64,7 @@ endif;
             <p> > </p>
             <p>Listar Usuários</p>
             <p> > </p>
-            <p> Editar Funcionário </p>
+            <p>Editar Funcionário </p>
 
         </div>
 

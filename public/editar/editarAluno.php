@@ -60,7 +60,7 @@ endif;
             <p> > </p>
             <p>Listar Usuários</p>
             <p> > </p>
-            <p> Editar Aluno </p>
+            <p>Editar Aluno</p>
 
         </div>
         <div class="cont_tudo" id="scrollbar">

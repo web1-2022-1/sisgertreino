@@ -71,7 +71,7 @@ if(isset($_POST['cadastrarNovaFicha'])){
             <p> > </p>
             <p>Criar Treino</p>
             <p> > </p>
-            <p> Criar Ficha de Exercício</p>
+            <p>Criar Ficha de Exercício</p>
 
         </div>
         <div class="conteudo">
