@@ -31,7 +31,7 @@ if (isset($_POST['alterar'])) {
 
 <body>
 
-    <main>
+    <main id="scrollbar">
 
         <div class="sequencia_topo">
 
@@ -47,14 +47,11 @@ if (isset($_POST['alterar'])) {
 
         </div>
 
-        <div class="container_main" id="scrollbar">
+        <div class="container_main">
 
             <div class="conteudo">
                 <h1 class="edit-title">Lista de Exercícios</h1>
                 <h3 class="edit-title"><?php echo $_POST['nome_ficha'] ?></h3>
-            </div>
-            <div class="conteudo" id="scrollbar">
-
                 <table class="table" border="1">
                     <thead>
                         <th class="table_head">Nome</th>
@@ -75,50 +72,52 @@ if (isset($_POST['alterar'])) {
                         foreach ($fichaexercicio->findData($_POST['nome_ficha'], $_POST['id_treino']) as $key => $value) {
                         ?>
                             <tr>
-                                
+
                                 <td class="table_body"> <?php echo $value->nome; ?> </td>
                                 <td class="table_body"> <?php echo $value->num_serie; ?> </td>
                                 <td class="table_body"> <?php echo $value->repeticoes; ?> </td>
                                 <td class="table_body"> <?php echo $value->carga; ?> </td>
                                 <td class="table_body"> <?php echo $value->tempo_descanso; ?> </td>
                                 <td id="acoes">
-                                    <form action="../vizualizarExercicios/index.php" method="post">
-                                        <button type="submit" name="visualizar">
-                                            <span class="icons_table">
-                                                <ion-icon name="eye-outline"></ion-icon>
-                                                <input type="hidden" name="id_exercicio" value="<?php echo $value->fk_exercicio; ?>">
-                                                <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
-                                                <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
-                                            </span>
-                                        </button>
-                                    </form>
-                                    <form action="#modal_1" method="post">
-                                        <button type="submit" name="alterar">
-                                            <span class="icons_table">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                                <input type="hidden" name="num_serie" value="<?php echo $value->num_serie; ?>">
-                                                <input type="hidden" name="repeticoes" value="<?php echo $value->repeticoes; ?>">
-                                                <input type="hidden" name="carga" value="<?php echo $value->carga; ?>">
-                                                <input type="hidden" name="tempo_descanso" value="<?php echo $value->tempo_descanso; ?>">
-                                                <input type="hidden" name="id_ficha" value="<?php echo $value->id_fichaExercicio; ?>">
-                                                <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
-                                                <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
+                                    <div class="alinha_botao">
+                                        <form action="../vizualizarExercicios/index.php" method="post">
+                                            <button type="submit" name="visualizar">
+                                                <span class="icons_table">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                    <input type="hidden" name="id_exercicio" value="<?php echo $value->fk_exercicio; ?>">
+                                                    <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
+                                                    <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
+                                                </span>
+                                            </button>
+                                        </form>
+                                        <form action="#modal_1" method="post">
+                                            <button type="submit" name="alterar">
+                                                <span class="icons_table">
+                                                    <ion-icon name="create-outline"></ion-icon>
+                                                    <input type="hidden" name="num_serie" value="<?php echo $value->num_serie; ?>">
+                                                    <input type="hidden" name="repeticoes" value="<?php echo $value->repeticoes; ?>">
+                                                    <input type="hidden" name="carga" value="<?php echo $value->carga; ?>">
+                                                    <input type="hidden" name="tempo_descanso" value="<?php echo $value->tempo_descanso; ?>">
+                                                    <input type="hidden" name="id_ficha" value="<?php echo $value->id_fichaExercicio; ?>">
+                                                    <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
+                                                    <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
 
-                                            </span>
-                                        </button>
-                                    </form>
+                                                </span>
+                                            </button>
+                                        </form>
 
-                                    <form action="" method="post">
-                                        <button type="submit" name="excluir">
-                                            <span class="icons_table">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                                <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
-                                                <input type="hidden" name="id" value="<?php echo $value->id_fichaExercicio; ?>">
-                                                <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
+                                        <form action="" method="post">
+                                            <button type="submit" name="excluir">
+                                                <span class="icons_table">
+                                                    <ion-icon name="trash-outline"></ion-icon>
+                                                    <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
+                                                    <input type="hidden" name="id" value="<?php echo $value->id_fichaExercicio; ?>">
+                                                    <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
 
-                                            </span>
-                                        </button>
-                                    </form>
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             <?php } ?>
 

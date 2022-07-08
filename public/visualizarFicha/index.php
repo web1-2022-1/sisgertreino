@@ -29,7 +29,7 @@ if (isset($_POST['alterar'])) {
 
 <body>
 
-    <main>
+    <main id="scrollbar">
 
         <div class="sequencia_topo">
 
@@ -42,7 +42,7 @@ if (isset($_POST['alterar'])) {
             <p>Listar Fichas</p>
 
         </div>
-        <div class="conteudo" id="scrollbar">
+        <div class="conteudo">
             <h1 class="edit-title">Lista de Fichas</h1>
 
             <form action="#modal_1" method="post">
@@ -82,7 +82,6 @@ if (isset($_POST['alterar'])) {
                                         <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
                                         <input type="hidden" name="nome_ficha" value="<?php echo $value->nome_ficha ?>">
                                     </form>
-
                                     <form action="#modal_2" method="post">
                                         <button type="submit" name="alterar">
                                             <span class="icons_table">
