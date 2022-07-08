@@ -22,11 +22,11 @@ if ($_POST['cpf_aluno'] == NULL) {
     $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
     $treino->setCpf_aluno($cpf_aluno);
 } else {
-   
+
     $treino->setCpf_aluno($_POST['cpf_aluno']);
 }
-if(isset($_POST['alterar'])){
-    $treinoAlterar= new CrudTreino;
+if (isset($_POST['alterar'])) {
+    $treinoAlterar = new CrudTreino;
     $treino->setCpf_aluno($_POST['cpf_aluno']);
     $treinoAlterar->setNome_treino($_POST['nome_treino']);
     $treinoAlterar->setDt_treino($_POST['dt_treino']);
@@ -53,7 +53,7 @@ if(isset($_POST['alterar'])){
             <form action="../treino/nomeTreino.php" method="post">
                 <div class="button_find">
                     <button type="submit">Criar Novo Treino</button>
-                    <input type="hidden" name="cpf_aluno" value="<?php echo  $cpf_aluno;?>">
+                    <input type="hidden" name="cpf_aluno" value="<?php echo  $cpf_aluno; ?>">
                     <input type="hidden" name="booleano" value='1'>
                 </div>
             </form>
@@ -77,36 +77,36 @@ if(isset($_POST['alterar'])){
                             <td class="table_body"> <?php echo $value->nome_treino; ?> </td>
                             <td class="table_body"> <?php echo $value->dt_treino; ?> </td>
                             <td>
-                                <form action="../visualizarFicha/index.php" method="post">
-                                    <button type="submit" name="visualizar">
-                                        <span class="icons_table">
-                                            <ion-icon name="eye-outline"></ion-icon>
-                                        </span>
-                                    </button>
-                                    <input type="hidden" name="id_treino" value="<?php echo $value->id_treino ?>">
-                                </form>
-                                <form action="#modal_1" method="post">
-                                <button type="submit" name="alterar">
-                                    <span class="icons_table">
-                                        <ion-icon name="create-outline"></ion-icon>
-                                    </span>
-                                </button>
-                                <input type="hidden" name="nome_treino" value="<?php echo $value->nome_treino;?>">
-                                <input type="hidden" name="dt_treino" value="<?php echo $value->dt_treino;?>">
-                                <input type="hidden" name="id_treino" value="<?php echo $value->id_treino; ?>">
-                                <input type="hidden" name="cpf_aluno" value="<?php echo $value->cpf_aluno;?>">    
-                            </form>
-                                <form action="" method="post">
-                                    <button type="submit" name="excluir">
-                                        <span class="icons_table">
-                                            <ion-icon name="trash-outline"></ion-icon>
-                                        <span class="icons_table">
-                                    </button>
-                                    <input type="hidden" name="id" value="<?php echo $value->id_treino ?>">
-                                    <input type="hidden" name="cpf_aluno" value="<?php echo $value->cpf_aluno ?>">
-
-                                </form>
-
+                                <div class="alinha_botao">
+                                    <form action="../visualizarFicha/index.php" method="post">
+                                        <button type="submit" name="visualizar">
+                                            <span class="icons_table">
+                                                <ion-icon name="eye-outline"></ion-icon>
+                                            </span>
+                                        </button>
+                                        <input type="hidden" name="id_treino" value="<?php echo $value->id_treino ?>">
+                                    </form>
+                                    <form action="#modal_1" method="post">
+                                        <button type="submit" name="alterar">
+                                            <span class="icons_table">
+                                                <ion-icon name="create-outline"></ion-icon>
+                                            </span>
+                                        </button>
+                                        <input type="hidden" name="nome_treino" value="<?php echo $value->nome_treino; ?>">
+                                        <input type="hidden" name="dt_treino" value="<?php echo $value->dt_treino; ?>">
+                                        <input type="hidden" name="id_treino" value="<?php echo $value->id_treino; ?>">
+                                        <input type="hidden" name="cpf_aluno" value="<?php echo $value->cpf_aluno; ?>">
+                                    </form>
+                                    <form action="" method="post">
+                                        <button type="submit" name="excluir">
+                                            <span class="icons_table">
+                                                <ion-icon name="trash-outline"></ion-icon>
+                                                <span class="icons_table">
+                                        </button>
+                                        <input type="hidden" name="id" value="<?php echo $value->id_treino ?>">
+                                        <input type="hidden" name="cpf_aluno" value="<?php echo $value->cpf_aluno ?>">
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     <?php } ?>

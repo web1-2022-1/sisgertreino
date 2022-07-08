@@ -222,6 +222,12 @@ body{
   font-size: 25px;
 }
 
+.alinha_botao{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
 /*------------MODAL------------*/
 a {
    text-decoration: none;
