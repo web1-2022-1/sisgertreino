@@ -307,10 +307,23 @@ a {
 .alinha_botao{
   display: flex;
   justify-content: center;
+  gap: 5px;
 }
 
+.icons_table{
+  color: #F9501B;
+  font-size: 25px;
+}
 
+.icons_table:hover{
+  color: #361207;
+  font-size: 25px;
+}
 
+.conteudo button{
+  border: none;
+  background: white;
+}
 
 
 

@@ -44,9 +44,6 @@ $fichaexercicio = new CrudFichaExercicio;
             <div class="conteudo">
                 <h1 class="edit-title">Lista de Exercícios</h1>
                 <h3 class="edit-title"><?php echo $_POST['nome_ficha'] ?></h3>
-            </div>
-            <div class="conteudo" id="scrollbar">
-
                 <table class="table" border="1">
                     <thead>
                         <th class="table_head">Nome</th>
@@ -73,32 +70,34 @@ $fichaexercicio = new CrudFichaExercicio;
                                 <td class="table_body"> <?php echo $value->carga; ?> </td>
                                 <td class="table_body"> <?php echo $value->tempo_descanso; ?> </td>
                                 <td id="acoes">
-                                    <form action="" method="post">
-                                        <button type="submit" name="visualizar">
-                                            <span class="icons_table">
-                                                <ion-icon name="eye-outline"></ion-icon>
-                                            </span>
-                                        </button>
-                                    </form>
-                                    <form action="" method="post">
-                                        <button type="submit" name="alterar">
-                                            <span class="icons_table">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </span>
-                                        </button>
-                                    </form>
+                                    <div class="alinha_botao">
+                                        <form action="" method="post">
+                                            <button type="submit" name="visualizar">
+                                                <span class="icons_table">
+                                                    <ion-icon name="eye-outline"></ion-icon>
+                                                </span>
+                                            </button>
+                                        </form>
+                                        <form action="" method="post">
+                                            <button type="submit" name="alterar">
+                                                <span class="icons_table">
+                                                    <ion-icon name="create-outline"></ion-icon>
+                                                </span>
+                                            </button>
+                                        </form>
 
-                                    <form action="" method="post">
-                                        <button type="submit" name="excluir">
-                                            <span class="icons_table">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                                <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
-                                                <input type="hidden" name="id" value="<?php echo $value->id_fichaExercicio; ?>">
-                                                <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
+                                        <form action="" method="post">
+                                            <button type="submit" name="excluir">
+                                                <span class="icons_table">
+                                                    <ion-icon name="trash-outline"></ion-icon>
+                                                    <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
+                                                    <input type="hidden" name="id" value="<?php echo $value->id_fichaExercicio; ?>">
+                                                    <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
 
-                                            </span>
-                                        </button>
-                                    </form>
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             <?php } ?>
 
