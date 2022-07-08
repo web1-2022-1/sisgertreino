@@ -7,7 +7,7 @@
         protected $tabela= 'fichaExercicio';
 
         public function findData($nome_ficha,$id_treino){
-            $sql="SELECT f.id_fichaExercicio, e.nome, f.num_serie, f.repeticoes, f.carga, f.tempo_descanso 
+            $sql="SELECT f.id_fichaExercicio, e.nome, f.num_serie, f.repeticoes, f.carga, f.tempo_descanso,f.fk_exercicio 
             FROM exercicio as e, fichaExercicio as f 
             WHERE e.id_exercicio=f.fk_exercicio AND f.nome_ficha=:nome_ficha 
             AND f.fk_treino=(select  id_treino from treino where id_treino=:id_treino)";

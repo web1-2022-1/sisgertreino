@@ -6,6 +6,13 @@
 
         protected $tabela= 'exercicio';
 
+        public function findData($id_exercicio){
+            $sql="SELECT nome, descricao FROM $this->tabela WHERE id_exercicio=:id_exercicio";
+            $stm=DB::prepare($sql);
+            $stm->bindParam(':id_exercicio',$id_exercicio);
+            $stm->execute();
+            return $stm->fetch();
+        }
 
         public function findId(){
             $nome_exercicio=$this->getNome();
@@ -33,16 +40,7 @@
             $stm->bindParam(':descricao',$descricao);
             return $stm->execute();
         } 
-        /*public function update($id){
-            $usuario=$this->getUsuario();
-            $senha=$this->getSenha();           
-            $sql="UPDATE $this->tabela SET usuario= :usuario, senha= :senha WHERE id = :id";
-            $stm=DB::prepare($sql);
-            $stm->bindParam(':id',$id,PDO::PARAM_INT);
-            $stm->bindParam(':usuario',$usuario);
-            $stm->bindParam(':senha',$senha);
-            return $stm->execute();
-        }*/
+        
         public function delete($id_exercicio){
             $sql="DELETE FROM $this->tabela WHERE id_exercicio= :id";
             $stm=DB::prepare($sql);

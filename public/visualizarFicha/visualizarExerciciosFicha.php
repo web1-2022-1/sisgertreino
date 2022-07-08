@@ -71,16 +71,20 @@ if (isset($_POST['alterar'])) {
                         foreach ($fichaexercicio->findData($_POST['nome_ficha'], $_POST['id_treino']) as $key => $value) {
                         ?>
                             <tr>
+                                
                                 <td class="table_body"> <?php echo $value->nome; ?> </td>
                                 <td class="table_body"> <?php echo $value->num_serie; ?> </td>
                                 <td class="table_body"> <?php echo $value->repeticoes; ?> </td>
                                 <td class="table_body"> <?php echo $value->carga; ?> </td>
                                 <td class="table_body"> <?php echo $value->tempo_descanso; ?> </td>
                                 <td id="acoes">
-                                    <form action="" method="post">
+                                    <form action="../vizualizarExercicios/index.php" method="post">
                                         <button type="submit" name="visualizar">
                                             <span class="icons_table">
                                                 <ion-icon name="eye-outline"></ion-icon>
+                                                <input type="hidden" name="id_exercicio" value="<?php echo $value->fk_exercicio; ?>">
+                                                <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
+                                                <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
                                             </span>
                                         </button>
                                     </form>

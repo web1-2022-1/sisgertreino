@@ -109,7 +109,7 @@ if(isset($_POST['alterar'])){
             <form action="../criarFichaExercicio/index.php" class="modal__description" method="POST">
                 <div class="text_field">
                     <label for="nome_ficha">Nome da Ficha</label>
-                    <input type="text" name="nome_ficha" value="<?php echo $_POST['nome_ficha'] ?>">
+                    <input type="text" name="nome_ficha" >
                 </div>
                 <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
                 

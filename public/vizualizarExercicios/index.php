@@ -1,3 +1,6 @@
+<?php
+require_once '../../Controller/Exercicio/CrudExercicio.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +15,10 @@
     <title>PoriGYM</title>
 
 </head>
+<?php
+$exercicio = new CrudExercicio;
+$exercicioDados = $exercicio->findData($_POST['id_exercicio']);
+?>
 
 <body>
 
@@ -31,23 +38,21 @@
 
             <div class="conteudo">
                 <h1 class="edit-title">Exercício</h1>
-                <h3 class="edit-title">Abdominal Giro Russo no Banco com Peso</h3>
+                <h3 class="edit-title"><?php echo $exercicioDados->nome ?></h3>
                 <table class="table" border="1">
                     <thead>
                         <th class="table_head">Descrição</th>
                     </thead>
                     <tbody>
-                        <td class="table_body">Deite-se no banco inclinado com os pés no apoio do banco. Levante as
-                            costas
-                            do banco e segure uma anilha com os braços esticados.
-                            Gire o tronco para o lado, movendo também os braços e o peso.
-                            Volte para a posição inicial e repita o giro para o outro lado.</td>
+                        <td class="table_body"><?php echo $exercicioDados->descricao ?></td>
                     </tbody>
                 </table>
             </div>
         </div>
-        <form action="" method="post">
+        <form action="../visualizarFicha/visualizarExerciciosFicha.php" method="post">
             <div class="button_find" id="botao_salvar_ficha">
+                <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
+                <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
                 <button type="submit" class="btn">Voltar</button>
             </div>
         </form>

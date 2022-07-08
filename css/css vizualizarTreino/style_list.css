@@ -202,76 +202,140 @@ body{
  }
 /*------------MODAL------------*/
 a {
-   text-decoration: none;
- }
- 
- .modal {
-   position: fixed;
-   width: 100%;
-   height: 100vh;
-   background-color: #000000ab;
-   display: grid;
-   place-content: center;
-   visibility: hidden;
-   opacity: 0;
-   transition: .3s;
- }
- 
- .modal:target {
-   opacity: 1;
-   visibility: visible;
- }
- .modal__content {
-   background-color: #ffffff;
-   min-height: 250px;
-   height: 50vh;
-   min-width: 250px;
-   width: 20vw;
-   min-width: none;
-   padding: 2rem 2rem 1rem;
-   border-radius: 4px;
-   border-top: .8rem solid #F9501B;
-   display: flex;
-   align-items: center;
-   flex-direction: column;
- }
- 
- .modal__title {
-   margin-bottom: 1rem;
-   font-family: 'Bai-Jamjuure', sans-serif;
- }
- 
- .modal__content label {
-   width: 180px;
-   padding: 0px;
-   display: flex;
-   background-color: #FFFFFF;
-   cursor: auto;
-   text-align: none;
-   color: #000000;
-   border-top-left-radius: 0px;
-   border-top-right-radius: 0px;
- }
- 
- .text_field > input {
-   width: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: initial;
-   border: none;
-   border-radius: 30px;
-   padding: 13px 10px;
-   background: #F3E9E9;
-   font-size: 12px;
-   outline: none;
-   box-sizing: border-box;
- }
- 
- .text_field{
-   text-align: center;
-   margin: 10px;
-   font-family: 'Andika', sans-serif;
- }
+  text-decoration: none;
+}
+
+.btn {
+  font-family: 'Bai Jamjuree', sans-serif;
+  font-size: 15px;
+  margin-left: 15px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: #FF3D00;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.btn_modal {
+  font-family: 'Bai Jamjuree', sans-serif;
+  font-size: 15px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: #FF3D00;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.div_button{
+  display: flex;
+  justify-content: center;
+}
+
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #000000ab;
+  display: grid;
+  place-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
+}
+
+.modal--2 {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: red;
+  display: grid;
+  place-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
+}
+
+
+.modal:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__content {
+  background-color: #ffffff;
+  height: 60vh;
+  width: 20vw;
+  padding: 2rem 2rem 1rem;
+  border-radius: 4px;
+  border-top: .8rem solid #F9501B;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 370px;
+  min-height: 500px;
+}
+
+.modal__title {
+  margin-bottom: 1rem;
+  font-family: 'Bai-Jamjuure', sans-serif;
+}
+
+.modal__link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F9501B;
+  color: #ffffff;
+  padding: 0.7rem 3rem;
+  margin-top: 3rem;
+  border-radius: 4px;
+}
+
+.modal__link:hover {
+  background-color: #FF3D00;
+}
+
+.modal__content label {
+  width: 180px;
+  padding: 0px;
+  display: flex;
+  background-color: #FFFFFF;
+  cursor: auto;
+  text-align: none;
+  color: #000000;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.text_field > input {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: initial;
+  border: none;
+  border-radius: 30px;
+  padding: 13px 10px;
+  background: #F3E9E9;
+  font-size: 12px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.text_field{
+  text-align: center;
+  margin: 10px;
+  font-family: 'Andika', sans-serif;
+}
  
  /*----------------------Botão voltar*/
 
