@@ -55,6 +55,9 @@ $exercicioDados = $exercicio->findData($_POST['id_exercicio']);
                 </table>
             </div>
         </div>
+        <div class="img-exercicio">
+                <img src="../../img/exercicios/<?php echo $_POST['id_exercicio'].".jpg" ?>" alt="" width="400px">
+        </div>
         <form action="../visualizarFicha/visualizarExerciciosFicha.php" method="post">
             <div class="button_find" id="botao_salvar_ficha">
                 <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
