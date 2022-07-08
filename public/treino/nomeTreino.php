@@ -22,11 +22,13 @@ require_once '../../Controller/Treino/CrudTreino.php';
 
         <div class="sequencia_topo">
 
-            <a href="">Home</a>
+            <p>Home</p>
             <p> > </p>
-            <a href="">Treino</a>
+            <p>Treino</p>
             <p> > </p>
-            <a href="">Criar treino</a>
+            <p>Selecionar Aluno</p>
+            <p> > </p>
+            <p>Criar Treino</p>
             <?php
             if (isset($_POST['booleano'])) {
                 $cpf_aluno = $_POST['cpf_aluno'];

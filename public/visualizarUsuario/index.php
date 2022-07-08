@@ -26,11 +26,11 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
         <div class="sequencia_topo">
 
-            <a href="">Home</a>
+            <p>Home</p>
             <p> > </p>
-            <a href="">Usuário</a>
+            <p>Usuário</p>
             <p> > </p>
-            <a href="">Listar usuários</a>
+            <p>Listar usuários</p>
 
         </div>
 
