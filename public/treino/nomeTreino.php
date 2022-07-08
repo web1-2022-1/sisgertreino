@@ -22,11 +22,11 @@ require_once '../../Controller/Treino/CrudTreino.php';
 
         <div class="sequencia_topo">
 
-            <a href="">Home</a>
+            <p>Home</p>
             <p> > </p>
-            <a href="">Treino</a>
+            <p>Treino</p>
             <p> > </p>
-            <a href="">Criar treino</a>
+            <p>Criar Treino</p>
             <?php
             if (isset($_POST['booleano'])) {
                 $cpf_aluno = $_POST['cpf_aluno'];
@@ -86,7 +86,7 @@ require_once '../../Controller/Treino/CrudTreino.php';
         <div class="aaa">
 
             <div class="cont_esq">
-                <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
+                <img src="../../img/logo/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 
@@ -96,8 +96,8 @@ require_once '../../Controller/Treino/CrudTreino.php';
                         <a href="../dashboard/index.php" class="caixaLateral">
                             <span class="icon">
                                 <ion-icon name="home-outline">Home</ion-icon>
-                            </span>
-                            <span class="title">Home</span>
+                                <span class="title">Home</span>
+                            </span>  
                         </a>
                     </li>
                 </ul>
@@ -155,8 +155,8 @@ require_once '../../Controller/Treino/CrudTreino.php';
                         <a href="../login/index.php" class="caixaLateral">
                             <span class="icon">
                                 <ion-icon name="log-out-outline"></ion-icon>
-                            </span>
-                            <span class="title">Sair</span>
+                                <span class="title">Sair</span>
+                            </span>                
                         </a>
                     </li>
                 </ul>

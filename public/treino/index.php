@@ -25,15 +25,15 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
         <div class="sequencia_topo">
 
-            <a href="">Home</a>
+            <p>Home</p>
             <p> > </p>
-            <a href="">Treino</a>
+            <p>Treino</p>
             <p> > </p>
-            <a href="">Criar treino</a>
+            <p>Criar Treino</p>
 
         </div>
         <div class="conteudo">
-            <h1 class="form-title">Treinos</h1>
+            <h1 class="form-title">Selecionar Aluno</h1>
             <form method='POST' action="nomeTreino.php">
                 <div class="search">
                     <div class="campo-texto">
@@ -64,7 +64,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
         <div class="aaa">
 
             <div class="cont_esq">
-                <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
+                <img src="../../img/logo/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 
@@ -109,8 +109,8 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                         <p class="space">
                             <span class="icon">
                                 <ion-icon name="barbell-outline"></ion-icon>
+                                <span class="title">Treino</span>
                             </span>
-                            <span class="title">Treino</span>
                         </p>
                     </li>
                     <li class="list_inside">
@@ -133,8 +133,8 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                         <a href="../login/index.php" class="caixaLateral">
                             <span class="icon">
                                 <ion-icon name="log-out-outline"></ion-icon>
+                                <span class="title">Sair</span>
                             </span>
-                            <span class="title">Sair</span>
                         </a>
                     </li>
                 </ul>

@@ -8,7 +8,7 @@ require_once '../../Controller/Treino/CrudTreino.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css vizualizarTreino/style_list.css">
+    <link rel="stylesheet" href="../../css/css vizualizarTreino/style-2.css">
     <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
 
@@ -40,11 +40,11 @@ if(isset($_POST['alterar'])){
 
         <div class="sequencia_topo">
 
-            <a href="">Home</a>
+            <p>Home</p>
             <p> > </p>
-            <a href="">Treino</a>
+            <p>Treino</p>
             <p> > </p>
-            <a href="">Criar treino</a>
+            <p>Listar Treinos</p>
 
 
         </div>
@@ -79,13 +79,13 @@ if(isset($_POST['alterar'])){
                             <td>
                                 <form action="../visualizarFicha/index.php" method="post">
                                     <button type="submit" name="visualizar">
-                                        <ion-icon name="eye-outline"></ion-icon>Visualizar
+                                        <ion-icon name="eye-outline"></ion-icon>
                                     </button>
                                     <input type="hidden" name="id_treino" value="<?php echo $value->id_treino ?>">
                                 </form>
                                 <form action="#modal_1" method="post">
                                 <button type="submit" name="alterar">
-                                    <ion-icon name="create-outline"></ion-icon>Alterar
+                                    <ion-icon name="create-outline"></ion-icon>
                                 </button>
                                 <input type="hidden" name="nome_treino" value="<?php echo $value->nome_treino;?>">
                                 <input type="hidden" name="dt_treino" value="<?php echo $value->dt_treino;?>">
@@ -94,7 +94,7 @@ if(isset($_POST['alterar'])){
                             </form>
                                 <form action="" method="post">
                                     <button type="submit" name="excluir">
-                                        <ion-icon name="trash-outline"></ion-icon>Excluir
+                                        <ion-icon name="trash-outline"></ion-icon>
                                     </button>
                                     <input type="hidden" name="id" value="<?php echo $value->id_treino ?>">
                                     <input type="hidden" name="cpf_aluno" value="<?php echo $value->cpf_aluno ?>">
@@ -139,7 +139,7 @@ if(isset($_POST['alterar'])){
         <div class="aaa">
 
             <div class="cont_esq">
-                <img src="../../css/css vizualizarTreino/img/logo_braco.png" height="120px">
+                <img src="../../img/logo/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 

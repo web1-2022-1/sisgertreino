@@ -8,7 +8,7 @@ require_once '../../Controller/Exercicio/CrudExercicio.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css vizualizarTreino/style_list.css">
+    <link rel="stylesheet" href="../../css/css vizualizarExercicios/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
 
@@ -26,11 +26,17 @@ $exercicioDados = $exercicio->findData($_POST['id_exercicio']);
 
         <div class="sequencia_topo">
 
-            <a href="">Home</a>
+            <p> Home </p>
             <p> > </p>
-            <a href="">Treino</a>
+            <p>Treino</p>
             <p> > </p>
-            <a href="">Criar treino</a>
+            <p>Listar Treinos</p>
+            <p> > </p>
+            <p>Listar Fichas</p>
+            <p> > </p>
+            <p>Listar Exercícios</p>
+            <p> > </p>
+            <p>Descrição Exercício</p>
 
         </div>
 
@@ -62,7 +68,7 @@ $exercicioDados = $exercicio->findData($_POST['id_exercicio']);
 
         <div class="aaa">
             <div class="cont_esq">
-                <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
+                <img src="../../img/logo/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 

@@ -12,7 +12,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css vizualizar usuario/style.css">
+    <link rel="stylesheet" href="../../css/css visualizarUsuario/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
 
@@ -26,11 +26,11 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
         <div class="sequencia_topo">
 
-            <a href="">Home</a>
+            <p>Home</p>
             <p> > </p>
-            <a href="">Usuário</a>
+            <p>Usuário</p>
             <p> > </p>
-            <a href="">Listar usuários</a>
+            <p>Listar usuários</p>
 
         </div>
 
@@ -87,13 +87,13 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
 
                                                     <button type="submit" name="alterar">
-                                                        <ion-icon name="create-outline"></ion-icon>Alterar
+                                                        <ion-icon name="create-outline"></ion-icon>
                                                     </button>
                                                 </form>
                                                 <form action="" method="post">
                                                     <input name="cpf_instrutor" type="hidden" value="<?php echo $value->cpf_instrutor; ?>" />
                                                     <button type="submit" name="excluir">
-                                                        <ion-icon name="trash-outline"></ion-icon>Excluir
+                                                        <ion-icon name="trash-outline"></ion-icon>
                                                     </button>
                                                 </form>
                                             </td>
@@ -163,7 +163,6 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                                                     </button>
                                                 </form>
                                             </td>
-
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -182,7 +181,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
         <div class="aaa">
             <div class="cont_esq">
-                <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
+                <img src="../../img/logo/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 
