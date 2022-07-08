@@ -200,6 +200,13 @@ body{
  .save-name-modal:hover{
    background-color: #F9501B;
  }
+
+ .img-exercicio{
+  border: 5px dotted #FF3D00;
+  margin-bottom: 20px;
+  padding: 3px;
+ }
+
 /*------------MODAL------------*/
 a {
   text-decoration: none;
