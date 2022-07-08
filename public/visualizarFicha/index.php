@@ -149,8 +149,6 @@ if (isset($_POST['alterar'])) {
                 <div class="botao-cadastro" id="botao_salvar_ficha">
                     <button class="save-name-modal" name="alterar" type="submit">ALTERAR</button>
                 </div>
-
-
             </form>
         </div>
     </div>
