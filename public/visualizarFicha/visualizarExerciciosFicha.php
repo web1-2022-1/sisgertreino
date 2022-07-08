@@ -134,19 +134,19 @@ if (isset($_POST['alterar'])) {
             <form action="visualizarExerciciosFicha.php" method="post">
                 <div class="text_field">
                     <label for="num_serie">Número de séries</label>
-                    <input type="number" name="num_serie" value="<?php $_POST['num_serie']; ?>">
+                    <input type="number" name="num_serie" value="<?php $_POST['num_serie']; ?>" required>
                 </div>
                 <div class="text_field">
                     <label for="repeticoes">Repetições</label>
-                    <input type="number" name="repeticoes" value="<?php $_POST['repeticoes']; ?>">
+                    <input type="number" name="repeticoes" value="<?php $_POST['repeticoes']; ?>" required>
                 </div>
                 <div class="text_field">
                     <label for="carga">Carga(kg)</label>
-                    <input type="number" name="carga" value="<?php $_POST['carga']; ?>">
+                    <input type="number" name="carga" value="<?php $_POST['carga']; ?>" required>
                 </div>
                 <div class="text_field">
                     <label for="descanso">Tempo de descanso</label>
-                    <input type="number" name="descanso" value="<?php $_POST['tempo_descanso']; ?>">
+                    <input type="number" name="descanso" value="<?php $_POST['tempo_descanso']; ?>" required>
                 </div>
                 <input type="hidden" name="id_ficha" value="<?php echo $_POST['id_ficha'] ?>">
                 <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">

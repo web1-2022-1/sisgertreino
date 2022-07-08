@@ -117,11 +117,11 @@ if(isset($_POST['alterar'])){
             <form action="treinoAluno.php" class="modal__description" method="POST">
                 <div class="text_field">
                     <label for="nome_ficha">Nome do treino:</label>
-                    <input type="text" name="nome_treino" value="<?php echo $_POST['nome_treino'] ?>">
+                    <input type="text" name="nome_treino" value="<?php echo $_POST['nome_treino'] ?>" required>
                 </div>
                 <div class="text_field">
                     <label for="nome_ficha">Data do treino:</label>
-                    <input type="date" name="dt_treino" value="<?php echo $_POST['dt_treino'] ?>">
+                    <input type="date" name="dt_treino" value="<?php echo $_POST['dt_treino'] ?>" required>
                     <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino']; ?>">
                     <input type="hidden" name="cpf_aluno" value="<?php echo $_POST['cpf_aluno']; ?>">
 

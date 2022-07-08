@@ -38,7 +38,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                 <div class="search">
                     <div class="campo-texto">
                         <label for="nome_aluno">Nome do aluno</label>
-                        <input name="nome_aluno" list="pesquisa_aluno" />
+                        <input name="nome_aluno" list="pesquisa_aluno" required />
                     </div>
                     <div class="button_find">
                         <button type="submit">Selecionar Aluno</button>

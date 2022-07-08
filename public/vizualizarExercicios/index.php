@@ -62,7 +62,7 @@ $exercicioDados = $exercicio->findData($_POST['id_exercicio']);
 
         <div class="aaa">
             <div class="cont_esq">
-                <img src="img/logo_braco.png" height="120px">
+                <img src="../../css/css dashboard/img/logo_braco.png" height="120px">
                 <h3 id="text_logo">PoriGYM</h3>
             </div>
 

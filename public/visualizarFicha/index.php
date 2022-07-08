@@ -85,6 +85,8 @@ if(isset($_POST['alterar'])){
                                     </button>
                                     <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
                                     <input type="hidden" name="nome_ficha" value="<?php echo $value->nome_ficha; ?>">
+                                    <input type="hidden" name="nomeAntigo" value="<?php echo $value->nome_ficha; ?>">
+
                                 </form>
                                 <form action="" method="post">
                                     <button type="submit" name="excluir">
@@ -130,9 +132,9 @@ if(isset($_POST['alterar'])){
             <form action="index.php" class="modal__description" method="POST">
                 <div class="text_field">
                     <label for="nome_ficha">Nome da ficha:</label>
-                    <input type="text" name="nome_ficha" value="<?php echo $_POST['nome_ficha'] ?>">
+                    <input type="text" name="nome_ficha" value="<?php echo $_POST['nome_ficha'] ?>" required>
                 </div>
-                <input type="hidden" name="nomeAntigo" value="<?php echo $_POST['nome_ficha'] ?>">
+                <input type="hidden" name="nomeAntigo" value="<?php echo $_POST['nomeAntigo'] ?>">
                 <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino']; ?>">
 
                 <div class="botao-cadastro" id="botao_salvar_ficha">

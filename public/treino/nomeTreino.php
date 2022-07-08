@@ -46,11 +46,11 @@ require_once '../../Controller/Treino/CrudTreino.php';
 
                 <div class="campo-texto">
                     <label for="nome">Nome</label>
-                    <input type="text" name="nome">
+                    <input type="text" name="nome" required>
                 </div>
                 <div class="campo-texto">
                     <label for="user">Data</label>
-                    <input type="date" name="dt_treino">
+                    <input type="date" name="dt_treino" required>
                 </div>
                 <div class="botao-cadastro" id="botao_salvar_ficha">
                     <button type="submit" class="botao-cadastro-a">Salvar Treino</button>
@@ -68,7 +68,7 @@ require_once '../../Controller/Treino/CrudTreino.php';
             <form action="../criarFichaExercicio/index.php" class="modal__description" method="POST">
                 <div class="text_field">
                     <label for="nome_ficha">Nome da Ficha</label>
-                    <input type="text" name="nome_ficha">
+                    <input type="text" name="nome_ficha"  required>
                 </div>
                 <div class="botao-cadastro" id="botao_salvar_ficha">
                     <button class="save-name-modal" type="submit">OK</button>
