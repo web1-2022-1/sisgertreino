@@ -53,7 +53,7 @@ if (isset($_POST['ok'])) {
     $fichaexercicio->insert();
     $idTreino = $_POST['fk_treino'];
 }
-if(isset($_POST['cadastrarNovaFicha'])){
+if (isset($_POST['cadastrarNovaFicha'])) {
     $idTreino = $_POST['id_treino'];
 }
 
@@ -61,7 +61,7 @@ if(isset($_POST['cadastrarNovaFicha'])){
 
 <body>
 
-    <main>
+    <main id="scrollbar">
 
         <div class="sequencia_topo">
 
@@ -74,99 +74,100 @@ if(isset($_POST['cadastrarNovaFicha'])){
             <p>Criar Ficha de Exercício</p>
 
         </div>
-        <div class="conteudo">
-            <h1 class="form-title">Criar Ficha de Exercícios</h1>
+        <div class="container_main" id="scrollbar">
+            <div class="conteudo">
+                <h1 class="form-title">Criar Ficha de Exercícios</h1>
 
-            <form method='POST' action="#modal_1">
-                <div class="search">
-                    <div class="campo-texto">
-                        <label for="nome_aluno">Nome do exercício</label>
-                        <input type="text" name="nome_exercicio" list="pesquisa_aluno" />
-                        <input type="hidden" name="fk" value="<?php echo $idTreino; ?>">
-                        <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
+                <form method='POST' action="#modal_1">
+                    <div class="search">
+                        <div class="campo-texto">
+                            <label for="nome_aluno">Nome do exercício</label>
+                            <input type="text" name="nome_exercicio" list="pesquisa_aluno" />
+                            <input type="hidden" name="fk" value="<?php echo $idTreino; ?>">
+                            <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
 
+                        </div>
+                        <div class="button_find">
+                            <button type="submit" class="btn">SELECIONAR EXERCÍCIO</button>
+                        </div>
                     </div>
-                    <div class="button_find">
-                        <button type="submit" class="btn">SELECIONAR EXERCÍCIO</button>
-                    </div>
-                </div>
-                <datalist id="pesquisa_aluno">
-                    <?php
-                    foreach ($exercicio->findAll() as $key => $value) {
-                    ?>
-
-                        <option name="nome_exercicio"><?php echo $value->nome ?></option>
-
-
-                    <?php }
-
-                    ?>
-                </datalist>
-            </form>
-
-            <!-- --------------->
-
-
-            <!-- --------------->
-
-            <div class="table_exercicios">
-                <table class="table" border="1">
-                    <thead>
-                        <th class="table_head">Nome</th>
-                        <th class="table_head">Número de series</th>
-                        <th class="table_head">Repetições</th>
-                        <th class="table_head">Carga(kg)</th>
-                        <th class="table_head">Tempo de descanso</th>
-                        <th class="table_head">Ações</th>
-                    </thead>
-                    <tbody>
+                    <datalist id="pesquisa_aluno">
                         <?php
-
-
-                        if (isset($_POST['excluir'])) {
-                            $id = $_POST['id'];
-                            $fichaexercicio->deleteExercicio($id);
-                        }
-                        foreach ($fichaexercicio->findData($_POST['nome_ficha'], $idTreino) as $key => $value) {
+                        foreach ($exercicio->findAll() as $key => $value) {
                         ?>
-                            <tr>
-                                <td class="table_body"> <?php echo $value->nome; ?> </td>
-                                <td class="table_body"> <?php echo $value->num_serie; ?> </td>
-                                <td class="table_body"> <?php echo $value->repeticoes; ?> </td>
-                                <td class="table_body"> <?php echo $value->carga; ?> </td>
-                                <td class="table_body"> <?php echo $value->tempo_descanso; ?> </td>
-                                <td id="acoes">
-                                    <form action="" method="post">
-                                        <button type="submit" name="alterar">
-                                            <span class="icons_table">
-                                                <ion-icon name="create-outline"></ion-icon>
-                                            </span>
-                                        </button>
 
-                                        <button type="submit" name="excluir">
-                                            <span class="icons_table">
-                                                <ion-icon name="trash-outline"></ion-icon>
-                                                <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
-                                                <input type="hidden" name="id" value="<?php echo $value->id_fichaExercicio; ?>">
-                                                <input type="hidden" name="fk" value="<?php echo $idTreino; ?>">
-                                            </span>
-                                        </button>
-                                    </form>
-                                </td>
-                            <?php } ?>
+                            <option name="nome_exercicio"><?php echo $value->nome ?></option>
 
-                            </tr>
-                    </tbody>
-                </table>
+
+                        <?php }
+
+                        ?>
+                    </datalist>
+                </form>
+
+                <!-- --------------->
+
+
+                <!-- --------------->
+
+                <div class="table_exercicios">
+                    <table class="table" border="1">
+                        <thead>
+                            <th class="table_head">Nome</th>
+                            <th class="table_head">Número de series</th>
+                            <th class="table_head">Repetições</th>
+                            <th class="table_head">Carga(kg)</th>
+                            <th class="table_head">Tempo de descanso</th>
+                            <th class="table_head">Ações</th>
+                        </thead>
+                        <tbody>
+                            <?php
+
+
+                            if (isset($_POST['excluir'])) {
+                                $id = $_POST['id'];
+                                $fichaexercicio->deleteExercicio($id);
+                            }
+                            foreach ($fichaexercicio->findData($_POST['nome_ficha'], $idTreino) as $key => $value) {
+                            ?>
+                                <tr>
+                                    <td class="table_body"> <?php echo $value->nome; ?> </td>
+                                    <td class="table_body"> <?php echo $value->num_serie; ?> </td>
+                                    <td class="table_body"> <?php echo $value->repeticoes; ?> </td>
+                                    <td class="table_body"> <?php echo $value->carga; ?> </td>
+                                    <td class="table_body"> <?php echo $value->tempo_descanso; ?> </td>
+                                    <td id="acoes">
+                                        <form action="" method="post">
+                                            <button type="submit" name="alterar">
+                                                <span class="icons_table">
+                                                    <ion-icon name="create-outline"></ion-icon>
+                                                </span>
+                                            </button>
+
+                                            <button type="submit" name="excluir">
+                                                <span class="icons_table">
+                                                    <ion-icon name="trash-outline"></ion-icon>
+                                                    <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
+                                                    <input type="hidden" name="id" value="<?php echo $value->id_fichaExercicio; ?>">
+                                                    <input type="hidden" name="fk" value="<?php echo $idTreino; ?>">
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </td>
+                                <?php } ?>
+
+                                </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+            <form action="../visualizarFicha/index.php" method="post">
+                <div class="button_find" id="botao_salvar_ficha">
+                    <button type="submit" class="btn">Salvar Ficha</button>
+                    <input type="hidden" name="id_treino" value="<?php echo $idTreino ?>">
+                </div>
+            </form>
         </div>
-        <form action="../visualizarFicha/index.php" method="post">
-            <div class="button_find" id="botao_salvar_ficha">
-                <button type="submit" class="btn">Salvar Ficha</button>
-                <input type="hidden" name="id_treino" value="<?php echo $idTreino ?>">
-            </div>
-        </form>
-
     </main>
     <div id="modal_1" class="modal">
 

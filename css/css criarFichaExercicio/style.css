@@ -17,6 +17,11 @@ main {
     display: flex;
     grid-area: meio;
     flex-direction: column;
+    overflow: scroll;
+}
+
+#scrollbar::-webkit-scrollbar {
+    display: none;
 }
 
 asideL {
