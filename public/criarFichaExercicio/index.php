@@ -102,18 +102,7 @@ if(isset($_POST['cadastrarNovaFicha'])){
 
                     ?>
                 </datalist>
-
-
-
             </form>
-
-
-
-
-
-
-
-
 
             <!-- --------------->
 
