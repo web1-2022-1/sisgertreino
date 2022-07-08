@@ -23,7 +23,7 @@ $fichaexercicio = new CrudFichaExercicio;
 
 <body>
 
-    <main>
+    <main id="scrollbar">
 
         <div class="sequencia_topo">
 
@@ -39,7 +39,7 @@ $fichaexercicio = new CrudFichaExercicio;
 
         </div>
 
-        <div class="container_main" id="scrollbar">
+        <div class="container_main">
 
             <div class="conteudo">
                 <h1 class="edit-title">Lista de Exercícios</h1>

@@ -29,7 +29,7 @@ if (isset($_POST['alterar'])) {
 
 <body>
 
-    <main>
+    <main id="scrollbar">
 
         <div class="sequencia_topo">
 
@@ -42,7 +42,7 @@ if (isset($_POST['alterar'])) {
             <p>Listar Fichas</p>
 
         </div>
-        <div class="conteudo" id="scrollbar">
+        <div class="conteudo">
             <h1 class="edit-title">Lista de Fichas</h1>
 
             <form action="#modal_1" method="post">
