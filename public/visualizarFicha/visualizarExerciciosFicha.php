@@ -8,7 +8,7 @@ require_once '../../Controller/FichaExercicio/CrudFichaExercicio.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css vizualizarTreino/style_list.css">
+    <link rel="stylesheet" href="../../css/css vizualizarFicha/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
 
