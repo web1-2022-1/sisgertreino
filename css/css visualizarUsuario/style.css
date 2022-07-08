@@ -202,3 +202,9 @@ body{
    color: #361207;
    font-size: 25px;
 }
+
+.alinha_botao {
+   display: flex;
+   justify-content: center;
+   gap: 5px;
+ }

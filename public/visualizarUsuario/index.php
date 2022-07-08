@@ -76,30 +76,32 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                                             <td class="table_body"> <?php echo $value->dt_nascimento; ?> </td>
                                             <td class="table_body"> <?php echo $value->cpf_instrutor; ?> </td>
                                             <td>
-                                                <form action="../editar/editarFuncionario.php" method="post">
-                                                    <input name="cpf_instrutor" type="hidden" value="<?php echo $value->cpf_instrutor; ?>" />
-                                                    <input name="nome" type="hidden" value="<?php echo $value->nome; ?>" />
-                                                    <input name="usuario" type="hidden" value="<?php echo $value->usuario; ?>" />
-                                                    <input name="senha" type="hidden" value="<?php echo $value->senha; ?>" />
-                                                    <input name="email" type="hidden" value="<?php echo $value->email; ?>" />
-                                                    <input name="telefone" type="hidden" value="<?php echo $value->telefone; ?>" />
-                                                    <input name="dt_nascimento" type="hidden" value="<?php echo $value->dt_nascimento; ?>" />
+                                                <div class="alinha_botao">
+                                                    <form action="../editar/editarFuncionario.php" method="post">
+                                                        <input name="cpf_instrutor" type="hidden" value="<?php echo $value->cpf_instrutor; ?>" />
+                                                        <input name="nome" type="hidden" value="<?php echo $value->nome; ?>" />
+                                                        <input name="usuario" type="hidden" value="<?php echo $value->usuario; ?>" />
+                                                        <input name="senha" type="hidden" value="<?php echo $value->senha; ?>" />
+                                                        <input name="email" type="hidden" value="<?php echo $value->email; ?>" />
+                                                        <input name="telefone" type="hidden" value="<?php echo $value->telefone; ?>" />
+                                                        <input name="dt_nascimento" type="hidden" value="<?php echo $value->dt_nascimento; ?>" />
 
 
-                                                    <button type="submit" name="alterar">
-                                                        <span class="icons_table">
-                                                            <ion-icon name="create-outline"></ion-icon>
-                                                        <span class="icons_table">
-                                                    </button>
-                                                </form>
-                                                <form action="" method="post">
-                                                    <input name="cpf_instrutor" type="hidden" value="<?php echo $value->cpf_instrutor; ?>" />
-                                                    <button type="submit" name="excluir">
-                                                        <span class="icons_table">
-                                                            <ion-icon name="trash-outline"></ion-icon>
-                                                        <span class="icons_table">
-                                                    </button>
-                                                </form>
+                                                        <button type="submit" name="alterar">
+                                                            <span class="icons_table">
+                                                                <ion-icon name="create-outline"></ion-icon>
+                                                            </span>
+                                                        </button>
+                                                    </form>
+                                                    <form action="" method="post">
+                                                        <input name="cpf_instrutor" type="hidden" value="<?php echo $value->cpf_instrutor; ?>" />
+                                                        <button type="submit" name="excluir">
+                                                            <span class="icons_table">
+                                                                <ion-icon name="trash-outline"></ion-icon>
+                                                            </span>
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </td>
 
                                         </tr>
@@ -148,24 +150,30 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                                             <td class="table_body"> <?php echo $value->dt_nascimento; ?> </td>
                                             <td class="table_body"> <?php echo $value->cpf_aluno; ?> </td>
                                             <td>
-                                                <form action="../editar/editarAluno.php" method="post">
-                                                    <input name="cpf_aluno" type="hidden" value="<?php echo $value->cpf_aluno; ?>" />
-                                                    <input name="nome" type="hidden" value="<?php echo $value->nome; ?>" />
-                                                    <input name="email" type="hidden" value="<?php echo $value->email; ?>" />
-                                                    <input name="telefone" type="hidden" value="<?php echo $value->telefone; ?>" />
-                                                    <input name="dt_nascimento" type="hidden" value="<?php echo $value->dt_nascimento; ?>" />
+                                                <div class="alinha_botao">
+                                                    <form action="../editar/editarAluno.php" method="post">
+                                                        <input name="cpf_aluno" type="hidden" value="<?php echo $value->cpf_aluno; ?>" />
+                                                        <input name="nome" type="hidden" value="<?php echo $value->nome; ?>" />
+                                                        <input name="email" type="hidden" value="<?php echo $value->email; ?>" />
+                                                        <input name="telefone" type="hidden" value="<?php echo $value->telefone; ?>" />
+                                                        <input name="dt_nascimento" type="hidden" value="<?php echo $value->dt_nascimento; ?>" />
 
 
-                                                    <button type="submit" name="alterar">
-                                                        <ion-icon name="create-outline"></ion-icon>Alterar
-                                                    </button>
-                                                </form>
-                                                <form action="" method="post">
-                                                    <input name="cpf_aluno" type="hidden" value="<?php echo $value->cpf_aluno; ?>" />
-                                                    <button type="submit" name="excluir2">
-                                                        <ion-icon name="trash-outline"></ion-icon>Excluir
-                                                    </button>
-                                                </form>
+                                                        <button type="submit" name="alterar">
+                                                            <span class="icons_table">
+                                                                <ion-icon name="create-outline"></ion-icon>
+                                                                <span class="icons_table">
+                                                        </button>
+                                                    </form>
+                                                    <form action="" method="post">
+                                                        <input name="cpf_aluno" type="hidden" value="<?php echo $value->cpf_aluno; ?>" />
+                                                        <span class="icons_table">
+                                                            <button type="submit" name="excluir2">
+                                                                <span class="icons_table">
+                                                                    <ion-icon name="trash-outline"></ion-icon>
+                                                            </button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -235,7 +243,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                         </p>
                     </li>
                     <li class="list_inside">
-                        <a href="../treino/index.php" class="caixaLateral">                       
+                        <a href="../treino/index.php" class="caixaLateral">
                             <span class="title_inside">Criar treinos</span>
                         </a>
                     </li>
