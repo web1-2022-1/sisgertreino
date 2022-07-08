@@ -26,8 +26,6 @@ require_once '../../Controller/Treino/CrudTreino.php';
             <p> > </p>
             <p>Treino</p>
             <p> > </p>
-            <p>Selecionar Aluno</p>
-            <p> > </p>
             <p>Criar Treino</p>
             <?php
             if (isset($_POST['booleano'])) {

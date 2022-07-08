@@ -38,8 +38,6 @@ if(isset($_POST['alterar'])){
             <p> > </p>
             <p>Treino</p>
             <p> > </p>
-            <p>Selecionar Aluno</p>
-            <p> > </p>
             <p>Listar Treinos</p>
             <p> > </p>
             <p>Listar Fichas</p>
