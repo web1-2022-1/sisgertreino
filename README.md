@@ -30,7 +30,7 @@ O sistema permitirá a criação de treinos, no qual cada treino é composto por
 - ``JavaScript``
 
 ## Informações
-A parte de documentação possui os documntos necessários para [instalação](documentação/instalacao.md), junto com seu manual. Também está disponivel outras informações pertinentes ao sistema.
+A parte de documentação possui os documntos necessários para [instalação](Documentação/instalacao.md), junto com seu manual. Também está disponivel outras informações pertinentes ao sistema.
 
 ## Funcionalidades realizadas com sucesso ✔️
 - Cadastro, listagem, edição e exclusão de funcionários ✔️
