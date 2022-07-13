@@ -8,7 +8,7 @@ Acione o apache enviando a aplicação para a pasta htdochtml (via Xampp no Wind
 
 
 
-# Para rodar o site
+# Para rodar o sistema
 
 - Instale o Apache;
 - Instale o Php;
@@ -18,13 +18,15 @@ Acione o apache enviando a aplicação para a pasta htdochtml (via Xampp no Wind
 - Extraia os arquivos do .zip;
 - Entre na pasta "BD";
 - Entre no arquivo "DB.php";
-- Acessar o arquivo "Variáveis";
-- - Modificar a linha 10 trocando ```define(host=ifbaiano1');``` para ```define(host= host de acordo com o seu banco de dados);```;
-- - Modificar a linha 10 trocando ```define(,dbname= ifbaiano2);``` para ```define(dbname= nome do seu banco de dados);```;
-- - Modificar a linha 10 trocando ```define("ifbaiano3");``` para ```define("usuario do seu banco de dados");```;
-- - Modificar a linha 10 trocando ```define("ifbaiano4");``` para ```define("senha do seu banco de dados");```;
+- Ao acessar o "BD.php", é necessário realizar a configuração de acordo com o seu banco de dados: <br>
+Modificar a linha 10 trocando ```("host=ifbaiano1");``` para ```(host= host de acordo com o seu banco de dados)```;<br>
+Modificar a linha 10 trocando ```("dbname= ifbaiano2");``` para ```(dbname= nome do seu banco de dados)```;<br>
+Modificar a linha 10 trocando ```("ifbaiano3");``` para ```(usuario do seu banco de dados)```;<br>
+Modificar a linha 10 trocando ```("ifbaiano4");``` para ```(senha do seu banco de dados)```;<br>
 
 ## Realizar login
+
+Já existe um login pré estabelecido no BdSisgerTreino.sql:
 
 - Usuário: admin
 - Senha: 
