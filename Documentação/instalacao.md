@@ -13,7 +13,7 @@ Acione o apache enviando a aplicação para a pasta htdochtml (via Xampp no Wind
 - Instale o Apache;
 - Instale o Php;
 - Instale o MySql;
-- Clone o repositório;
+- Clone o repositório: https://github.com/web1-2022-1/sisgertreino.git ;
 - Adicione o arquivo na pasta do apache (htdocs no windows, www/html no Linux);
 - Extraia os arquivos do .zip;
 - Entre na pasta "BD";
