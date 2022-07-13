@@ -2,7 +2,7 @@
 
 Para hospedar o sistema é necessário ter o servidor web apache 2.4.41, php 7.4.3 e o banco MySql versão 8.0.29, instalados na máquina, além disso é preciso ter-se uma  ferramenta de manipulaçao do banco, por exemplo o PhpMyadmin. Para o desenvolvimento foi utilizado o PhpMyadmin.
 
-Tendo as ferramentas, será necessário rodar o script das tabelas SQL no banco, que consta no [arquivo BD](BD/BdSisgerTreino.sql).
+Tendo as ferramentas, será necessário rodar o script das tabelas SQL no banco, que consta no [arquivo BD](../BD/BdSisgerTreino.sql). É recomendado que faça a criação das tabelas executando uma de cada vez, para evitar erros.
 
 Acione o apache enviando a aplicação para a pasta htdochtml (via Xampp no Windows) ou www/html (via terminal no Linux).
 
