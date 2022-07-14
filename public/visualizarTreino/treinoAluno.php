@@ -19,7 +19,7 @@ require_once '../../Controller/Treino/CrudTreino.php';
 $treino = new CrudTreino;
 if ($_POST['cpf_aluno'] == NULL) {
     $post_cpf_aluno = explode(':', $_POST['nome_aluno']);
-    $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
+    $cpf_aluno = substr($post_cpf_aluno[1], 1, -2);
     $treino->setCpf_aluno($cpf_aluno);
 } else {
 
