@@ -228,6 +228,7 @@ if (isset($_POST['alterar'])) {
                 <input type="hidden" name="nome_ficha" value="<?php echo $_POST['nome_ficha']; ?>">
                 <div class="div_button">
                     <button type="submit" name="ok" class="btn_modal">OK</button>
+                    <a href="#" class="btn_modal">Cancelar</a>
                 </div>
         </div>
         </form>

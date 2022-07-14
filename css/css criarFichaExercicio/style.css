@@ -280,7 +280,8 @@ a {
 
 .div_button{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    margin-top: 25px;
 }
 
 .modal {
@@ -333,18 +334,21 @@ a {
 }
 
 .modal__link {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F9501B;
-    color: #ffffff;
-    padding: 0.7rem 3rem;
-    margin-top: 3rem;
-    border-radius: 4px;
+    background-color: red;
+    color: white;
+    border-radius: 14px;
+    height: 25px;
+    width: 25px;
+    font-family: 'Andika', sans-serif;
+    font-weight: 700;
+    right: 500px;
 }
 
 .modal__link:hover {
-    background-color: #FF3D00;
+    background-color: rgb(167, 3, 3);
 }
 
 .modal__content label {
@@ -378,6 +382,7 @@ a {
     margin: 10px;
     font-family: 'Andika', sans-serif;
 }
+
 
 /*--------------------------*/
 
