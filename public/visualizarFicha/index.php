@@ -47,7 +47,7 @@ if (isset($_POST['alterar'])) {
 
             <form action="#modal_1" method="post">
                 <div class="button_find">
-                    <button type="submit">Adicionar Ficha</button>
+                    <button type="submit" class='adcionarficha'>Adicionar Ficha</button>
                     <input type="hidden" name="id_treino" value="<?php echo $_POST['id_treino'] ?>">
                 </div>
             </form>
@@ -74,7 +74,7 @@ if (isset($_POST['alterar'])) {
                             <td>
                                 <div class="alinha_botao">
                                     <form action="visualizarExerciciosFicha.php" method="post">
-                                        <button type="submit" name="visualizar">
+                                        <button type="submit" class="botaoacao" name="visualizar">
                                             <span class="icons_table">
                                                 <ion-icon name="eye-outline"></ion-icon>
                                             </span>
@@ -83,7 +83,7 @@ if (isset($_POST['alterar'])) {
                                         <input type="hidden" name="nome_ficha" value="<?php echo $value->nome_ficha ?>">
                                     </form>
                                     <form action="#modal_2" method="post">
-                                        <button type="submit" name="alterar">
+                                        <button type="submit" class="botaoacao" name="alterar">
                                             <span class="icons_table">
                                                 <ion-icon name="create-outline"></ion-icon>
                                         <input type="hidden" name="nomeAntigo" value="<?php echo $value->nome_ficha ?>">
@@ -94,7 +94,7 @@ if (isset($_POST['alterar'])) {
                                         <input type="hidden" name="nome_ficha" value="<?php echo $value->nome_ficha; ?>">
                                     </form>
                                     <form action="" method="post">
-                                        <button type="submit" name="excluir">
+                                        <button type="submit" class="botaoacao" name="excluir">
                                             <span class="icons_table">
                                                 <ion-icon name="trash-outline"></ion-icon>
                                             </span>

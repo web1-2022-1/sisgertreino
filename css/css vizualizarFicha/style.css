@@ -325,7 +325,11 @@ a {
   font-size: 25px;
 }
 
-.conteudo button {
+.adcionarficha {
   border: none;
   background: #F9501B;
+}
+.botaoacao{
+  border: none;
+  background: #FFFFFF;
 }

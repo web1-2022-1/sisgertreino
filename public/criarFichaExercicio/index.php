@@ -246,19 +246,19 @@ if (isset($_POST['alterar'])) {
             <form action="index.php" method="post">
                 <div class="text_field">
                     <label for="num_serie">Número de séries</label>
-                    <input type="number" name="num_serie"  required>
+                    <input type="number" name="num_serie" value="<?php echo $_POST['num_serie'] ?>" required>
                 </div>
                 <div class="text_field">
                     <label for="repeticoes">Repetições</label>
-                    <input type="number" name="repeticoes" required>
+                    <input type="number" name="repeticoes" value="<?php echo $_POST['repeticoes'] ?>" required>
                 </div>
                 <div class="text_field">
                     <label for="carga">Carga(kg)</label>
-                    <input type="number" name="carga" required>
+                    <input type="number" name="carga" value="<?php echo $_POST['carga'] ?>" required>
                 </div>
                 <div class="text_field">
                     <label for="descanso">Tempo de descanso</label>
-                    <input type="number" name="descanso" required>
+                    <input type="number" name="descanso" value="<?php echo $_POST['descanso'] ?>" required>
                 </div>
                 <input type="hidden" name="id" value="<?php echo $_POST['id']; ?>">
                 <input type="hidden" name="nome_exercicio" value="<?php echo $_POST['nome_exercicio']; ?>">

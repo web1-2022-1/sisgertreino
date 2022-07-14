@@ -1,8 +1,6 @@
 <?php
 session_start();
 ob_start();
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
 
 require_once '../../Controller/Instrutor/CrudInstrutor.php';
 require_once '../../Controller/Login/CrudLogin.php';
@@ -41,6 +39,8 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
         if ($_POST['abas'] == 'funcionario') {
 
+           
+
             $login->setUsuario($_POST['user']);
             $login->setSenha($_POST['pass']);
 
@@ -54,8 +54,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
             $isEmptyInstrutor = $instrutor->ifExist($_POST['cpf']);
             $isEmptyUsuario = $login->ifExist($_POST['user']);
-
-            var_dump($isEmptyUsuario);
+            //var_dump($_POST);
 
             if ($isEmptyInstrutor == false && $isEmptyUsuario == false) {
                 $login->insert();

@@ -32,7 +32,8 @@ require_once '../../Controller/Treino/CrudTreino.php';
                 $cpf_aluno = $_POST['cpf_aluno'];
             } else {
                 $post_cpf_aluno = explode(':', $_POST['nome_aluno']);
-                $cpf_aluno = intval(substr($post_cpf_aluno[1], 1, -2));
+                $cpf_aluno = substr($post_cpf_aluno[1], 1, -2);
+                
             }
             ?>
 
