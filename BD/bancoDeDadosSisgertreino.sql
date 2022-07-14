@@ -52,7 +52,7 @@ CREATE TABLE `contato` (
   `telefone` varchar(14) DEFAULT NULL,
   `email` varchar(150) DEFAULT NULL,
   `cpf_aluno` varchar(14) DEFAULT NULL,
-  `cpf_instrutor` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
+  `cpf_instrutor` varchar(14) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
