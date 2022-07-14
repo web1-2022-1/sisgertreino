@@ -3,6 +3,8 @@
 <p align="center">
         <img src="https://i.imgur.com/y9Cw0iU.png" alt= "Logo do sistema" > <br>
         <i>Logo do sistema</i>
+       <img src="https://i.imgur.com/XgkUVmM.png" alt= "Tela de login do sistema" > <br>
+        <i>Tela de login do sistema</i>
 </p>
 
 <h3>Descrição do projeto</h3>
@@ -25,7 +27,21 @@ O sistema permitirá a criação de treinos, no qual cada treino é composto por
 - ``HTML e CSS``
 - ``PHP``
 - ``MYSQL``
+- ``JavaScript``
 
+## Informações
+A parte de documentação possui os documntos necessários para [instalação](Documentação/instalacao.md), junto com seu manual. Também está disponivel outras informações pertinentes ao sistema.
+
+## Funcionalidades realizadas com sucesso ✔️
+- Cadastro, listagem, edição e exclusão de funcionários ✔️
+- Cadastro, listagem, edição e exclusão de alunos ✔️
+- Cadastro, listagem, edição e exclusão de treinos ✔️
+- Cadastro, listagem, edição e exclusão de fichas ✔️
+
+## Falta fazer
+- Diferenciação para login entre admin, funcionário e aluno
+- Sessão de login
+- Listagem de exercícios
 
 ## Autores
 
