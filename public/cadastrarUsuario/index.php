@@ -19,6 +19,9 @@ require_once '../../Controller/Aluno/CrudAluno.php';
     <link rel="stylesheet" href="../../css/css cadastrarUsuario/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
 
     <title>PoriGYM</title>
 
@@ -119,7 +122,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
                                     <div class="campo-texto">
                                         <label for="nome">Nome</label>
-                                        <input type="text" name="nome">
+                                        <input type="text" placeholder="Nome" name="nome">
                                     </div>
                                     <div class="campo-texto">
                                         <label for="Usuario">Usuario</label>
@@ -129,7 +132,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                                             unset($_SESSION['msg2']);
                                         }
                                         ?>
-                                        <input type="text" name="user">
+                                        <input type="text" placeholder="Usuario" name="user">
                                     </div>
                                     <div class="campo-texto">
                                         <label for="cpf">CPF</label>
@@ -139,7 +142,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                                             unset($_SESSION['msg']);
                                         }
                                         ?>
-                                        <input type="text" name="cpf">
+                                        <input type="text" placeholder="CPF" id="cpf" name="cpf">
                                     </div>
                                     <div class="campo-texto">
                                         <label for="dt_nascimento">Data de Nascimento</label>
@@ -147,15 +150,15 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                                     </div>
                                     <div class="campo-texto">
                                         <label for="telefone">Telefone</label>
-                                        <input type="text" name="tel">
+                                        <input type="text" placeholder="Celular" id="celular" name="tel">
                                     </div>
                                     <div class="campo-texto">
                                         <label for="email">E-mail</label>
-                                        <input type="email" name="email">
+                                        <input type="email" placeholder="Email" name="email">
                                     </div>
                                     <div class="campo-texto">
                                         <label for="senha">Senha</label>
-                                        <input type="password" name="senha">
+                                        <input type="password" placeholder="Senha" name="senha">
                                     </div>
                                     <div class="botao-cadastro">
                                         <button type="submit" name="cadastrar" class="botao">Cadastrar</button>
@@ -175,7 +178,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 
                                     <div class="campo-texto">
                                         <label for="nome">Nome</label>
-                                        <input type="text" name="nome_aluno">
+                                        <input type="text" placeholder="Nome" name="nome_aluno">
                                     </div>
                                     <div class="campo-texto">
                                         <label for="cpf">CPF</label>
@@ -185,7 +188,7 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                                             unset($_SESSION['msg']);
                                         }
                                         ?>
-                                        <input type="text" name="cpf_aluno">
+                                        <input type="text" placeholder="CPF" id="cpf_aluno" name="cpf_aluno">
                                     </div>
                                     <div class="campo-texto">
                                         <label for="dt_nascimento">Data de Nascimento</label>
@@ -193,11 +196,11 @@ require_once '../../Controller/Aluno/CrudAluno.php';
                                     </div>
                                     <div class="campo-texto">
                                         <label for="telefone">Telefone</label>
-                                        <input type="text" name="tel_aluno">
+                                        <input type="text" placeholder="Celular" id="celular" name="tel_aluno">
                                     </div>
                                     <div class="campo-texto">
                                         <label for="email">E-mail</label>
-                                        <input type="email" name="email_aluno">
+                                        <input type="email" placeholder="Email" name="email_aluno">
                                     </div>
                                     <div class="botao-cadastro">
                                         <button type="submit" name="cadastrar" class="botao">Cadastrar</button>
@@ -306,3 +309,9 @@ require_once '../../Controller/Aluno/CrudAluno.php';
 </body>
 
 </html>
+<script type="text/javascript">
+    $("#telefone, #celular").mask("(00) 0000-0000");
+    $("#cpf").mask("000.000.000-00");
+    $("#cpf_aluno").mask("000.000.000-00");
+
+    </script>
