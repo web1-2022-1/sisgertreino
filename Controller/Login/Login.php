@@ -1,6 +1,6 @@
 <?php 
 
-require_once "../../BD/DB.php";
+require_once "BD/DB.php";
 
     class Login extends DB{
         private $usuario;
