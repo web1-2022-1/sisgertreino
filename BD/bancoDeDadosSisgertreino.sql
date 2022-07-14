@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 13/07/2022 às 16:25
+-- Tempo de geração: 14/07/2022 às 13:14
 -- Versão do servidor: 8.0.29-0ubuntu0.20.04.3
 -- Versão do PHP: 7.3.33-2+ubuntu20.04.1+deb.sury.org+1
 
@@ -29,10 +29,17 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `aluno` (
-  `cpf_aluno` int NOT NULL,
+  `cpf_aluno` varchar(14) NOT NULL,
   `nome` varchar(150) DEFAULT NULL,
   `dt_nascimento` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `aluno`
+--
+
+INSERT INTO `aluno` (`cpf_aluno`, `nome`, `dt_nascimento`) VALUES
+('151.515.151-51', 'iuri', '2022-07-05');
 
 -- --------------------------------------------------------
 
@@ -44,8 +51,8 @@ CREATE TABLE `contato` (
   `id_contato` bigint UNSIGNED NOT NULL,
   `telefone` varchar(14) DEFAULT NULL,
   `email` varchar(150) DEFAULT NULL,
-  `cpf_aluno` int DEFAULT NULL,
-  `cpf_instrutor` int DEFAULT NULL
+  `cpf_aluno` varchar(14) DEFAULT NULL,
+  `cpf_instrutor` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -53,7 +60,8 @@ CREATE TABLE `contato` (
 --
 
 INSERT INTO `contato` (`id_contato`, `telefone`, `email`, `cpf_aluno`, `cpf_instrutor`) VALUES
-(21, '88888888', 'admin@email', NULL, 151515);
+(23, '(99) 9999-9999', 'admin@gmail.com', NULL, '222.666.677-77'),
+(24, '(99) 9999-9999', 'iuri@email.com', '151.515.151-51', NULL);
 
 -- --------------------------------------------------------
 
@@ -105,6 +113,13 @@ CREATE TABLE `fichaExercicio` (
   `fk_treino` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Despejando dados para a tabela `fichaExercicio`
+--
+
+INSERT INTO `fichaExercicio` (`id_fichaExercicio`, `nome_ficha`, `num_serie`, `repeticoes`, `carga`, `tempo_descanso`, `fk_exercicio`, `fk_treino`) VALUES
+(86, 'avves', 8, 19, 19, 19, 2, 93);
+
 -- --------------------------------------------------------
 
 --
@@ -112,7 +127,7 @@ CREATE TABLE `fichaExercicio` (
 --
 
 CREATE TABLE `instrutor` (
-  `cpf_instrutor` int NOT NULL,
+  `cpf_instrutor` varchar(14) NOT NULL,
   `nome` varchar(150) DEFAULT NULL,
   `dt_nascimento` date DEFAULT NULL,
   `fk_login` bigint UNSIGNED NOT NULL
@@ -123,7 +138,7 @@ CREATE TABLE `instrutor` (
 --
 
 INSERT INTO `instrutor` (`cpf_instrutor`, `nome`, `dt_nascimento`, `fk_login`) VALUES
-(151515, 'admin', '2022-07-06', 19);
+('222.666.677-77', 'admin', '2022-07-05', 31);
 
 -- --------------------------------------------------------
 
@@ -142,7 +157,7 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id_login`, `usuario`, `senha`) VALUES
-(19, 'admin', NULL);
+(31, 'admin', '000');
 
 -- --------------------------------------------------------
 
@@ -154,8 +169,15 @@ CREATE TABLE `treino` (
   `id_treino` int NOT NULL,
   `nome_treino` varchar(60) DEFAULT NULL,
   `dt_treino` date DEFAULT NULL,
-  `cpf_aluno` int DEFAULT NULL
+  `cpf_aluno` varchar(14) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `treino`
+--
+
+INSERT INTO `treino` (`id_treino`, `nome_treino`, `dt_treino`, `cpf_aluno`) VALUES
+(93, 'affeg', '2022-07-04', '151.515.151-51');
 
 --
 -- Índices de tabelas apagadas
@@ -221,7 +243,7 @@ ALTER TABLE `treino`
 -- AUTO_INCREMENT de tabela `contato`
 --
 ALTER TABLE `contato`
-  MODIFY `id_contato` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_contato` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `exercicio`
@@ -233,25 +255,25 @@ ALTER TABLE `exercicio`
 -- AUTO_INCREMENT de tabela `fichaExercicio`
 --
 ALTER TABLE `fichaExercicio`
-  MODIFY `id_fichaExercicio` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id_fichaExercicio` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT de tabela `instrutor`
 --
 ALTER TABLE `instrutor`
-  MODIFY `fk_login` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `fk_login` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `login`
 --
 ALTER TABLE `login`
-  MODIFY `id_login` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_login` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `treino`
 --
 ALTER TABLE `treino`
-  MODIFY `id_treino` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id_treino` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- Restrições para dumps de tabelas
@@ -284,8 +306,7 @@ ALTER TABLE `instrutor`
 -- Restrições para tabelas `treino`
 --
 ALTER TABLE `treino`
-  ADD CONSTRAINT `treino_ibfk_1` FOREIGN KEY (`cpf_aluno`) REFERENCES `aluno` (`cpf_aluno`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `treino_ibfk_3` FOREIGN KEY (`cpf_aluno`) REFERENCES `aluno` (`cpf_aluno`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `treino_ibfk_1` FOREIGN KEY (`cpf_aluno`) REFERENCES `aluno` (`cpf_aluno`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
